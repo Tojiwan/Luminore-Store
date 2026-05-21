@@ -1,0 +1,303 @@
+<script src="{{ 'prodct-slider.js' | asset_url }}" defer></script>
+
+{% style %}
+@media screen and (min-width: 768px) {
+	#shopify-section-{{ section.id }} .section-heading {
+		font-size: {{ section.settings.text_size_desktop }}px !important;
+	}
+}
+{% endstyle %}
+
+
+<section class="page-width color-{{ section.settings.color_scheme }}"
+		style="background-color: {{ section.settings.background_color }};">
+	<div class="tw-w-full tw-py-[40px] lg:tw-py-[100px] tw-flex tw-flex-col tw-gap-[40px] tw-items-center" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+
+		<div class="tw-flex tw-items-center tw-text-center">
+			<h1
+				class="section-heading !tw-font-integral !tw-m-0"
+				style="
+					color: {{ section.settings.header_font_color }};
+					font-size: {{ section.settings.text_size_mobile }}px;
+			">
+			
+				{{ section.settings.slider_header }}
+			</h1>
+		</div>
+
+		<div class="tw-relative tw-px-4 lg:tw-px-8 tw-w-full">
+			<div class="swiper product-swiper"
+				data-slides-desktop="{{ section.settings.slides_per_view }}"
+				data-autoplay="{{ section.settings.enable_autoplay }}"
+				data-autoplay-delay="{{ section.settings.autoplay_delay }}">
+
+				<div class="swiper-wrapper tw-items-stretch">
+				{% for block in section.blocks %}
+					{% if block.type == 'product_card' %}
+					{% assign product = all_products[block.settings.product] %}
+					{% assign product_link = block.settings.custom_link | default: product.url %}
+
+					{% if product != blank %}
+						<div class="swiper-slide tw-h-auto tw-flex" {{ block.shopify_attributes }}>
+							<div class="tw-group tw-h-full tw-w-full tw-flex tw-flex-col">
+								<a
+									href="{{ product_link }}"
+									class="tw-block"
+									{% if block.settings.open_new_tab %}
+										target="_blank" rel="noopener noreferrer"
+									{% endif %}
+								>
+									<div class="tw-relative tw-overflow-hidden tw-rounded-2xl tw-aspect-square tw-bg-gray-100">
+										<img 
+											src="{{ product.featured_image | img_url: '800x800', crop: 'center' }}" 
+											alt="{{ product.title }}"
+											class="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-500 group-hover:tw-scale-105"
+										>
+									</div>
+								</a>
+
+								<div class="tw-mt-4 tw-px-3 tw-flex tw-flex-col tw-flex-1 tw-gap-[8px]">
+									<div class="tw-overflow-hidden">
+										<h3 class="!tw-m-0 tw-font-bold tw-font-satoshi tw-text-[16px] md:tw-text-[20px] tw-leading-[1.2] tw-line-clamp-2">
+											{{ block.settings.custom_title | default: product.title }}
+										</h3>
+									</div>
+
+									{% if product.metafields.custom.short_caption != blank %}
+										<p class="tw-text-[13px] md:tw-text-[14px] tw-text-gray-600 tw-leading-[1.5] tw-m-0 tw-line-clamp-2">
+											{{ product.metafields.custom.short_caption }}
+										</p>
+									{% endif %}
+
+									<div class="tw-flex tw-items-start">
+										{% if block.settings.show_price %}
+											<div class="tw-flex tw-flex-wrap tw-items-center tw-gap-x-2 tw-gap-y-2">
+												{% if product.compare_at_price > product.price %}
+													<span class="tw-text-[16px] md:tw-text-[16px] lg:tw-text-[20px] tw-font-bold tw-text-black tw-whitespace-nowrap">
+														{{ product.price | money }}
+													</span>
+
+													<span class="tw-text-gray-400 tw-line-through tw-text-[14px] md:tw-text-[14px] lg:tw-text-[18px] tw-whitespace-nowrap">
+														{{ product.compare_at_price | money }}
+													</span>
+
+													{% assign discount_percent = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+													<span class="tw-bg-red-100 tw-text-[#FF3333] tw-text-[10px] lg:tw-text-[12px] tw-font-medium tw-px-[12px] tw-py-[5px] tw-rounded-full tw-font-satoshi tw-whitespace-nowrap">
+														-{{ discount_percent }}%
+													</span>
+												{% else %}
+													<span class="tw-text-[16px] lg:tw-text-[20px] tw-font-bold tw-whitespace-nowrap">
+														{{ product.price | money }}
+													</span>
+												{% endif %}
+											</div>
+										{% endif %}
+									</div>
+
+									{% if block.settings.show_button %}
+										<div class="tw-mt-auto">
+											<a
+												href="{{ product_link }}"
+												{% if block.settings.open_new_tab %}
+													target="_blank" rel="noopener noreferrer"
+												{% endif %}
+												class="tw-block tw-w-full tw-text-center tw-bg-black tw-text-white tw-py-3 tw-rounded-full tw-font-medium hover:tw-bg-gray-800 tw-transition tw-no-underline">
+												{{ block.settings.button_text }}
+											</a>
+										</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					{% endif %}
+					{% endif %}
+				{% endfor %}
+				</div>
+
+				<!-- Pagination -->
+				{% comment %} <div class="swiper-pagination tw-mt-10"></div> {% endcomment %}
+			</div>
+
+			<!-- Navigation Buttons - now properly positioned outside the swiper-wrapper -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+		
+		<div class="tw-w-full md:tw-w-auto tw-duration-300 hover:tw-scale-105 tw-px-[15px]">
+			<a href="{{ routes.all_products_collection_url }}"
+				class="tw-block tw-w-full md:tw-inline-block md:tw-w-auto tw-text-center tw-px-[24px] tw-py-[14px] md:tw-px-[54px] md:tw-py-[16px] tw-font-medium tw-font-satoshi tw-text-[14px] md:tw-text-[16px] tw-rounded-full tw-no-underline"
+				style="background-color: {{ section.settings.btn_bg_background }}; color: {{ section.settings.btn_text_color }}; border: 1px solid rgba(0, 0, 0, 0.1);">
+				{{ section.settings.btn_text }}
+			</a>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "jsm-block-test-jake",
+  "settings": [
+	{
+		"type": "text",
+		"id": "slider_header",
+		"label": "Slider Header",
+		"default": "NEW ARRIVALS"
+	},
+	{
+		"type": "color_scheme",
+		"id": "color_scheme",
+		"label": "Color scheme",
+		"default": "scheme-1"
+	},
+	{
+		"type": "color",
+		"id": "background_color",
+		"label": "Background color",
+		"default": "#ffffff"
+	},
+	{
+		"type": "range",
+		"id": "text_size_mobile",
+		"label": "Text Size Mobile",
+		"min": 10,
+		"max": 60,
+		"step": 2,
+		"unit": "px",
+		"default": 24
+	},
+	{
+		"type": "range",
+		"id": "text_size_desktop",
+		"label": "Text Size Desktop",
+		"min": 10,
+		"max": 100,
+		"step": 2,
+		"unit": "px",
+		"default": 48
+	},
+	{
+		"type": "color",
+		"id": "header_font_color",
+		"label": "Header Color",
+		"default": "#000000"
+	},
+    {
+		"type": "range",
+		"id": "slides_per_view",
+		"min": 1,
+		"max": 6,
+		"step": 1,
+		"label": "Slides per view (desktop)",
+		"default": 4
+    },
+	{
+		"type": "checkbox",
+		"id": "enable_autoplay",
+		"label": "Enable autoplay",
+		"default": false
+	},
+	{
+		"type": "range",
+		"id": "autoplay_delay",
+		"label": "Autoplay delay",
+		"min": 1000,
+		"max": 7000,
+		"step": 500,
+		"unit": "ms",
+		"default": 3000
+	},
+	{
+		"type": "text",
+		"id": "btn_text",
+		"label": "Botton Text",
+		"default": "View All"
+	},
+	{
+		"type": "color",
+		"id": "btn_bg_background",
+		"label": "Button Background Color",
+		"default": "#FFFFFF"
+	},
+	{
+		"type": "color",
+		"id": "btn_text_color",
+		"label": "Button Text Color",
+		"default": "#000000"
+	},
+	{
+		"type": "range",
+		"id": "padding_top",
+		"label": "Padding top",
+		"min": 0,
+		"max": 200,
+		"step": 4,
+		"unit": "px",
+		"default": 40
+	},
+	{
+		"type": "range",
+		"id": "padding_bottom",
+		"label": "Padding bottom",
+		"min": 0,
+		"max": 200,
+		"step": 4,
+		"unit": "px",
+		"default": 100
+	}
+	],
+	"blocks": [
+		{
+		"type": "product_card",
+		"name": "_jsm-block-test-jake",
+		"settings": [
+			{
+				"type": "product",
+				"id": "product",
+				"label": "Select product"
+			},
+			{
+				"type": "text",
+				"id": "custom_title",
+				"label": "Custom title (optional)",
+				"info": "Leave empty to use product title"
+			},
+			{
+				"type": "checkbox",
+				"id": "show_price",
+				"label": "Show price",
+				"default": true
+			},
+			{
+				"type": "checkbox",
+				"id": "show_button",
+				"label": "Show 'Add to cart' / View button",
+				"default": true
+			},
+			{
+				"type": "text",
+				"id": "button_text",
+				"label": "Button text",
+				"default": "View product"
+			},
+			{
+				"type": "url",
+				"id": "custom_link",
+				"label": "Custom link"
+			},
+			{
+				"type": "checkbox",
+				"id": "open_new_tab",
+				"label": "Open link in new tab",
+				"default": false
+			},
+		]
+		}
+	],
+	"presets": [
+		{
+		"name": "Product Slider V2"
+		}
+	],
+	"max_blocks": 20
+}
+{% endschema %}
