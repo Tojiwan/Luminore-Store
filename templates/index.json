@@ -38,33 +38,32 @@
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
         "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
+        "show_text_box": false,
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -72,13 +71,135 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "product_slider_hkghPX": {
+      "type": "product-slider",
+      "blocks": {
+        "product_card_gr7NcT": {
+          "type": "product_card",
+          "settings": {
+            "product": "luminore-amor-pendant-necklace",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        },
+        "product_card_WeiPLi": {
+          "type": "product_card",
+          "settings": {
+            "product": "luminore-aurielle-tear-pendant",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        },
+        "product_card_CTYjFc": {
+          "type": "product_card",
+          "settings": {
+            "product": "luminore-lumiere-tennis-bracelet",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        },
+        "product_card_DhpfwG": {
+          "type": "product_card",
+          "settings": {
+            "product": "diamond-and-sapphire-white-gold-ring",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        },
+        "product_card_3YMgzA": {
+          "type": "product_card",
+          "settings": {
+            "product": "rose-gold-cushion-cut-pink-sapphire-and-diamond-engagement-ring",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        },
+        "product_card_RcVtcC": {
+          "type": "product_card",
+          "settings": {
+            "product": "luminore-solara-sapphire-bangle",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        },
+        "product_card_fambxH": {
+          "type": "product_card",
+          "settings": {
+            "product": "luminore-solea-citrine-earrings",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        },
+        "product_card_JFMFJe": {
+          "type": "product_card",
+          "settings": {
+            "product": "luminore-elan-twist-hoops",
+            "custom_title": "",
+            "custom_description": "",
+            "show_price": true,
+            "custom_link": "",
+            "open_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "product_card_gr7NcT",
+        "product_card_WeiPLi",
+        "product_card_CTYjFc",
+        "product_card_DhpfwG",
+        "product_card_3YMgzA",
+        "product_card_RcVtcC",
+        "product_card_fambxH",
+        "product_card_JFMFJe"
+      ],
+      "name": "Product Slider",
+      "settings": {
+        "slider_header": "NEW ARRIVALS",
+        "header_font_color": "#000000",
+        "color_scheme": "",
+        "background_color": "#ffffff",
+        "text_size_mobile": 24,
+        "text_size_desktop": 48,
+        "slides_per_view": 4,
+        "enable_autoplay": true,
+        "autoplay_delay": 3000,
+        "btn_text": "View All",
+        "btn_bg_background": "#FFFFFF",
+        "btn_text_color": "#000000",
+        "padding_top": 40,
+        "padding_bottom": 100
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "product_slider_hkghPX"
   ]
 }
