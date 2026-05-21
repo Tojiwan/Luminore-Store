@@ -296,6 +296,47 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    {{ 'swiper-bundle.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'swiper-bundle.js' | asset_url }}" defer></script>
+
+    {{ 'tailwind.output.css' | asset_url | preload_tag: as: 'style' }}
+    {{ 'tailwind.output.css' | asset_url | stylesheet_tag }}
+
+        {% style %}
+      /* Integral Heavy */
+      @font-face {
+        font-family: 'Integral CF';
+        src: url("{{ 'integral-cf-heavy.ttf' | asset_url }}") format("truetype");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      /* Satoshi Light */
+      @font-face {
+        font-family: 'Satoshi';
+        src: url("{{ 'Satoshi-Light.otf' | asset_url }}") format("opentype");
+        font-weight: 100;
+        font-style: light;
+        font-display: swap;
+      }
+      /* Satoshi Light Medium*/
+      @font-face {
+        font-family: 'Satoshi';
+        src: url("{{ 'Satoshi-Medium.otf' | asset_url }}") format("opentype");
+        font-weight: 500;
+        font-style: medium;
+        font-display: swap;
+      }
+      /* Satoshi Regular */
+      @font-face {
+        font-family: 'Satoshi';
+        src: url("{{ 'Satoshi-Regular.otf' | asset_url }}") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+    {% endstyle %} 
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
