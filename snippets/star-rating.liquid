@@ -1,0 +1,51 @@
+{% liquid
+  assign rating_value = rating | default: 0 | times: 1.0
+  assign star_width = star_width | default: 22
+  assign star_height = star_height | default: 21
+  assign empty_opacity = empty_opacity | default: 0.3
+  assign star_color = star_color | default: '#FFC633'
+  assign show_rating_text = show_rating_text | default: false
+
+  assign rating_text = rating_value | round: 1 | append: ''
+  if rating_text contains '.0'
+    assign rating_text = rating_text | remove: '.0'
+  endif
+%}
+
+<div class="tw-flex tw-items-center tw-gap-1" aria-label="{{ rating_value }} out of 5 stars">
+  {% for i in (1..5) %}
+    {% assign full_star_threshold = i %}
+    {% assign half_star_threshold = i | minus: 0.5 %}
+
+    <span
+      class="tw-relative tw-inline-flex tw-shrink-0"
+      style="width: {{ star_width }}px; height: {{ star_height }}px;"
+    >
+      {% if rating_value >= full_star_threshold %}
+        <svg width="{{ star_width }}" height="{{ star_height }}" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="tw-block">
+          <path d="M10.7369 0L13.9354 6.8872L21.4739 7.80085L15.9121 12.971L17.3727 20.4229L10.7369 16.731L4.10114 20.4229L5.56173 12.971L-3.8147e-06 7.80085L7.53849 6.8872L10.7369 0Z" fill="{{ star_color }}"/>
+        </svg>
+      {% elsif rating_value >= half_star_threshold %}
+        <svg width="{{ star_width }}" height="{{ star_height }}" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="tw-absolute tw-inset-0 tw-block" style="opacity: {{ empty_opacity }};">
+          <path d="M10.7369 0L13.9354 6.8872L21.4739 7.80085L15.9121 12.971L17.3727 20.4229L10.7369 16.731L4.10114 20.4229L5.56173 12.971L-3.8147e-06 7.80085L7.53849 6.8872L10.7369 0Z" fill="{{ star_color }}"/>
+        </svg>
+
+        <span class="tw-absolute tw-inset-y-0 tw-left-0 tw-overflow-hidden" style="width: 50%;">
+          <svg width="{{ star_width }}" height="{{ star_height }}" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="tw-block">
+            <path d="M10.7369 0L13.9354 6.8872L21.4739 7.80085L15.9121 12.971L17.3727 20.4229L10.7369 16.731L4.10114 20.4229L5.56173 12.971L-3.8147e-06 7.80085L7.53849 6.8872L10.7369 0Z" fill="{{ star_color }}"/>
+          </svg>
+        </span>
+      {% else %}
+        <svg width="{{ star_width }}" height="{{ star_height }}" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="tw-block" style="opacity: {{ empty_opacity }};">
+          <path d="M10.7369 0L13.9354 6.8872L21.4739 7.80085L15.9121 12.971L17.3727 20.4229L10.7369 16.731L4.10114 20.4229L5.56173 12.971L-3.8147e-06 7.80085L7.53849 6.8872L10.7369 0Z" fill="{{ star_color }}"/>
+        </svg>
+      {% endif %}
+    </span>
+  {% endfor %}
+
+  {% if show_rating_text %}
+    <span class="tw-ml-2 tw-text-[18px] md:tw-text-[20px] tw-font-satoshi tw-font-medium tw-leading-none tw-text-black">
+      {{ rating_text }}/5
+    </span>
+  {% endif %}
+</div>
