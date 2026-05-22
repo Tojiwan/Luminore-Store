@@ -83,7 +83,21 @@
     html.custom-header-lock-scroll,
     body.custom-header-lock-scroll {
         overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} input[type='search'] {
+    -webkit-appearance: textfield !important;
+    appearance: textfield !important;
 }
+
+    #shopify-section-{{ section.id }} input[type='search']::-webkit-search-cancel-button,
+    #shopify-section-{{ section.id }} input[type='search']::-webkit-search-decoration,
+    #shopify-section-{{ section.id }} input[type='search']::-webkit-search-results-button,
+    #shopify-section-{{ section.id }} input[type='search']::-webkit-search-results-decoration {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        display: none !important;
+    }
 {% endstyle %}
 
 <script src="{{ 'custom-header.js' | asset_url }}" defer="defer"></script>
