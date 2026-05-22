@@ -144,7 +144,7 @@
         "settings": {
           "logo_text": "SHOP.CO",
           "desktop_menu": "header-menu",
-          "mobile_menu": "",
+          "mobile_menu": "header-menu",
           "search_placeholder": "Search for products...",
           "show_cart": true,
           "show_account": true,
