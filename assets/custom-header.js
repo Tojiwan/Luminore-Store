@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuOverlay = wrapper.querySelector('[data-mobile-menu-overlay]');
 
     const searchToggleBtn = wrapper.querySelector('[data-mobile-search-toggle]');
+    const searchCloseBtn = wrapper.querySelector('[data-mobile-search-close]');
     const searchPanel = wrapper.querySelector('[data-mobile-search-panel]');
     const searchInput = wrapper.querySelector('[data-mobile-search-input]');
 
@@ -176,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenu);
     if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
     if (searchToggleBtn) searchToggleBtn.addEventListener('click', toggleSearch);
+    if (searchCloseBtn) searchCloseBtn.addEventListener('click', closeSearch);
 
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
