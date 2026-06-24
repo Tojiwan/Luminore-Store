@@ -303,6 +303,11 @@
     {{ 'tailwind.output.css' | asset_url | preload_tag: as: 'style' }}
     {{ 'tailwind.output.css' | asset_url | stylesheet_tag }}
 
+      <link
+        rel="stylesheet"
+        href="{{ 'fixed-cart-icon.css' | asset_url }}"
+      >
+
         {% style %}
       /* Integral Heavy */
       @font-face {
@@ -351,6 +356,10 @@
     {% comment %} {% sections 'header-group' %} {% endcomment %}
     {%  section 'custom-header' %}
 
+    {% comment %} Fixed position cart icon bubble {% endcomment %}
+    <div class="fixed-cart-icon">
+      {% render 'cart-icon-bubble' %}
+    </div>
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>

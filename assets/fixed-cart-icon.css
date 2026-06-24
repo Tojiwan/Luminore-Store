@@ -1,0 +1,90 @@
+@media (min-width: 768px) {
+    .fixed-cart-icon {
+        display: none !important;
+    }
+    
+}
+/* Fixed position cart icon styles */
+.fixed-cart-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  height: 50px;
+  width: 50px;
+}
+
+.fixed-cart-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-cart-icon a {
+  display: block;
+  position: relative;
+}
+
+.fixed-cart-icon .cart-count-bubble {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #69707D;
+  color: white;
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
+.fixed-cart-icon .cart-icon-bubble-trigger, .fixed-cart-icon .svg-wrapper{
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0;
+}
+.fixed-cart-icon .svg-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fixed-cart-icon .svg-wrapper > svg{
+    width: fit-content !important;
+    height: fit-content !important;
+}
+/* Hide cart count bubble when empty */
+.fixed-cart-icon .cart-count-bubble:empty {
+  display: none;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 749px) {
+  .fixed-cart-icon {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .fixed-cart-icon .cart-count-bubble {
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    font-size: 11px;
+  }
+}
+
+/* Ensure cart icon is visible above other elements */
+.fixed-cart-icon a {
+  z-index: 10001;
+}

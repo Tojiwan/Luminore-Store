@@ -1,0 +1,94 @@
+{% comment %}
+  Cart icon bubble snippet
+  This snippet contains the cart icon with count bubble that can be used in multiple places
+{% endcomment %}
+
+<a
+  href="{{ routes.cart_url }}"
+  class="header__icon header__icon--cart link focus-inset cart-icon-bubble-trigger"
+  data-cart-trigger
+>
+  <span class="svg-wrapper">
+    {% if template == 'page.about-us' %}
+      {% render 'icon-cart', size: 22, color: 'white' %}
+    {% else %}
+      {% render 'icon-cart', size: 22, color: '#69707D' %}
+    {% endif %}
+  </span>
+  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+  <div class="cart-count-bubble">
+    {%- if cart != empty -%}
+      {%- if cart.item_count < 100 -%}
+        <span aria-hidden="true">{{ cart.item_count }}</span>
+      {%- endif -%}
+      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+    {%- endif -%}
+  </div>
+</a>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const OFFSET = 50; // 👈 Adjust spacing here
+    const DEBUG = true; // 👈 Set to false in production
+
+    function log(...args) {
+      if (DEBUG) console.log('[Sticky Debug]', ...args);
+    }
+
+    function isMobile() {
+      const mobile = window.innerWidth <= 767;
+      log('Screen width:', window.innerWidth, '| Mobile:', mobile);
+      return mobile;
+    }
+
+    function updateCartPosition() {
+      const fixedCart = document.querySelector('.fixed-cart-icon');
+      if (!fixedCart) {
+        log('Fixed cart not found — waiting...');
+        return;
+      }
+
+      if (!isMobile()) {
+        fixedCart.style.bottom = '';
+        log('Not mobile — reset bottom.');
+        return;
+      }
+
+      // 🔥 Only measure the ACTUAL visible sticky bar
+      const sticky = document.querySelector('.kaching-bundles-sticky-atc--visible');
+
+      log('Sticky element found:', !!sticky);
+
+      if (sticky) {
+        const height = sticky.offsetHeight;
+        const finalBottom = height + OFFSET;
+
+        // Ensure correct positioning
+        fixedCart.style.position = 'fixed';
+        fixedCart.style.bottom = finalBottom + 'px';
+
+        log('Sticky height:', height);
+        log('Applied bottom:', finalBottom + 'px');
+      } else {
+        fixedCart.style.bottom = '';
+        log('Sticky not visible — reset bottom.');
+      }
+    }
+
+    // 🔥 Scroll optimized
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          updateCartPosition();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    window.addEventListener('resize', updateCartPosition);
+
+    // Initial run
+    updateCartPosition();
+  });
+</script>
