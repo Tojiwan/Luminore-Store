@@ -60,6 +60,7 @@ Run `shopify theme check --output json`, `node --test tests/luminore-parallax.te
 - [x] Add optional hero foreground image, static copy and a CSS-drawn brass ornament moving opposite the photo.
 - [x] Replace the two-card style grid with three direct-sibling sticky cards in `luminore-stack`; one link per card and a third editable look.
 - [x] Add covered-link `tabindex` handling, focus handoff to the covering card, and a final-card hold.
+- [x] Add reduced-motion-safe smooth scrolling for in-page navigation, including the “Our story” anchor.
 - [x] Extend the Node tests for layer speeds, clamps, stack progress/scale bounds, focus, reduced motion and cleanup.
 - [x] Re-run browser checks at 320/390/768/1024/1440px; no horizontal overflow, cards pin/cover/reverse, covered links leave the tab order, reduced motion returns a normal document.
 - [ ] Real Safari/iPhone pass for sticky and `svh` behavior.
@@ -72,6 +73,7 @@ Motion verification:
 - Hero offset reached 64px desktop; background moved +35.2px and the ornament -19.2px at the same scroll position.
 - Stack: first card pins below the header, outgoing card scales to 0.94 and lifts 8px, incoming card grows from 0.96 to 1, final card holds for 12svh, then releases.
 - Reduced motion: no ready class, `position: relative`, no transform, no stack variables.
+- “Our story” glides to the story section with the sticky-header offset; reduced motion jumps immediately.
 
 Motion decisions:
 - Card height is `min(72svh, 72rem)` rather than a clamp with a 42rem floor, so the pinned card always fits under the header on short viewports.

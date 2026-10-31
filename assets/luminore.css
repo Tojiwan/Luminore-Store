@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --lm-paper: #f1ede3;
   --lm-olive: #343a2e;
@@ -1234,6 +1238,10 @@ luminore-stack {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .lm-parallax-image,
   .lm-hero-layer,
   .lm-hero-ornament {
