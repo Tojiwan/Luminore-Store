@@ -1,738 +1,779 @@
 {% style %}
-    /* =========================
-    BASE HEADER
-    ========================= */
-    #shopify-section-{{ section.id }} .custom-header {
-        position: relative;
-        width: 100%;
-        z-index: 50;
-        transition: all 0.3s ease;
-    }
+  /* =========================
+  BASE HEADER
+  ========================= */
+  #shopify-section-{{ section.id }} .custom-header {
+      position: relative;
+      width: 100%;
+      z-index: 50;
+      transition: all 0.3s ease;
+  }
 
-    /* FIXED STATE */
-    #shopify-section-{{ section.id }} .custom-header.is-fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: {{ section.settings.header_bg }};
-        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
+  /* FIXED STATE */
+  #shopify-section-{{ section.id }} .custom-header.is-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: {{ section.settings.header_bg }};
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  }
 
-    /* =========================
-    ROW LAYOUT
-    ========================= */
-    .header-bottom-row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 0;
-        position: relative;
-    }
+  /* =========================
+  ROW LAYOUT
+  ========================= */
+  .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 0;
+      position: relative;
+  }
 
-    /* SEARCH LOCK */
-    html.custom-header-lock-scroll,
-    body.custom-header-lock-scroll {
-        overflow: hidden;
-    }
+  /* SEARCH LOCK */
+  html.custom-header-lock-scroll,
+  body.custom-header-lock-scroll {
+      overflow: hidden;
+  }
 
-    /* =========================
-    MOBILE DRAWERS
-    ========================= */
-    .custom-header__overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        z-index: 60;
-    }
+  /* =========================
+  MOBILE DRAWERS
+  ========================= */
+  .custom-header__overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 60;
+  }
 
-    .custom-header__overlay.is-open {
-        opacity: 1;
-        visibility: visible;
-    }
+  .custom-header__overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+  }
 
-    .custom-header__drawer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: min(86vw, 340px);
-        height: 100vh;
-        background: #ffffff;
-        transform: translateX(-100%);
-        transition: transform 0.35s ease;
-        z-index: 70;
-        overflow-y: auto;
-    }
+  .custom-header__drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: min(86vw, 340px);
+      height: 100vh;
+      background: #ffffff;
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+      z-index: 70;
+      overflow-y: auto;
+  }
 
-    .custom-header__drawer.is-open {
-        transform: translateX(0);
-    }
+  .custom-header__drawer.is-open {
+      transform: translateX(0);
+  }
 
-    /* SEARCH PANEL */
-    .custom-header__search-panel {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: min(86vw, 340px);
-        height: 100vh;
-        background: #ffffff;
-        transform: translateX(100%);
-        transition: transform 0.35s ease;
-        z-index: 70;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-    }
+  /* SEARCH PANEL */
+  .custom-header__search-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(86vw, 340px);
+      height: 100vh;
+      background: #ffffff;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      z-index: 70;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+  }
 
-    .custom-header__search-panel.is-open {
-        transform: translateX(0);
-    }
+  .custom-header__search-panel.is-open {
+      transform: translateX(0);
+  }
 
-    /* =========================
-    MEGA MENU
-    ========================= */
+  /* =========================
+  MEGA MENU
+  ========================= */
 
-    /* Trigger wrapper */
-    .mega-menu-wrapper {
-        position: static;
-    }
+  /* Trigger wrapper */
+  .mega-menu-wrapper {
+      position: static;
+  }
 
-    /* Dynamic menu from navigation */
-    .mega-menu {
-        background-color: {{ section.settings.header_bg }};
-        border-top: 1px solid rgba(0,0,0,0.06);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.04);
-        z-index: 999;
-    }
+  /* Dynamic menu from navigation */
+  .mega-menu {
+      background-color: {{ section.settings.header_bg }};
+      border-top: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+      z-index: 999;
+  }
 
-    /* Hardcoded collections menu */
-    .mega-menu-panel {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: {{ section.settings.header_bg }};
-        border-top: 1px solid rgba(0,0,0,0.06);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+  /* Hardcoded collections menu */
+  .mega-menu-panel {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: {{ section.settings.header_bg }};
+      border-top: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.04);
 
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
 
-        transition:
-            opacity 0.25s ease,
-            visibility 0.25s ease,
-            transform 0.25s ease;
+      transition:
+          opacity 0.25s ease,
+          visibility 0.25s ease,
+          transform 0.25s ease;
 
-        pointer-events: none;
-        z-index: 9999;
+      pointer-events: none;
+      z-index: 9999;
 
-        padding: 40px 0;
-    }
+      padding: 40px 0;
+  }
 
-    /* Show mega menu on hover */
-    .mega-menu-wrapper:hover .mega-menu-panel {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
+  /* Show mega menu on hover */
+  .mega-menu-wrapper:hover .mega-menu-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+  }
 
-    /* Remove theme link underlines */
-    .mega-menu a,
-    .mega-menu-panel a {
-        text-decoration: none !important;
-    }
+  /* Remove theme link underlines */
+  .mega-menu a,
+  .mega-menu-panel a {
+      text-decoration: none !important;
+  }
 
-    .mega-menu a:hover,
-    .mega-menu-panel a:hover {
-        text-decoration: none !important;
-    }
+  .mega-menu a:hover,
+  .mega-menu-panel a:hover {
+      text-decoration: none !important;
+  }
 
-    /* Collection card hover effect */
-    .mega-menu a img,
-    .mega-menu-panel a img {
-        transition: transform 0.3s ease;
-    }
+  /* Collection card hover effect */
+  .mega-menu a img,
+  .mega-menu-panel a img {
+      transition: transform 0.3s ease;
+  }
 
-    .mega-menu a:hover img,
-    .mega-menu-panel a:hover img {
-        transform: scale(1.05);
-    }
+  .mega-menu a:hover img,
+  .mega-menu-panel a:hover img {
+      transform: scale(1.05);
+  }
 
-    /* Collection title styling */
-    .mega-menu a span,
-    .mega-menu-panel a span {
-        text-decoration: none !important;
-        color: #000;
-    }
+  /* Collection title styling */
+  .mega-menu a span,
+  .mega-menu-panel a span {
+      text-decoration: none !important;
+      color: #000;
+  }
 
-    /* Prevent clipping issues */
-    .header-bottom-row,
-    .mega-menu-wrapper {
-        overflow: visible;
-    }
+  /* Prevent clipping issues */
+  .header-bottom-row,
+  .mega-menu-wrapper {
+      overflow: visible;
+  }
 
-    /* Improve layering above hero/banner */
-    .mega-menu,
-    .mega-menu-panel {
-        z-index: 9999;
-    }
+  /* Improve layering above hero/banner */
+  .mega-menu,
+  .mega-menu-panel {
+      z-index: 9999;
+  }
 
-    .mega-menu-panel a,
-    .mega-menu-panel a:hover,
-    .mega-menu-panel a:focus,
-    .mega-menu-panel span {
-        text-decoration: none !important;
-    }
+  .mega-menu-panel a,
+  .mega-menu-panel a:hover,
+  .mega-menu-panel a:focus,
+  .mega-menu-panel span {
+      text-decoration: none !important;
+  }
 
-    .mega-menu-wrapper > a {
-        padding: 8px 12px;
-        border-radius: 6px;
-        transition: background-color 0.2s ease;
-    }
+  .mega-menu-wrapper > a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+  }
 
-    .mega-menu-wrapper:hover > a {
-        background-color: {{ section.settings.header_bg }};
-    }
+  .mega-menu-wrapper:hover > a {
+      background-color: {{ section.settings.header_bg }};
+  }
 
-    /* =========================
-    HEADER
-    ========================= */
+  /* =========================
+  HEADER
+  ========================= */
 
-    /* Mobile/Desktop visibility */
-    .mobile-left,
-    .mobile-right {
-        display: flex;
-        align-items: center;
-    }
+  /* Mobile/Desktop visibility */
+  .mobile-left,
+  .mobile-right {
+      display: flex;
+      align-items: center;
+  }
 
-    .desktop-socials,
-    .desktop-icons {
-        display: none;
-    }
+  .desktop-socials,
+  .desktop-icons {
+      display: none;
+  }
 
-    /* Default = MOBILE */
-    .header-top-row {
-        display: grid;
-        grid-template-columns: 40px 1fr 40px;
-        align-items: center;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
+  /* Default = MOBILE */
+  .header-top-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 40px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
 
-    /* Center logo */
-    .header-top-row > a {
-        justify-self: center;
-    }
+  /* Center logo */
+  .header-top-row > a {
+      justify-self: center;
+  }
 
-    /* DESKTOP */
-    @media screen and (min-width: 768px) {
+  /* DESKTOP */
+  @media screen and (min-width: 768px) {
 
-        .header-top-row {
-            grid-template-columns: 1fr auto 1fr;
-        }
+      .header-top-row {
+          grid-template-columns: 1fr auto 1fr;
+      }
 
-        .desktop-socials {
-            display: flex !important;
-            align-items: center;
-            gap: 12px;
-        }
+      .desktop-socials {
+          display: flex !important;
+          align-items: center;
+          gap: 12px;
+      }
 
-        .desktop-icons {
-            display: flex !important;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 16px;
-        }
+      .desktop-icons {
+          display: flex !important;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 16px;
+      }
 
-        /* Hide mobile buttons */
-        [data-mobile-menu-open],
-        [data-mobile-search-toggle] {
-            display: none !important;
-        }
-    }
+      /* Hide mobile buttons */
+      [data-mobile-menu-open],
+      [data-mobile-search-toggle] {
+          display: none !important;
+      }
+  }
 
-    /* =========================
-    SEARCH INPUT FIX
-    ========================= */
+  /* =========================
+  SEARCH INPUT FIX
+  ========================= */
 
-    /* Remove native browser search X */
-    input[type="search"]::-webkit-search-cancel-button,
-    input[type="search"]::-webkit-search-decoration,
-    input[type="search"]::-webkit-search-results-button,
-    input[type="search"]::-webkit-search-results-decoration {
-        -webkit-appearance: none;
-        appearance: none;
-    }
+  /* Remove native browser search X */
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+      -webkit-appearance: none;
+      appearance: none;
+  }
 
-    input[type="search"] {
-        -webkit-appearance: none;
-        appearance: textfield;
-    }
+  input[type="search"] {
+      -webkit-appearance: none;
+      appearance: textfield;
+  }
 
-    input[type="search"]::-moz-search-clear {
-        display: none;
-    }
+  input[type="search"]::-moz-search-clear {
+      display: none;
+  }
 
-    .custom-header__search-panel input[type="search"] {
-        border: 0 !important;
-        outline: none !important;
-        box-shadow: none !important;
-    }
+  .custom-header__search-panel input[type="search"] {
+      border: 0 !important;
+      outline: none !important;
+      box-shadow: none !important;
+  }
 
-    /* =========================
-    DESKTOP SAFETY FIX
-    ========================= */
+  /* =========================
+  DESKTOP SAFETY FIX
+  ========================= */
 
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
 
-        .custom-header__drawer,
-        .custom-header__overlay,
-        .custom-header__search-panel {
-            display: none !important;
-        }
-    }
+      .custom-header__drawer,
+      .custom-header__overlay,
+      .custom-header__search-panel {
+          display: none !important;
+      }
+  }
 {% endstyle %}
 
 <script src="{{ 'custom-header.js' | asset_url }}" defer></script>
 
 <div class="custom-header-wrapper" data-custom-header-wrapper>
+  <header
+    class="custom-header tw-w-full tw-z-50"
+    data-custom-header
+    style="background-color: rgba(13, 13, 13, 0.95); backdrop-filter: blur(16px);"
+  >
+    <div class="page-width">
+      <!--
+        =========================
+            ROW 1 (UTILITY HEADER)
+        =========================
+      -->
+      <div class="header-top-row">
+        <!-- LEFT -->
+        <div class="tw-justify-self-start">
+          <!-- MOBILE -->
+          <div class="mobile-left">
+            {% if section.settings.mobile_menu != blank %}
+              <button
+                type="button"
+                class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0"
+                data-mobile-menu-open
+                aria-label="Open menu"
+                aria-expanded="false"
+              >
+                {% render 'shop-co-icons', icon: 'hamburger' %}
+              </button>
+            {% endif %}
+          </div>
 
-    <header
-        class="custom-header tw-w-full tw-z-50"
-        data-custom-header
-        style="background-color: rgba(13, 13, 13, 0.95); backdrop-filter: blur(16px);"
-    >
-        <div class="page-width">
-            <!-- =========================
-                ROW 1 (UTILITY HEADER)
-            ========================= -->
-            <div class="header-top-row">
+          <!-- DESKTOP -->
+          <div class="desktop-socials">
+            {% render 'icon-socials-v2' %}
+          </div>
+        </div>
 
-                <!-- LEFT -->
-                <div class="tw-justify-self-start">
+        <!-- CENTER: LOGO -->
+        <a
+          href="{{ routes.root_url }}"
+          class="tw-flex tw-items-center tw-text-black tw-no-underline tw-justify-self-center"
+        >
+          {% if section.settings.logo_image != blank %}
+            {{
+              section.settings.logo_image
+              | image_url: width: 300
+              | image_tag: class: 'tw-max-w-[140px] md:tw-max-w-[150px] md:tw-max-h-[120px]', alt: shop.name
+            }}
+          {% else %}
+            <span class="tw-text-[28px] md:tw-text-[40px] tw-font-integral tw-font-bold">
+              {{ section.settings.logo_text }}
+            </span>
+          {% endif %}
+        </a>
 
-                    <!-- MOBILE -->
-                    <div class="mobile-left">
-                        {% if section.settings.mobile_menu != blank %}
-                        <button
-                            type="button"
-                            class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0"
-                            data-mobile-menu-open
-                            aria-label="Open menu"
-                            aria-expanded="false"
-                        >
-                            {% render 'shop-co-icons', icon: 'hamburger' %}
-                        </button>
-                        {% endif %}
-                    </div>
+        <!-- RIGHT: MOBILE SEARCH + DESKTOP ICONS -->
+        <div class="tw-flex tw-items-center tw-gap-4 tw-justify-self-end">
+          <!-- MOBILE SEARCH -->
+          <button
+            type="button"
+            class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none tw-leading-none hover:tw-bg-transparent focus:tw-outline-none focus:tw-ring-0"
+            data-mobile-search-toggle
+            aria-label="Search"
+            aria-expanded="false"
+          >
+            {% render 'shop-co-icons', icon: 'search-icon' %}
+          </button>
 
-                    <!-- DESKTOP -->
-                    <div class="desktop-socials">
-                        {% render 'icon-socials-v2' %}
-                    </div>
+          <!-- DESKTOP ICONS -->
+          <div class="desktop-icons">
+            <!-- SEARCH -->
+            <a
+              href="{{ routes.search_url }}"
+              class="tw-text-black hover:tw-opacity-70"
+              aria-label="Search"
+            >
+              {% render 'shop-co-icons', icon: 'search-icon' %}
+            </a>
 
-                </div>
+            <!-- ACCOUNT -->
+            {% if section.settings.show_account %}
+              <a
+                href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+                class="tw-text-black hover:tw-opacity-70"
+                aria-label="Account"
+              >
+                {% render 'shop-co-icons', icon: 'account' %}
+              </a>
+            {% endif %}
 
-                <!-- CENTER: LOGO -->
-                <a href="{{ routes.root_url }}" class="tw-flex tw-items-center tw-text-black tw-no-underline tw-justify-self-center">
-                    {% if section.settings.logo_image != blank %}
-                        {{
-                            section.settings.logo_image
-                            | image_url: width: 300
-                            | image_tag: class: 'tw-max-w-[140px] md:tw-max-w-[150px] md:tw-max-h-[120px]', alt: shop.name
-                        }}
-                    {% else %}
-                        <span class="tw-text-[28px] md:tw-text-[40px] tw-font-integral tw-font-bold">
-                            {{ section.settings.logo_text }}
-                        </span>
-                    {% endif %}
+            <!-- CART -->
+            {% if section.settings.show_cart %}
+              <div
+                id="shopify-section-cart-icon-bubble"
+                class="shopify-section"
+                data-section-id="cart-icon-bubble"
+                data-section-type="cart-icon-bubble"
+              >
+                {% render 'cart-icon-bubble', id: 'cart-icon-bubble' %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!--
+        =========================
+            ROW 2 (NAVIGATION)
+        =========================
+      -->
+      <div class="header-bottom-row">
+        {% assign desktop_navigation = section.settings.desktop_menu %}
+
+        {% if desktop_navigation != blank %}
+          <nav class="tw-flex tw-items-center tw-gap-10">
+            {% for link in desktop_navigation.links %}
+              <!-- SIMPLE LINKS (Home / Contact Us) -->
+              {% if link.links == blank %}
+                <a href="{{ link.url }}" class="tw-text-black tw-no-underline hover:tw-opacity-70">
+                  {{ link.title }}
                 </a>
 
-                <!-- RIGHT: MOBILE SEARCH + DESKTOP ICONS -->
-                <div class="tw-flex tw-items-center tw-gap-4 tw-justify-self-end">
+              {% else %}
+                <!-- COLLECTIONS DROPDOWN -->
+                <div class="tw-relative tw-group">
+                  <a href="{{ link.url }}" class="tw-flex tw-items-center tw-gap-1 tw-text-black tw-no-underline">
+                    {{ link.title }}
+                    {% render 'shop-co-icons', icon: 'chevron-down' %}
+                  </a>
 
-                    <!-- MOBILE SEARCH -->
-                    <button
-                        type="button"
-                        class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none tw-leading-none hover:tw-bg-transparent focus:tw-outline-none focus:tw-ring-0"
-                        data-mobile-search-toggle
-                        aria-label="Search"
-                        aria-expanded="false"
-                    >
-                        {% render 'shop-co-icons', icon: 'search-icon' %}
-                    </button>
+                  <div
+                    class="mega-menu tw-opacity-0 tw-invisible group-hover:tw-opacity-100 group-hover:tw-visible tw-transition tw-duration-200 tw-absolute tw-left-0 tw-top-full tw-w-full tw-bg-white tw-shadow-lg tw-py-10"
+                    style="background-color: {{ section.settings.header_bg }};"
+                  >
+                    <div class="page-width">
+                      <div class="tw-grid tw-grid-cols-4 tw-gap-6">
+                        {% for child_link in link.links limit: 4 %}
+                          {% assign collection = child_link.object %}
 
-                    <!-- DESKTOP ICONS -->
-                    <div class="desktop-icons">
+                          <a href="{{ child_link.url }}" class="tw-group tw-block">
+                            {% if collection and collection.image %}
+                              <div class="tw-overflow-hidden tw-rounded-lg tw-bg-gray-100">
+                                <img
+                                  src="{{ collection.image | image_url: width: 600 }}"
+                                  class="tw-w-full tw-h-[220px] tw-object-cover tw-transition group-hover:tw-scale-105"
+                                  alt="{{ child_link.title }}"
+                                >
+                              </div>
+                            {% else %}
+                              <div class="tw-w-full tw-h-[220px] tw-bg-gray-200 tw-rounded-lg"></div>
+                            {% endif %}
 
-                        <!-- SEARCH -->
-                        <a
-                            href="{{ routes.search_url }}"
-                            class="tw-text-black hover:tw-opacity-70"
-                            aria-label="Search"
-                        >
-                            {% render 'shop-co-icons', icon: 'search-icon' %}
-                        </a>
-
-                        <!-- ACCOUNT -->
-                        {% if section.settings.show_account %}
-                        <a
-                            href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
-                            class="tw-text-black hover:tw-opacity-70"
-                            aria-label="Account"
-                        >
-                            {% render 'shop-co-icons', icon: 'account' %}
-                        </a>
-                        {% endif %}
-
-                        <!-- CART -->
-                        {% if section.settings.show_cart %}
-                        <div id="shopify-section-cart-icon-bubble" class="shopify-section" data-section-id="cart-icon-bubble" data-section-type="cart-icon-bubble">
-                          {% render 'cart-icon-bubble', id: 'cart-icon-bubble' %}
-                        </div>
-                        {% endif %}
+                            <div class="tw-mt-3 tw-text-center tw-font-medium tw-text-black">
+                              {{ child_link.title }}
+                            </div>
+                          </a>
+                        {% endfor %}
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
+              {% endif %}
+            {% endfor %}
 
-            <!-- =========================
-                ROW 2 (NAVIGATION)
-            ========================= -->
-            <div class="header-bottom-row">
-
-                {% assign desktop_navigation = section.settings.desktop_menu %}
-
-                {% if desktop_navigation != blank %}
-                <nav class="tw-flex tw-items-center tw-gap-10">
-
-                    {% for link in desktop_navigation.links %}
-
-                        <!-- SIMPLE LINKS (Home / Contact Us) -->
-                        {% if link.links == blank %}
-                            <a href="{{ link.url }}" class="tw-text-black tw-no-underline hover:tw-opacity-70">
-                                {{ link.title }}
-                            </a>
-
-                        {% else %}
-
-                        <!-- COLLECTIONS DROPDOWN -->
-                        <div class="tw-relative tw-group">
-
-                            <a href="{{ link.url }}" class="tw-flex tw-items-center tw-gap-1 tw-text-black tw-no-underline">
-                                {{ link.title }}
-                                {% render 'shop-co-icons', icon: 'chevron-down' %}
-                            </a>
-
-                            <div class="mega-menu tw-opacity-0 tw-invisible group-hover:tw-opacity-100 group-hover:tw-visible tw-transition tw-duration-200 tw-absolute tw-left-0 tw-top-full tw-w-full tw-bg-white tw-shadow-lg tw-py-10" 
-                            style="background-color: {{ section.settings.header_bg }};">
-
-                            <div class="page-width">
-                                <div class="tw-grid tw-grid-cols-4 tw-gap-6">
-
-                                    {% for child_link in link.links limit:4 %}
-                                        {% assign collection = child_link.object %}
-
-                                        <a href="{{ child_link.url }}" class="tw-group tw-block">
-
-                                            {% if collection and collection.image %}
-                                                <div class="tw-overflow-hidden tw-rounded-lg tw-bg-gray-100">
-                                                    <img
-                                                        src="{{ collection.image | image_url: width: 600 }}"
-                                                        class="tw-w-full tw-h-[220px] tw-object-cover tw-transition group-hover:tw-scale-105"
-                                                        alt="{{ child_link.title }}"
-                                                    >
-                                                </div>
-                                            {% else %}
-                                                <div class="tw-w-full tw-h-[220px] tw-bg-gray-200 tw-rounded-lg"></div>
-                                            {% endif %}
-
-                                            <div class="tw-mt-3 tw-text-center tw-font-medium tw-text-black">
-                                                {{ child_link.title }}
-                                            </div>
-
-                                        </a>
-                                    {% endfor %}
-
-                                </div>
+            <!-- Collections Trigger -->
+            <a
+              href="#"
+              class="tw-flex tw-items-center tw-text-[#c9a962] tw-no-underline tw-font-medium transition-colors hover:text-[#ffffff]"
+              >Collections</a
+            >
+            <div class="mega-menu-wrapper">
+              <a
+                href="#"
+                class="tw-flex tw-items-center tw-text-[#c9a962] tw-no-underline tw-font-medium transition-colors hover:text-[#ffffff]"
+              >
+                Collections
+              </a>
+              <div
+                class="mega-menu-panel"
+                style="background-color: #0d0d0d; border-top: 1px solid rgba(201, 169, 98, 0.2);"
+              >
+                <div class="page-width">
+                  <div class="tw-grid tw-grid-cols-4 tw-gap-6 tw-justify-center">
+                    {% if section.settings.collection_bracelets != blank %}
+                      {% assign collection = section.settings.collection_bracelets %}
+                      <a
+                        href="{{ collection.url }}"
+                        class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group"
+                      >
+                        <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                          {% if collection.image %}
+                            <img
+                              src="{{ collection.image | image_url: width: 600 }}"
+                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
+                              alt="{{ collection.title }}"
+                            >
+                          {% else %}
+                            <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                              <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
                             </div>
-
+                          {% endif %}
                         </div>
-
-                        </div>
-                        {% endif %}
-                    {% endfor %}
-
-                    <!-- Collections Trigger -->
-                    <a href="#" class="tw-flex tw-items-center tw-text-[#c9a962] tw-no-underline tw-font-medium transition-colors hover:text-[#ffffff]">Collections</a>
-                    <div class="mega-menu-wrapper">
-                        <a href="#" class="tw-flex tw-items-center tw-text-[#c9a962] tw-no-underline tw-font-medium transition-colors hover:text-[#ffffff]">
-                            Collections
-                        </a>
-                        <div class="mega-menu-panel" style="background-color: #0d0d0d; border-top: 1px solid rgba(201, 169, 98, 0.2);">
-                            <div class="page-width">
-                                <div class="tw-grid tw-grid-cols-4 tw-gap-6 tw-justify-center">
-                                {% if section.settings.collection_bracelets != blank %}
-                                {% assign collection = section.settings.collection_bracelets %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
-                                        {% if collection.image %}
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
-                                        {% else %}
-                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
-                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
-                                </a>
-                                {% endif %}
-                                {% if section.settings.collection_earrings != blank %}
-                                {% assign collection = section.settings.collection_earrings %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
-                                        {% if collection.image %}
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
-                                        {% else %}
-                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
-                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
-                                </a>
-                                {% endif %}
-                                {% if section.settings.collection_necklaces != blank %}
-                                {% assign collection = section.settings.collection_necklaces %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
-                                        {% if collection.image %}
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
-                                        {% else %}
-                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
-                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
-                                </a>
-                                {% endif %}
-                                {% if section.settings.collection_rings != blank %}
-                                {% assign collection = section.settings.collection_rings %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
-                                        {% if collection.image %}
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
-                                        {% else %}
-                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
-                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
-                                </a>
-                                {% endif %}
-                                </div>
+                        <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">
+                          {{- collection.title -}}
+                        </span>
+                      </a>
+                    {% endif %}
+                    {% if section.settings.collection_earrings != blank %}
+                      {% assign collection = section.settings.collection_earrings %}
+                      <a
+                        href="{{ collection.url }}"
+                        class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group"
+                      >
+                        <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                          {% if collection.image %}
+                            <img
+                              src="{{ collection.image | image_url: width: 600 }}"
+                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
+                              alt="{{ collection.title }}"
+                            >
+                          {% else %}
+                            <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                              <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
                             </div>
+                          {% endif %}
                         </div>
-                    </div>
-                </nav>
-                {% endif %}
+                        <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">
+                          {{- collection.title -}}
+                        </span>
+                      </a>
+                    {% endif %}
+                    {% if section.settings.collection_necklaces != blank %}
+                      {% assign collection = section.settings.collection_necklaces %}
+                      <a
+                        href="{{ collection.url }}"
+                        class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group"
+                      >
+                        <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                          {% if collection.image %}
+                            <img
+                              src="{{ collection.image | image_url: width: 600 }}"
+                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
+                              alt="{{ collection.title }}"
+                            >
+                          {% else %}
+                            <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                              <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
+                            </div>
+                          {% endif %}
+                        </div>
+                        <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">
+                          {{- collection.title -}}
+                        </span>
+                      </a>
+                    {% endif %}
+                    {% if section.settings.collection_rings != blank %}
+                      {% assign collection = section.settings.collection_rings %}
+                      <a
+                        href="{{ collection.url }}"
+                        class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group"
+                      >
+                        <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                          {% if collection.image %}
+                            <img
+                              src="{{ collection.image | image_url: width: 600 }}"
+                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
+                              alt="{{ collection.title }}"
+                            >
+                          {% else %}
+                            <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                              <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
+                            </div>
+                          {% endif %}
+                        </div>
+                        <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">
+                          {{- collection.title -}}
+                        </span>
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </header>
+          </nav>
+        {% endif %}
+      </div>
+    </div>
+  </header>
 
-    <!-- MOBILE MENU DRAWER -->
-    {% if section.settings.mobile_menu != blank %}
+  <!-- MOBILE MENU DRAWER -->
+  {% if section.settings.mobile_menu != blank %}
     <div class="custom-header__overlay md:tw-hidden" data-mobile-menu-overlay></div>
 
     <aside class="custom-header__drawer md:tw-hidden tw-rounded-r-[16px]" data-mobile-menu-drawer aria-hidden="true">
-        <div class="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-black/5 tw-px-5 tw-py-5 tw-bg-black">
-            <span class="tw-text-[28px] tw-font-integral tw-font-regular tw-text-white -tw-translate-y-2">Menu</span>
+      <div class="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-black/5 tw-px-5 tw-py-5 tw-bg-black">
+        <span class="tw-text-[28px] tw-font-integral tw-font-regular tw-text-white -tw-translate-y-2">Menu</span>
 
-            <button
-                type="button"
-                class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none tw-leading-none hover:tw-bg-transparent focus:tw-outline-none focus:tw-ring-0"
-                aria-label="Close menu"
-                data-mobile-menu-close
-            >
-                {% render 'shop-co-icons', icon: 'close-white' %}
-            </button>
-        </div>
+        <button
+          type="button"
+          class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none tw-leading-none hover:tw-bg-transparent focus:tw-outline-none focus:tw-ring-0"
+          aria-label="Close menu"
+          data-mobile-menu-close
+        >
+          {% render 'shop-co-icons', icon: 'close-white' %}
+        </button>
+      </div>
 
-        <div class="tw-px-5 tw-py-4">
-            <nav class="tw-flex tw-flex-col">
-            {% for link in section.settings.mobile_menu.links %}
-                {% if link.links != blank %}
-                <details class="tw-border-b tw-border-black/5 tw-py-3">
-                    <summary class="tw-flex tw-cursor-pointer tw-list-none tw-items-center tw-justify-between tw-gap-4 tw-rounded-[10px] tw-px-3 tw-py-3 tw-text-[16px] tw-font-medium tw-text-black {% if link.current %}tw-bg-black/5{% endif %}">
-                    <span>{{ link.title }}</span>
-                    {% render 'shop-co-icons', icon: 'chevron-down-lg' %}
-                    </summary>
+      <div class="tw-px-5 tw-py-4">
+        <nav class="tw-flex tw-flex-col">
+          {% for link in section.settings.mobile_menu.links %}
+            {% if link.links != blank %}
+              <details class="tw-border-b tw-border-black/5 tw-py-3">
+                <summary class="tw-flex tw-cursor-pointer tw-list-none tw-items-center tw-justify-between tw-gap-4 tw-rounded-[10px] tw-px-3 tw-py-3 tw-text-[16px] tw-font-medium tw-text-black {% if link.current %}tw-bg-black/5{% endif %}">
+                  <span>{{ link.title }}</span>
+                  {% render 'shop-co-icons', icon: 'chevron-down-lg' %}
+                </summary>
 
-                    <div class="tw-mt-3 tw-flex tw-flex-col tw-gap-2 tw-pl-3">
-                    <a
-                        href="{{ link.url }}"
-                        class="tw-block tw-rounded-[8px] tw-px-3 tw-py-2 tw-text-[14px] tw-font-medium tw-text-black tw-no-underline hover:tw-opacity-70 {% if link.current %}tw-bg-black/5{% endif %}"
-                    >
-                        View all {{ link.title }}
-                    </a>
-
-                    {% for child_link in link.links %}
-                        <a
-                            href="{{ child_link.url }}"
-                            class="tw-block tw-rounded-[8px] tw-px-3 tw-py-2 tw-text-[14px] tw-text-black/80 tw-no-underline hover:tw-opacity-70 {% if child_link.current %}tw-bg-black/5 tw-text-black{% endif %}"
-                        >
-                        {{ child_link.title }}
-                        </a>
-                    {% endfor %}
-                    </div>
-                </details>
-                {% else %}
-                <a
+                <div class="tw-mt-3 tw-flex tw-flex-col tw-gap-2 tw-pl-3">
+                  <a
                     href="{{ link.url }}"
-                    class="tw-block tw-rounded-[10px] tw-px-3 tw-py-4 tw-text-[16px] tw-font-medium tw-text-black tw-no-underline hover:tw-opacity-70 {% if link.current %}tw-bg-black/5{% endif %}"
-                >
-                    {{ link.title }}
-                </a>
-                {% endif %}
-            {% endfor %}
-            </nav>
-        </div>
-    </aside>
-    {% endif %}
+                    class="tw-block tw-rounded-[8px] tw-px-3 tw-py-2 tw-text-[14px] tw-font-medium tw-text-black tw-no-underline hover:tw-opacity-70 {% if link.current %}tw-bg-black/5{% endif %}"
+                  >
+                    View all {{ link.title }}
+                  </a>
 
-    <!-- MOBILE SEARCH PANEL -->
-    <div class="custom-header__search-panel md:tw-hidden" data-mobile-search-panel aria-hidden="true">
-        <div class="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-black/5 tw-px-5 tw-py-5 tw-bg-black">
-            <span class="tw-text-[28px] tw-font-integral tw-font-regular tw-text-white -tw-translate-y-2">Search</span>
-
-            <button
-                type="button"
-                class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none tw-leading-none hover:tw-bg-transparent focus:tw-outline-none focus:tw-ring-0"
-                aria-label="Close search"
-                data-mobile-search-close
-            >
-                {% render 'shop-co-icons', icon: 'close-white' %}
-            </button>
-        </div>
-
-        <div class="tw-flex-1 tw-p-5 tw-overflow-y-auto">
-            <form action="{{ routes.search_url }}" method="get" role="search">
-                <div
-                    class="tw-flex tw-items-center tw-gap-3 tw-rounded-full tw-px-[16px] tw-py-[14px] tw-mb-6"
-                    style="background-color: #EAEAEA;"
-                    data-search-field
-                >
-                    {% render 'shop-co-icons', icon: 'search-panel' %}
-
-                    <input
-                        type="search"
-                        name="q"
-                        value="{{ search.terms | escape }}"
-                        placeholder="Search for products..."
-                        class="tw-min-w-0 tw-flex-1 tw-bg-transparent tw-border-0 tw-outline-none tw-shadow-none tw-w-[85%] tw-text-[14px] placeholder:tw-text-[#9B9B9B]"
-                        data-search-input
-                        data-mobile-search-input
+                  {% for child_link in link.links %}
+                    <a
+                      href="{{ child_link.url }}"
+                      class="tw-block tw-rounded-[8px] tw-px-3 tw-py-2 tw-text-[14px] tw-text-black/80 tw-no-underline hover:tw-opacity-70 {% if child_link.current %}tw-bg-black/5 tw-text-black{% endif %}"
                     >
-
-                    <button
-                        type="button"
-                        class="tw-hidden tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none"
-                        aria-label="Clear search"
-                        data-search-clear
-                    >
-                        {% render 'shop-co-icons', icon: 'close' %}
-                    </button>
+                      {{ child_link.title }}
+                    </a>
+                  {% endfor %}
                 </div>
-            </form>
-        </div>
+              </details>
+            {% else %}
+              <a
+                href="{{ link.url }}"
+                class="tw-block tw-rounded-[10px] tw-px-3 tw-py-4 tw-text-[16px] tw-font-medium tw-text-black tw-no-underline hover:tw-opacity-70 {% if link.current %}tw-bg-black/5{% endif %}"
+              >
+                {{ link.title }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </nav>
+      </div>
+    </aside>
+  {% endif %}
+
+  <!-- MOBILE SEARCH PANEL -->
+  <div class="custom-header__search-panel md:tw-hidden" data-mobile-search-panel aria-hidden="true">
+    <div class="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-black/5 tw-px-5 tw-py-5 tw-bg-black">
+      <span class="tw-text-[28px] tw-font-integral tw-font-regular tw-text-white -tw-translate-y-2">Search</span>
+
+      <button
+        type="button"
+        class="tw-inline-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none tw-leading-none hover:tw-bg-transparent focus:tw-outline-none focus:tw-ring-0"
+        aria-label="Close search"
+        data-mobile-search-close
+      >
+        {% render 'shop-co-icons', icon: 'close-white' %}
+      </button>
     </div>
 
+    <div class="tw-flex-1 tw-p-5 tw-overflow-y-auto">
+      <form action="{{ routes.search_url }}" method="get" role="search">
+        <div
+          class="tw-flex tw-items-center tw-gap-3 tw-rounded-full tw-px-[16px] tw-py-[14px] tw-mb-6"
+          style="background-color: #EAEAEA;"
+          data-search-field
+        >
+          {% render 'shop-co-icons', icon: 'search-panel' %}
+
+          <input
+            type="search"
+            name="q"
+            value="{{ search.terms | escape }}"
+            placeholder="Search for products..."
+            class="tw-min-w-0 tw-flex-1 tw-bg-transparent tw-border-0 tw-outline-none tw-shadow-none tw-w-[85%] tw-text-[14px] placeholder:tw-text-[#9B9B9B]"
+            data-search-input
+            data-mobile-search-input
+          >
+
+          <button
+            type="button"
+            class="tw-hidden tw-flex-none tw-border-0 tw-bg-transparent tw-p-0 tw-text-black tw-shadow-none"
+            aria-label="Clear search"
+            data-search-clear
+          >
+            {% render 'shop-co-icons', icon: 'close' %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 {% schema %}
-{
+    {
     "name": "Custom Header",
     "settings": [
         {
-            "type": "header",
-            "content": "Menu Settings",
+            "type"   : "header",
+            "content": "Menu Settings"
         },
         {
-            "type": "image_picker",
-            "id": "logo_image",
+            "type" : "image_picker",
+            "id"   : "logo_image",
             "label": "Logo image"
         },
         {
-            "type": "text",
-            "id": "logo_text",
-            "label": "Logo text",
-            "default": "SHOP.CO"
+            "type"   : "text",
+            "id"     : "logo_text",
+            "label"  : "Logo text",
+            "default": "Luminore"
         },
         {
-            "type": "color",
-            "id": "header_bg",
-            "label": "Header background",
+            "type"   : "color",
+            "id"     : "header_bg",
+            "label"  : "Header background",
             "default": "#F2F0F1"
         },
         {
-            "type": "header",
+            "type"   : "header",
             "content": "Navigation Links Settings"
         },
         {
-            "type": "link_list",
-            "id": "desktop_menu",
+            "type" : "link_list",
+            "id"   : "desktop_menu",
             "label": "Desktop menu"
         },
         {
-            "type": "link_list",
-            "id": "mobile_menu",
+            "type" : "link_list",
+            "id"   : "mobile_menu",
             "label": "Mobile menu"
         },
         {
-            "type": "header",
+            "type"   : "header",
             "content": "Additional Settings"
         },
         {
-            "type": "checkbox",
-            "id": "show_cart",
-            "label": "Show cart icon",
+            "type"   : "checkbox",
+            "id"     : "show_cart",
+            "label"  : "Show cart icon",
             "default": true
         },
         {
-            "type": "checkbox",
-            "id": "show_account",
-            "label": "Show account icon",
+            "type"   : "checkbox",
+            "id"     : "show_account",
+            "label"  : "Show account icon",
             "default": true
         },
         {
-            "type": "header",
+            "type"   : "header",
             "content": "Collections Mega Menu",
-            "info": "Configure 4 collections with hero images for the Collections dropdown menu."
+            "info"   : "Configure 4 collections with hero images for the Collections dropdown menu."
         },
         {
-            "type": "collection",
-            "id": "collection_bracelets",
+            "type" : "collection",
+            "id"   : "collection_bracelets",
             "label": "Bracelets Collection"
         },
         {
-            "type": "collection",
-            "id": "collection_earrings",
+            "type" : "collection",
+            "id"   : "collection_earrings",
             "label": "Earrings Collection"
         },
         {
-            "type": "collection",
-            "id": "collection_necklaces",
+            "type" : "collection",
+            "id"   : "collection_necklaces",
             "label": "Necklace Collection"
         },
         {
-            "type": "collection",
-            "id": "collection_rings",
+            "type" : "collection",
+            "id"   : "collection_rings",
             "label": "Rings Collection"
         }
     ],
@@ -741,5 +782,5 @@
             "name": "Custom Header"
         }
     ]
-}
+    }
 {% endschema %}

@@ -1,12 +1,34 @@
 <section class="lm-hero" aria-labelledby="HeroTitle-{{ section.id }}">
-  <luminore-parallax class="lm-hero-media" {% if section.settings.parallax %}enabled{% endif %}>
+  <luminore-parallax
+    class="lm-hero-media"
+    {% if section.settings.parallax %}
+      enabled
+    {% endif %}
+  >
     <div class="lm-hero-layer lm-hero-layer--back" data-speed="0.55">
-      {% render 'luminore-image', image: section.settings.image, product: section.settings.product, image_index: 2, eager: true, sizes: '100vw', alt: 'Jewelry in warm light' %}
+      {% render 'luminore-image',
+        image: section.settings.image,
+        product: section.settings.product,
+        image_index: 2,
+        eager: true,
+        sizes: '100vw',
+        alt: 'Jewelry in warm light'
+      %}
     </div>
     <div class="lm-hero-shade"></div>
     {% if section.settings.foreground_image != blank %}
       <div class="lm-hero-layer lm-hero-layer--front" data-speed="1">
-        {{ section.settings.foreground_image | image_url: width: 1200 | image_tag: widths: '480, 800, 1200', sizes: '(min-width: 750px) 34vw, 44vw', loading: 'eager', fetchpriority: 'high', alt: '', class: 'lm-hero-cutout' }}
+        {{
+          section.settings.foreground_image
+          | image_url: width: 1200
+          | image_tag:
+            widths: '480, 800, 1200',
+            sizes: '(min-width: 750px) 34vw, 44vw',
+            loading: 'eager',
+            fetchpriority: 'high',
+            alt: '',
+            class: 'lm-hero-cutout'
+        }}
       </div>
     {% endif %}
     <span class="lm-hero-ornament" data-speed="-0.3" aria-hidden="true"></span>
@@ -15,9 +37,18 @@
     <p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p>
     <h1 id="HeroTitle-{{ section.id }}">{{ section.settings.heading | escape | newline_to_br }}</h1>
     <p class="lm-hero-description">{{ section.settings.text | escape }}</p>
-    <a class="lm-button lm-button-light" href="{{ section.settings.link | default: routes.all_products_collection_url }}">{{ section.settings.button | escape }} <span aria-hidden="true">↗</span></a>
+    <a
+      class="lm-button lm-button-light"
+      href="{{ section.settings.link | default: routes.all_products_collection_url }}"
+    >
+      {{- section.settings.button | escape }}
+      <span aria-hidden="true">↗</span></a
+    >
   </div>
-  <div class="lm-hero-bottom"><span>FORM. FEELING. INDIVIDUALITY.</span><a href="#luminore-collections">Discover more <span aria-hidden="true">↓</span></a></div>
+  <div class="lm-hero-bottom">
+    <span>FORM. FEELING. INDIVIDUALITY.</span
+    ><a href="#luminore-collections">Discover more <span aria-hidden="true">↓</span></a>
+  </div>
 </section>
 {% schema %}
 {
@@ -28,7 +59,12 @@
     { "type": "product", "id": "product", "label": "Fallback product photography" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE ART OF EVERYDAY EXPRESSION" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "A statement,\nentirely yours." },
-    { "type": "text", "id": "text", "label": "Description", "default": "Sculptural forms. Unexpected pairings. Jewelry that feels like you." },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Description",
+      "default": "Sculptural forms. Unexpected pairings. Jewelry that feels like you."
+    },
     { "type": "text", "id": "button", "label": "Button", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Button link" },
     { "type": "checkbox", "id": "parallax", "label": "Enable gentle parallax", "default": true }
