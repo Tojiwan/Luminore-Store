@@ -1237,6 +1237,25 @@ luminore-stack {
   }
 }
 
+@media (min-width: 990px) {
+  .facets-vertical {
+    position: sticky;
+    top: calc(var(--lm-header-height) + 2rem);
+    max-height: calc(100vh - var(--lm-header-height) - 4rem);
+    max-height: calc(100svh - var(--lm-header-height) - 4rem);
+    overflow-y: auto;
+  }
+
+  .facets-vertical .facets__disclosure-vertical {
+    border-bottom: 1px solid var(--lm-line);
+  }
+
+  .facets-vertical .facets__display-vertical {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
