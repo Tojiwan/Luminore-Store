@@ -1,0 +1,31 @@
+<section class="lm-section lm-signature" aria-labelledby="Signature-{{ section.id }}">
+  <div class="lm-section-heading"><div><p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2 id="Signature-{{ section.id }}">{{ section.settings.heading | escape }}</h2></div><a class="lm-text-link" href="{{ routes.all_products_collection_url }}">Shop all jewelry <span aria-hidden="true">↗</span></a></div>
+  <div class="lm-product-grid">
+    {% for block in section.blocks %}
+      {% assign item = block.settings.product %}
+      <article class="lm-product" {{ block.shopify_attributes }}>
+        {% if item != blank %}
+          <a href="{{ item.url }}">
+            <div class="lm-product-image">{% render 'luminore-image', product: item, sizes: '(min-width: 750px) 25vw, 50vw' %}{% unless item.available %}<span class="lm-product-badge">Sold out</span>{% endunless %}</div>
+            <h3>{{ item.title | escape }}</h3>
+            <p class="lm-product-price">{% if item.price_varies %}From {% endif %}{{ item.price | money }}{% if item.compare_at_price > item.price %} <s>{{ item.compare_at_price | money }}</s>{% endif %}</p>
+          </a>
+        {% else %}
+          <div class="lm-product-image">{% render 'luminore-image', alt: 'Select a product in the theme editor' %}</div><h3>Your signature piece</h3><p>Select a product in the theme editor.</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Luminore signature edit",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "CONSIDERED PIECES. ENDLESS POSSIBILITIES." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Signature Edit" }
+  ],
+  "max_blocks": 8,
+  "blocks": [{ "type": "product", "name": "Product", "settings": [{ "type": "product", "id": "product", "label": "Product" }] }],
+  "presets": [{ "name": "Luminore signature edit", "blocks": [{ "type": "product" }, { "type": "product" }, { "type": "product" }, { "type": "product" }] }]
+}
+{% endschema %}

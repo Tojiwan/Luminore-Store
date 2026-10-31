@@ -305,7 +305,7 @@
     <header
         class="custom-header tw-w-full tw-z-50"
         data-custom-header
-        style="background-color: {{ section.settings.header_bg }}CC; backdrop-filter: blur(10px);"
+        style="background-color: rgba(13, 13, 13, 0.95); backdrop-filter: blur(16px);"
     >
         <div class="page-width">
             <!-- =========================
@@ -392,19 +392,9 @@
 
                         <!-- CART -->
                         {% if section.settings.show_cart %}
-                        <a
-                            href="{{ routes.cart_url }}"
-                            class="tw-relative tw-text-black hover:tw-opacity-70"
-                            aria-label="Cart"
-                        >
-                            {% render 'shop-co-icons', icon: 'cart' %}
-
-                            {% if cart.item_count > 0 %}
-                            <span class="tw-absolute -tw-top-2 -tw-right-2 tw-flex tw-h-4 tw-min-w-[16px] tw-items-center tw-justify-center tw-rounded-full tw-bg-black tw-px-1 tw-text-[10px] tw-text-white">
-                                {{ cart.item_count }}
-                            </span>
-                            {% endif %}
-                        </a>
+                        <div id="shopify-section-cart-icon-bubble" class="shopify-section" data-section-id="cart-icon-bubble" data-section-type="cart-icon-bubble">
+                          {% render 'cart-icon-bubble', id: 'cart-icon-bubble' %}
+                        </div>
                         {% endif %}
                     </div>
                 </div>
@@ -477,84 +467,79 @@
                         {% endif %}
                     {% endfor %}
 
-                    <!-- HARDCODED MEGA MENU TRIGGER -->
-                    {% assign has_mega = false %}
-                    {% if section.settings.mega_collection_1 != blank %}{% assign has_mega = true %}{% endif %}
-                    {% if section.settings.mega_collection_2 != blank %}{% assign has_mega = true %}{% endif %}
-                    {% if section.settings.mega_collection_3 != blank %}{% assign has_mega = true %}{% endif %}
-                    {% if section.settings.mega_collection_4 != blank %}{% assign has_mega = true %}{% endif %}
-                    {% if has_mega %}
+                    <!-- Collections Trigger -->
+                    <a href="#" class="tw-flex tw-items-center tw-text-[#c9a962] tw-no-underline tw-font-medium transition-colors hover:text-[#ffffff]">Collections</a>
                     <div class="mega-menu-wrapper">
-                        <a href="#" class="tw-flex tw-items-center tw-text-black tw-no-underline tw-font-medium">
+                        <a href="#" class="tw-flex tw-items-center tw-text-[#c9a962] tw-no-underline tw-font-medium transition-colors hover:text-[#ffffff]">
                             Collections
                         </a>
-                        <div class="mega-menu-panel">
+                        <div class="mega-menu-panel" style="background-color: #0d0d0d; border-top: 1px solid rgba(201, 169, 98, 0.2);">
                             <div class="page-width">
                                 <div class="tw-grid tw-grid-cols-4 tw-gap-6 tw-justify-center">
-                                {% if section.settings.mega_collection_1 != blank %}
-                                {% assign collection = section.settings.mega_collection_1 %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity">
-                                    {% if collection.image %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-gray-100">
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-300 hover:tw-scale-105" alt="{{ collection.title }}">
+                                {% if section.settings.collection_bracelets != blank %}
+                                {% assign collection = section.settings.collection_bracelets %}
+                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
+                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                                        {% if collection.image %}
+                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
+                                        {% else %}
+                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
+                                        </div>
+                                        {% endif %}
                                     </div>
-                                    {% else %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-bg-gray-100 tw-flex tw-items-center tw-justify-center">
-                                        <span class="tw-text-gray-400 tw-text-sm">No image</span>
-                                    </div>
-                                    {% endif %}
-                                    <span class="tw-block tw-text-black tw-font-satoshi tw-text-[14px] md:tw-text-[18px] tw-no-underline">{{ collection.title }}</span>
+                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
                                 </a>
                                 {% endif %}
-                                {% if section.settings.mega_collection_2 != blank %}
-                                {% assign collection = section.settings.mega_collection_2 %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity">
-                                    {% if collection.image %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-gray-100">
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-300 hover:tw-scale-105" alt="{{ collection.title }}">
+                                {% if section.settings.collection_earrings != blank %}
+                                {% assign collection = section.settings.collection_earrings %}
+                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
+                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                                        {% if collection.image %}
+                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
+                                        {% else %}
+                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
+                                        </div>
+                                        {% endif %}
                                     </div>
-                                    {% else %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-bg-gray-100 tw-flex tw-items-center tw-justify-center">
-                                        <span class="tw-text-gray-400 tw-text-sm">No image</span>
-                                    </div>
-                                    {% endif %}
-                                    <span class="tw-block tw-text-black tw-font-satoshi tw-text-[14px] md:tw-text-[18px] tw-no-underline">{{ collection.title }}</span>
+                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
                                 </a>
                                 {% endif %}
-                                {% if section.settings.mega_collection_3 != blank %}
-                                {% assign collection = section.settings.mega_collection_3 %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity">
-                                    {% if collection.image %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-gray-100">
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-300 hover:tw-scale-105" alt="{{ collection.title }}">
+                                {% if section.settings.collection_necklaces != blank %}
+                                {% assign collection = section.settings.collection_necklaces %}
+                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
+                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                                        {% if collection.image %}
+                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
+                                        {% else %}
+                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
+                                        </div>
+                                        {% endif %}
                                     </div>
-                                    {% else %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-bg-gray-100 tw-flex tw-items-center tw-justify-center">
-                                        <span class="tw-text-gray-400 tw-text-sm">No image</span>
-                                    </div>
-                                    {% endif %}
-                                    <span class="tw-block tw-text-black tw-font-satoshi tw-text-[14px] md:tw-text-[18px] tw-no-underline">{{ collection.title }}</span>
+                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
                                 </a>
                                 {% endif %}
-                                {% if section.settings.mega_collection_4 != blank %}
-                                {% assign collection = section.settings.mega_collection_4 %}
-                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity">
-                                    {% if collection.image %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-gray-100">
-                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-300 hover:tw-scale-105" alt="{{ collection.title }}">
+                                {% if section.settings.collection_rings != blank %}
+                                {% assign collection = section.settings.collection_rings %}
+                                <a href="{{ collection.url }}" class="tw-no-underline tw-block tw-text-center hover:tw-opacity-70 transition-opacity group">
+                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
+                                        {% if collection.image %}
+                                        <img src="{{ collection.image | image_url: width: 600 }}" class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700" alt="{{ collection.title }}">
+                                        {% else %}
+                                        <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
+                                            <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
+                                        </div>
+                                        {% endif %}
                                     </div>
-                                    {% else %}
-                                    <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-bg-gray-100 tw-flex tw-items-center tw-justify-center">
-                                        <span class="tw-text-gray-400 tw-text-sm">No image</span>
-                                    </div>
-                                    {% endif %}
-                                    <span class="tw-block tw-text-black tw-font-satoshi tw-text-[14px] md:tw-text-[18px] tw-no-underline">{{ collection.title }}</span>
+                                    <span class="tw-block tw-text-[#f5f5f0] tw-font-cormorant tw-text-[16px] md:tw-text-[20px] tw-no-underline">{{ collection.title }}</span>
                                 </a>
                                 {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
-                    {% endif %}
                 </nav>
                 {% endif %}
             </div>
@@ -727,28 +712,28 @@
         },
         {
             "type": "header",
-            "content": "Mega Menu Collections",
-            "info": "The 'Collections' navigation link will appear when at least one collection is selected below."
+            "content": "Collections Mega Menu",
+            "info": "Configure 4 collections with hero images for the Collections dropdown menu."
         },
         {
             "type": "collection",
-            "id": "mega_collection_1",
-            "label": "Collection 1"
+            "id": "collection_bracelets",
+            "label": "Bracelets Collection"
         },
         {
             "type": "collection",
-            "id": "mega_collection_2",
-            "label": "Collection 2"
+            "id": "collection_earrings",
+            "label": "Earrings Collection"
         },
         {
             "type": "collection",
-            "id": "mega_collection_3",
-            "label": "Collection 3"
+            "id": "collection_necklaces",
+            "label": "Necklace Collection"
         },
         {
             "type": "collection",
-            "id": "mega_collection_4",
-            "label": "Collection 4"
+            "id": "collection_rings",
+            "label": "Rings Collection"
         }
     ],
     "presets": [

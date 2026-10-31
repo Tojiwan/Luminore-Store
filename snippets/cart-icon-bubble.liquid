@@ -7,12 +7,15 @@
   href="{{ routes.cart_url }}"
   class="header__icon header__icon--cart link focus-inset cart-icon-bubble-trigger"
   data-cart-trigger
+  {% if id != blank %}
+    id="{{ id }}"
+  {% endif %}
 >
   <span class="svg-wrapper">
     {% if template == 'page.about-us' %}
-      {% render 'icon-cart', size: 22, color: 'white' %}
+      {% render 'icon-cart', size: 22, color: '#000000' %}
     {% else %}
-      {% render 'icon-cart', size: 22, color: '#69707D' %}
+      {% render 'icon-cart', size: 22, color: '#000000' %}
     {% endif %}
   </span>
   <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>

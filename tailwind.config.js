@@ -21,6 +21,8 @@ content: [
       fontFamily: {
         integral: ['"Integral CF"', 'sans-serif'],
         satoshi: ['"Satoshi"', 'sans-serif'],
+        cormorant: ['"Cormorant Garamond"', 'serif'],
+        playfair: ['"Playfair Display"', 'serif'],
       }
     },
   },

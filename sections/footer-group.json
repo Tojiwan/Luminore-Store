@@ -13,10 +13,21 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "shop": {
+          "type": "link_list",
+          "settings": { "heading": "Explore", "menu": "main-menu" }
+        },
+        "care": {
+          "type": "link_list",
+          "settings": { "heading": "Customer care", "menu": "footer" }
+        }
+      },
+      "block_order": ["shop", "care"],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "Your next statement starts here.",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,

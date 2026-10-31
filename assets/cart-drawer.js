@@ -4,25 +4,43 @@ class CartDrawer extends HTMLElement {
 
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
-    this.setHeaderCartIconAccessibility();
+    this.initCartIconListener();
   }
 
-  setHeaderCartIconAccessibility() {
-    const cartLink = document.querySelector('#cart-icon-bubble');
-    if (!cartLink) return;
+  initCartIconListener() {
+    const attachToCartIcons = () => {
+      const cartLinks = document.querySelectorAll('#cart-icon-bubble, .fixed-cart-icon .cart-icon-bubble-trigger');
+      if (cartLinks.length === 0) return false;
 
-    cartLink.setAttribute('role', 'button');
-    cartLink.setAttribute('aria-haspopup', 'dialog');
-    cartLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.open(cartLink);
-    });
-    cartLink.addEventListener('keydown', (event) => {
-      if (event.code.toUpperCase() === 'SPACE') {
-        event.preventDefault();
-        this.open(cartLink);
-      }
-    });
+      cartLinks.forEach(cartLink => {
+        if (cartLink.dataset.cartDrawerAttached) return;
+        cartLink.dataset.cartDrawerAttached = 'true';
+        cartLink.setAttribute('role', 'button');
+        cartLink.setAttribute('aria-haspopup', 'dialog');
+        cartLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          this.open(cartLink);
+        });
+        cartLink.addEventListener('keydown', (event) => {
+          if (event.code.toUpperCase() === 'SPACE') {
+            event.preventDefault();
+            this.open(cartLink);
+          }
+        });
+      });
+      return true;
+    };
+
+    if (!attachToCartIcons()) {
+      const observer = new MutationObserver(() => {
+        if (attachToCartIcons()) observer.disconnect();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      setTimeout(() => {
+        if (attachToCartIcons()) observer.disconnect();
+      }, 2000);
+    }
   }
 
   open(triggeredBy) {

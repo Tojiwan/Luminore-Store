@@ -1,0 +1,29 @@
+<section {% if section.settings.layout == 'story' %}id="luminore-story"{% endif %} class="lm-editorial lm-editorial--{{ section.settings.layout }}" aria-labelledby="Editorial-{{ section.id }}">
+  <luminore-parallax class="lm-editorial-media" {% if section.settings.parallax %}enabled{% endif %}>
+    <div class="lm-parallax-image">{% render 'luminore-image', image: section.settings.image, product: section.settings.product, image_index: 1, alt: section.settings.heading %}</div>
+  </luminore-parallax>
+  <div class="lm-editorial-copy">
+    <p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h2 id="Editorial-{{ section.id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+    <div class="lm-prose">{{ section.settings.text }}</div>
+    {% if section.settings.button != blank %}<a class="lm-text-link" href="{{ section.settings.link | default: section.settings.product.url | default: routes.all_products_collection_url }}">{{ section.settings.button | escape }} <span aria-hidden="true">↗</span></a>{% endif %}
+    {% if section.settings.layout == 'story' %}<span class="lm-editorial-signature" aria-hidden="true">Luminore.</span>{% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Luminore editorial",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Style", "options": [{ "value": "feature", "label": "Olive collection feature" }, { "value": "detail", "label": "Parchment details" }, { "value": "story", "label": "Brand story" }], "default": "feature" },
+    { "type": "image_picker", "id": "image", "label": "Editorial image" },
+    { "type": "product", "id": "product", "label": "Fallback product photography" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "IN FOCUS" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "An instinct\nfor the unexpected." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Discover sculptural jewelry that brings a new perspective to your everyday style.</p>" },
+    { "type": "text", "id": "button", "label": "Link label", "default": "Discover the piece" },
+    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "checkbox", "id": "parallax", "label": "Enable gentle parallax", "default": true }
+  ],
+  "presets": [{ "name": "Luminore editorial" }]
+}
+{% endschema %}

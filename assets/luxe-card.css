@@ -1,0 +1,50 @@
+/* Luxury Product Cards */
+.luxe-card-wrapper .card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(210, 180, 140, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.luxe-card-wrapper .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(210, 180, 140, 0.5);
+}
+
+.luxe-card-wrapper .card__media img {
+  transition: transform 0.7s ease;
+}
+
+.luxe-card-wrapper .card:hover .card__media img {
+  transform: scale(1.08);
+}
+
+.luxe-card-wrapper .card__information {
+  background: linear-gradient(to top, rgba(13, 13, 13, 0.95), transparent);
+  padding: 2rem 1.5rem;
+}
+
+.luxe-card-wrapper .card-information .card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.luxe-card-wrapper .card-information .price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.luxe-card-wrapper .card__badge {
+  top: 1rem;
+  left: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  background: #c9a962;
+  color: #0d0d0d;
+}

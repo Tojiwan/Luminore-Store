@@ -1,0 +1,13 @@
+/* Parallax Hero Section */
+.parallax-hero {
+  font-family: 'Playfair Display', serif;
+}
+
+.parallax-hero .hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.parallax-hero .hero-subtitle {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
