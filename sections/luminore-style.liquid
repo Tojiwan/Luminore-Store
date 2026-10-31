@@ -1,15 +1,42 @@
 <section class="lm-section lm-style" aria-labelledby="Style-{{ section.id }}">
-  <div class="lm-section-heading"><div><p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2 id="Style-{{ section.id }}">{{ section.settings.heading | escape }}</h2></div><p>{{ section.settings.text | escape }}</p></div>
+  <div class="lm-section-heading">
+    <div>
+      <p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2 id="Style-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+    </div>
+    <p>{{ section.settings.text | escape }}</p>
+  </div>
   <luminore-stack class="lm-stack">
     {% for block in section.blocks %}
-      <article class="lm-stack-card" data-stack-card style="--lm-card-index: {{ forloop.index }}" {{ block.shopify_attributes }}>
-        <a class="lm-stack-link" data-stack-link href="{{ block.settings.product.url | default: routes.all_products_collection_url }}">
-          <div class="lm-stack-media">{% render 'luminore-image', image: block.settings.image, product: block.settings.product, image_index: 2, alt: block.settings.title %}</div>
+      <article
+        class="lm-stack-card"
+        data-stack-card
+        style="--lm-card-index: {{ forloop.index }}"
+        {{ block.shopify_attributes }}
+      >
+        <a
+          class="lm-stack-link"
+          data-stack-link
+          href="{{ block.settings.product.url | default: routes.all_products_collection_url }}"
+        >
+          <div class="lm-stack-media">
+            {% render 'luminore-image',
+              image: block.settings.image,
+              product: block.settings.product,
+              image_index: 2,
+              alt: block.settings.title
+            %}
+          </div>
           <div class="lm-stack-shade" aria-hidden="true"></div>
           <div class="lm-stack-caption">
             <span class="lm-eyebrow">0{{ forloop.index }} / THE STYLE NOTES</span>
-            <h3>{{ block.settings.title | escape }} <span aria-hidden="true">↗</span></h3>
-            {% if block.settings.text != blank %}<p>{{ block.settings.text | escape }}</p>{% endif %}
+            <h3>
+              {{ block.settings.title | escape }}
+              <span aria-hidden="true">↗</span>
+            </h3>
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text | escape }}</p>
+            {% endif %}
           </div>
         </a>
       </article>
@@ -22,15 +49,33 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "NO RULES. JUST YOU." },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Styled your way." },
-    { "type": "text", "id": "text", "label": "Text", "default": "Layer it. Contrast it. Make it yours. An individual point of view, for every expression." }
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Layer it. Contrast it. Make it yours. An individual point of view, for every expression."
+    }
   ],
-  "max_blocks": 3,
-  "blocks": [{ "type": "look", "name": "Look", "settings": [
-    { "type": "text", "id": "title", "label": "Title", "default": "The art of layering" },
-    { "type": "textarea", "id": "text", "label": "Short text", "default": "A considered stack of sculptural pieces, worn without rules." },
-    { "type": "image_picker", "id": "image", "label": "Campaign or on-model image" },
-    { "type": "product", "id": "product", "label": "Featured product / fallback image" }
-  ] }],
-  "presets": [{ "name": "Luminore style notes", "blocks": [{ "type": "look" }, { "type": "look" }, { "type": "look" }] }]
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "look",
+      "name": "Look",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "The art of layering" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Short text",
+          "default": "A considered stack of sculptural pieces, worn without rules."
+        },
+        { "type": "image_picker", "id": "image", "label": "Campaign or on-model image" },
+        { "type": "product", "id": "product", "label": "Featured product / fallback image" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Luminore style notes", "blocks": [{ "type": "look" }, { "type": "look" }, { "type": "look" }] }
+  ]
 }
 {% endschema %}

@@ -15,62 +15,151 @@
     "categories": {
       "type": "luminore-categories",
       "blocks": {
-        "rings": { "type": "category", "settings": { "title": "Rings", "product": "diamond-and-sapphire-white-gold-ring", "link": "/search?q=ring&type=product" } },
-        "necklaces": { "type": "category", "settings": { "title": "Necklaces", "product": "luminore-amor-pendant-necklace", "link": "/search?q=pendant&type=product" } },
-        "earrings": { "type": "category", "settings": { "title": "Earrings", "product": "luminore-elan-twist-hoops", "link": "/search?q=earrings+OR+hoops&type=product" } },
-        "bracelets": { "type": "category", "settings": { "title": "Bracelets", "product": "luminore-lumiere-tennis-bracelet", "link": "/search?q=bracelet+OR+bangle&type=product" } }
+        "rings": {
+          "type": "category",
+          "settings": {
+            "title": "Rings",
+            "product": "diamond-and-sapphire-white-gold-ring",
+            "link": "/search?q=ring&type=product"
+          }
+        },
+        "necklaces": {
+          "type": "category",
+          "settings": {
+            "title": "Necklaces",
+            "product": "luminore-amor-pendant-necklace",
+            "link": "/search?q=pendant&type=product"
+          }
+        },
+        "earrings": {
+          "type": "category",
+          "settings": {
+            "title": "Earrings",
+            "product": "luminore-elan-twist-hoops",
+            "link": "/search?q=earrings+OR+hoops&type=product"
+          }
+        },
+        "bracelets": {
+          "type": "category",
+          "settings": {
+            "title": "Bracelets",
+            "product": "luminore-lumiere-tennis-bracelet",
+            "link": "/search?q=bracelet+OR+bangle&type=product"
+          }
+        }
       },
       "block_order": ["rings", "necklaces", "earrings", "bracelets"],
-      "settings": { "eyebrow": "A WORLD OF POSSIBILITIES", "heading": "Your next signature." }
+      "settings": {
+        "eyebrow": "A WORLD OF POSSIBILITIES",
+        "heading": "Your next signature."
+      }
     },
     "signature": {
       "type": "luminore-products",
       "blocks": {
-        "amor": { "type": "product", "settings": { "product": "luminore-amor-pendant-necklace" } },
-        "hoops": { "type": "product", "settings": { "product": "luminore-elan-twist-hoops" } },
-        "bangle": { "type": "product", "settings": { "product": "luminore-solara-sapphire-bangle" } },
-        "ring": { "type": "product", "settings": { "product": "diamond-and-sapphire-white-gold-ring" } }
+        "amor": {
+          "type": "product",
+          "settings": { "product": "luminore-amor-pendant-necklace" }
+        },
+        "hoops": {
+          "type": "product",
+          "settings": { "product": "luminore-elan-twist-hoops" }
+        },
+        "bangle": {
+          "type": "product",
+          "settings": { "product": "luminore-solara-sapphire-bangle" }
+        },
+        "ring": {
+          "type": "product",
+          "settings": { "product": "diamond-and-sapphire-white-gold-ring" }
+        }
       },
       "block_order": ["amor", "hoops", "bangle", "ring"],
-      "settings": { "eyebrow": "CONSIDERED PIECES. ENDLESS POSSIBILITIES.", "heading": "The Signature Edit" }
+      "settings": {
+        "eyebrow": "CONSIDERED PIECES. ENDLESS POSSIBILITIES.",
+        "heading": "The Signature Edit"
+      }
     },
     "collection_story": {
       "type": "luminore-editorial",
       "settings": {
-        "layout": "feature", "product": "luminore-elan-twist-hoops", "eyebrow": "IN FOCUS / THE ÉLAN TWIST HOOPS",
+        "layout": "feature",
+        "product": "luminore-elan-twist-hoops",
+        "eyebrow": "IN FOCUS / THE ÉLAN TWIST HOOPS",
         "heading": "An instinct for\nthe unexpected.",
         "text": "<p>A twist of gold. A different perspective. Meet the sculptural hoops that bring movement to your everyday.</p><p>Wear them alone, or make them part of a story only you can tell.</p>",
-        "button": "Discover Élan", "parallax": true
+        "button": "Discover Élan",
+        "parallax": true
       }
     },
     "style_notes": {
       "type": "luminore-style",
       "blocks": {
-        "layer": { "type": "look", "settings": { "title": "The art of layering", "text": "A considered stack of sculptural pieces, worn without rules.", "product": "luminore-amor-pendant-necklace" } },
-        "color": { "type": "look", "settings": { "title": "A little unexpected color", "text": "A citrine flash against warm metal. The unexpected pairing is the point.", "product": "luminore-solea-citrine-earrings" } },
-        "contrast": { "type": "look", "settings": { "title": "The art of contrast", "text": "Mix metals, scale and texture. Let the differences do the talking.", "product": "luminore-lumiere-tennis-bracelet" } }
+        "layer": {
+          "type": "look",
+          "settings": {
+            "title": "The art of layering",
+            "text": "A considered stack of sculptural pieces, worn without rules.",
+            "product": "luminore-amor-pendant-necklace"
+          }
+        },
+        "color": {
+          "type": "look",
+          "settings": {
+            "title": "A little unexpected color",
+            "text": "A citrine flash against warm metal. The unexpected pairing is the point.",
+            "product": "luminore-solea-citrine-earrings"
+          }
+        },
+        "contrast": {
+          "type": "look",
+          "settings": {
+            "title": "The art of contrast",
+            "text": "Mix metals, scale and texture. Let the differences do the talking.",
+            "product": "luminore-lumiere-tennis-bracelet"
+          }
+        }
       },
       "block_order": ["layer", "color", "contrast"],
-      "settings": { "eyebrow": "NO RULES. JUST YOU.", "heading": "Styled your way.", "text": "Layer it. Contrast it. Make it yours. An individual point of view, for every expression." }
+      "settings": {
+        "eyebrow": "NO RULES. JUST YOU.",
+        "heading": "Styled your way.",
+        "text": "Layer it. Contrast it. Make it yours. An individual point of view, for every expression."
+      }
     },
     "details": {
       "type": "luminore-editorial",
       "settings": {
-        "layout": "detail", "product": "luminore-aurielle-tear-pendant", "eyebrow": "TAKE A CLOSER LOOK",
+        "layout": "detail",
+        "product": "luminore-aurielle-tear-pendant",
+        "eyebrow": "TAKE A CLOSER LOOK",
         "heading": "It's all in\nthe details.",
         "text": "<p>The curve of a setting. The way a stone catches the light. The small details that change the whole feeling.</p><p>Explore each piece for its available finishes, sizing and material details. Find the one that speaks to you.</p>",
-        "button": "Explore Aurielle", "parallax": false
+        "button": "Explore Aurielle",
+        "parallax": false
       }
     },
     "our_story": {
       "type": "luminore-editorial",
       "settings": {
-        "layout": "story", "product": "luminore-solara-sapphire-bangle", "eyebrow": "THE LUMINORE POINT OF VIEW",
+        "layout": "story",
+        "product": "luminore-solara-sapphire-bangle",
+        "eyebrow": "THE LUMINORE POINT OF VIEW",
         "heading": "Jewelry without\na prescribed way.",
         "text": "<p>We believe personal style belongs to everyone. Beyond gender, beyond occasions, beyond the expected.</p><p>Luminore is an invitation to experiment. To pair the familiar with something surprising. To wear what feels entirely yours.</p>",
-        "button": "Find your expression", "link": "shopify://collections/all", "parallax": false
+        "button": "Find your expression",
+        "link": "shopify://collections/all",
+        "parallax": false
       }
     }
   },
-  "order": ["campaign", "categories", "signature", "collection_story", "style_notes", "details", "our_story"]
+  "order": [
+    "campaign",
+    "categories",
+    "signature",
+    "collection_story",
+    "style_notes",
+    "details",
+    "our_story"
+  ]
 }

@@ -10,7 +10,9 @@
       <a href="{{ routes.root_url }}#luminore-story">Our story <span aria-hidden="true">↗</span></a>
       {% for link in section.settings.menu.links %}
         <a href="{{ link.url }}">{{ link.title | escape }}</a>
-        {% for child in link.links %}<a class="lm-menu-child" href="{{ child.url }}">{{ child.title | escape }}</a>{% endfor %}
+        {% for child in link.links -%}
+          <a class="lm-menu-child" href="{{ child.url }}">{{ child.title | escape }}</a>
+        {%- endfor %}
       {% endfor %}
     </nav>
   </details>
@@ -19,13 +21,22 @@
     <a href="{{ routes.root_url }}#luminore-collections">Collections</a>
     <a href="{{ routes.root_url }}#luminore-story">Our story</a>
   </nav>
-  <a class="lm-wordmark" href="{{ routes.root_url }}" aria-label="Luminore home">LUMINORE<span class="lm-wordmark-dot" aria-hidden="true">·</span></a>
+  <a class="lm-wordmark" href="{{ routes.root_url }}" aria-label="Luminore home"
+    >LUMINORE<span class="lm-wordmark-dot" aria-hidden="true">·</span></a
+  >
   <div class="lm-header-actions">
     <details class="lm-search">
-      <summary class="lm-icon-button" aria-label="Search jewelry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></summary>
+      <summary class="lm-icon-button" aria-label="Search jewelry">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>
+        </svg>
+      </summary>
       <form class="lm-search-panel" action="{{ routes.search_url }}" method="get" role="search">
         <label for="LuminoreSearch">Find your next statement</label>
-        <div><input id="LuminoreSearch" type="search" name="q" placeholder="Search jewelry" required><button type="submit">Search <span aria-hidden="true">↗</span></button></div>
+        <div>
+          <input id="LuminoreSearch" type="search" name="q" placeholder="Search jewelry" required
+          ><button type="submit">Search <span aria-hidden="true">↗</span></button>
+        </div>
       </form>
     </details>
     {% render 'cart-icon-bubble', id: 'cart-icon-bubble' %}
@@ -36,7 +47,12 @@
   "name": "Luminore header",
   "class": "lm-header-section",
   "settings": [
-    { "type": "text", "id": "announcement", "label": "Announcement", "default": "Jewelry for every expression. Discover your signature." },
+    {
+      "type": "text",
+      "id": "announcement",
+      "label": "Announcement",
+      "default": "Jewelry for every expression. Discover your signature."
+    },
     { "type": "link_list", "id": "menu", "label": "Additional mobile menu links" }
   ]
 }
