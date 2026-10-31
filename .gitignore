@@ -3,3 +3,4 @@ node_modules
 assets/tailwind.output.css
 .playwright-mcp
 .claude
+checklist.md

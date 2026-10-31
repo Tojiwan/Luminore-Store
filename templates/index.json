@@ -46,10 +46,11 @@
     "style_notes": {
       "type": "luminore-style",
       "blocks": {
-        "layer": { "type": "look", "settings": { "title": "The art of layering", "product": "luminore-amor-pendant-necklace" } },
-        "color": { "type": "look", "settings": { "title": "A little unexpected color", "product": "luminore-solea-citrine-earrings" } }
+        "layer": { "type": "look", "settings": { "title": "The art of layering", "text": "A considered stack of sculptural pieces, worn without rules.", "product": "luminore-amor-pendant-necklace" } },
+        "color": { "type": "look", "settings": { "title": "A little unexpected color", "text": "A citrine flash against warm metal. The unexpected pairing is the point.", "product": "luminore-solea-citrine-earrings" } },
+        "contrast": { "type": "look", "settings": { "title": "The art of contrast", "text": "Mix metals, scale and texture. Let the differences do the talking.", "product": "luminore-lumiere-tennis-bracelet" } }
       },
-      "block_order": ["layer", "color"],
+      "block_order": ["layer", "color", "contrast"],
       "settings": { "eyebrow": "NO RULES. JUST YOU.", "heading": "Styled your way.", "text": "Layer it. Contrast it. Make it yours. An individual point of view, for every expression." }
     },
     "details": {

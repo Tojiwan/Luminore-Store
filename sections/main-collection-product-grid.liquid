@@ -159,10 +159,10 @@
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
                 <li
-                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-up{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
                     data-cascade
-                    style="--animation-order: {{ forloop.index }};"
+                    style="--animation-order: {{ forloop.index }}; transition-delay: {{ forloop.index0 | times: 50 }}ms;"
                   {% endif %}
                 >
                   {% render 'card-product',
