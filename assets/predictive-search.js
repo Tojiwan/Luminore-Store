@@ -239,16 +239,15 @@ class PredictiveSearch extends SearchForm {
   }
 
   getResultsMaxHeight() {
-    this.resultsMaxHeight =
-      window.innerHeight - document.querySelector('.section-header')?.getBoundingClientRect().bottom;
-    return this.resultsMaxHeight;
+    const top = this.predictiveSearchResults.getBoundingClientRect().top;
+    return Math.max(0, window.innerHeight - top - 16);
   }
 
   open() {
-    this.predictiveSearchResults.style.maxHeight = this.resultsMaxHeight || `${this.getResultsMaxHeight()}px`;
     this.setAttribute('open', true);
     this.input.setAttribute('aria-expanded', true);
     this.isOpen = true;
+    this.predictiveSearchResults.style.maxHeight = `${this.getResultsMaxHeight()}px`;
   }
 
   close(clearSearchTerm = false) {
@@ -269,7 +268,6 @@ class PredictiveSearch extends SearchForm {
     this.removeAttribute('loading');
     this.removeAttribute('open');
     this.input.setAttribute('aria-expanded', false);
-    this.resultsMaxHeight = false;
     this.predictiveSearchResults.removeAttribute('style');
   }
 }

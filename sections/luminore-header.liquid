@@ -6,7 +6,7 @@
     <summary class="lm-icon-button"><span class="lm-menu-lines" aria-hidden="true"></span><span>Menu</span></summary>
     <nav class="lm-menu-panel" aria-label="Main navigation">
       <a href="{{ routes.all_products_collection_url }}">Shop all jewelry <span aria-hidden="true">↗</span></a>
-      <a href="{{ routes.root_url }}#luminore-collections">Collections <span aria-hidden="true">↗</span></a>
+      <a href="{{ routes.collections_url }}">Collections <span aria-hidden="true">↗</span></a>
       <a href="{{ routes.root_url }}#luminore-story">Our story <span aria-hidden="true">↗</span></a>
       {% for link in section.settings.menu.links %}
         <a href="{{ link.url }}">{{ link.title | escape }}</a>
@@ -18,7 +18,7 @@
   </details>
   <nav class="lm-desktop-nav" aria-label="Main navigation">
     <a href="{{ routes.all_products_collection_url }}">Shop</a>
-    <a href="{{ routes.root_url }}#luminore-collections">Collections</a>
+    <a href="{{ routes.collections_url }}">Collections</a>
     <a href="{{ routes.root_url }}#luminore-story">Our story</a>
   </nav>
   <a class="lm-wordmark" href="{{ routes.root_url }}" aria-label="Luminore home"
@@ -31,13 +31,43 @@
           <circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>
         </svg>
       </summary>
+      {%- if settings.predictive_search_enabled -%}
+        <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
+      {%- endif -%}
       <form class="lm-search-panel" action="{{ routes.search_url }}" method="get" role="search">
         <label for="LuminoreSearch">Find your next statement</label>
-        <div>
-          <input id="LuminoreSearch" type="search" name="q" placeholder="Search jewelry" required
+        <div class="lm-search-field">
+          <input
+            id="LuminoreSearch"
+            type="search"
+            name="q"
+            placeholder="Search jewelry"
+            required
+            {% if settings.predictive_search_enabled %}
+              role="combobox"
+              aria-expanded="false"
+              aria-owns="predictive-search-results"
+              aria-controls="predictive-search-results"
+              aria-haspopup="listbox"
+              aria-autocomplete="list"
+              autocorrect="off"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            {% endif %}
           ><button type="submit">Search <span aria-hidden="true">↗</span></button>
         </div>
+        {%- if settings.predictive_search_enabled -%}
+          <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+            {% render 'predictive-search' %}
+            {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
+          </div>
+          <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+        {%- endif -%}
       </form>
+      {%- if settings.predictive_search_enabled -%}
+        </predictive-search>
+      {%- endif -%}
     </details>
     {% render 'cart-icon-bubble', id: 'cart-icon-bubble' %}
   </div>

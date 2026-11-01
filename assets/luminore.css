@@ -284,13 +284,13 @@ html {
   font-size: 1.3rem;
 }
 
-.lm-search-panel>div {
+.lm-search-panel>.lm-search-field {
   display: flex;
   max-width: 80rem;
   border-bottom: 1px solid var(--lm-ink);
 }
 
-.lm-search-panel input {
+.lm-search-field input {
   flex: 1;
   min-width: 0;
   padding: 1.5rem 0;
@@ -300,13 +300,22 @@ html {
   font: inherit;
 }
 
-.lm-search-panel button {
+.lm-search-field button {
   border: 0;
   background: transparent;
   color: inherit;
   font: inherit;
   cursor: pointer;
   padding: 1rem;
+}
+
+.lm-search-panel .predictive-search {
+  right: -0.1rem;
+  max-height: 60svh;
+  overflow-x: hidden;
+  background: var(--lm-paper);
+  border-color: var(--lm-line);
+  color: var(--lm-ink);
 }
 
 .lm-menu {
@@ -1238,9 +1247,10 @@ luminore-stack {
 }
 
 @media (min-width: 990px) {
-  .facets-vertical {
+  .facets-vertical>.facets-wrapper {
     position: sticky;
     top: calc(var(--lm-header-height) + 2rem);
+    align-self: flex-start;
     max-height: calc(100vh - var(--lm-header-height) - 4rem);
     max-height: calc(100svh - var(--lm-header-height) - 4rem);
     overflow-y: auto;

@@ -441,11 +441,10 @@
                           <a href="{{ child_link.url }}" class="tw-group tw-block">
                             {% if collection and collection.image %}
                               <div class="tw-overflow-hidden tw-rounded-lg tw-bg-gray-100">
-                                <img
-                                  src="{{ collection.image | image_url: width: 600 }}"
-                                  class="tw-w-full tw-h-[220px] tw-object-cover tw-transition group-hover:tw-scale-105"
-                                  alt="{{ child_link.title }}"
-                                >
+                                {{ collection.image | image_url: width: 600 | image_tag:
+                                  class: 'tw-w-full tw-h-[220px] tw-object-cover tw-transition group-hover:tw-scale-105',
+                                  alt: child_link.title
+                                }}
                               </div>
                             {% else %}
                               <div class="tw-w-full tw-h-[220px] tw-bg-gray-200 tw-rounded-lg"></div>
@@ -490,11 +489,10 @@
                       >
                         <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
                           {% if collection.image %}
-                            <img
-                              src="{{ collection.image | image_url: width: 600 }}"
-                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
-                              alt="{{ collection.title }}"
-                            >
+                            {{ collection.image | image_url: width: 600 | image_tag:
+                              class: 'tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700',
+                              alt: collection.title
+                            }}
                           {% else %}
                             <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
                               <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
@@ -514,11 +512,10 @@
                       >
                         <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
                           {% if collection.image %}
-                            <img
-                              src="{{ collection.image | image_url: width: 600 }}"
-                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
-                              alt="{{ collection.title }}"
-                            >
+                            {{ collection.image | image_url: width: 600 | image_tag:
+                              class: 'tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700',
+                              alt: collection.title
+                            }}
                           {% else %}
                             <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
                               <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
@@ -538,11 +535,10 @@
                       >
                         <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
                           {% if collection.image %}
-                            <img
-                              src="{{ collection.image | image_url: width: 600 }}"
-                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
-                              alt="{{ collection.title }}"
-                            >
+                            {{ collection.image | image_url: width: 600 | image_tag:
+                              class: 'tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700',
+                              alt: collection.title
+                            }}
                           {% else %}
                             <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
                               <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>
@@ -562,11 +558,10 @@
                       >
                         <div class="tw-aspect-square tw-mb-3 tw-rounded-[8px] tw-overflow-hidden tw-bg-zinc-900 group-hover:tw-scale-105 tw-transition-transform tw-duration-500">
                           {% if collection.image %}
-                            <img
-                              src="{{ collection.image | image_url: width: 600 }}"
-                              class="tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700"
-                              alt="{{ collection.title }}"
-                            >
+                            {{ collection.image | image_url: width: 600 | image_tag:
+                              class: 'tw-w-full tw-h-full tw-object-cover group-hover:tw-scale-110 tw-transition-transform tw-duration-700',
+                              alt: collection.title
+                            }}
                           {% else %}
                             <div class="tw-flex tw-items-center tw-justify-center tw-h-full">
                               <span class="tw-text-[#c9a962] tw-text-sm">{{ collection.title }}</span>

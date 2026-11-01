@@ -20,7 +20,7 @@
           "settings": {
             "title": "Rings",
             "product": "diamond-and-sapphire-white-gold-ring",
-            "link": "/search?q=ring&type=product"
+            "link": "/collections/luminore-ring-collection"
           }
         },
         "necklaces": {
@@ -28,7 +28,7 @@
           "settings": {
             "title": "Necklaces",
             "product": "luminore-amor-pendant-necklace",
-            "link": "/search?q=pendant&type=product"
+            "link": "/collections/luminore-necklace-collection"
           }
         },
         "earrings": {
@@ -36,7 +36,7 @@
           "settings": {
             "title": "Earrings",
             "product": "luminore-elan-twist-hoops",
-            "link": "/search?q=earrings+OR+hoops&type=product"
+            "link": "/collections/luminore-earrings-collection"
           }
         },
         "bracelets": {
@@ -44,7 +44,7 @@
           "settings": {
             "title": "Bracelets",
             "product": "luminore-lumiere-tennis-bracelet",
-            "link": "/search?q=bracelet+OR+bangle&type=product"
+            "link": "/collections/luminore-bracelet-collection"
           }
         }
       },
