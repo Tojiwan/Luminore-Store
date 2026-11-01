@@ -199,10 +199,6 @@ html {
   letter-spacing: .12em;
 }
 
-.lm-wordmark-dot {
-  color: var(--lm-brass);
-}
-
 .lm-desktop-nav {
   display: flex;
   gap: 2.5rem;
@@ -223,6 +219,37 @@ html {
   align-items: center;
   justify-content: end;
   gap: 2rem;
+}
+
+.lm-header-language .localization-form {
+  margin: 0;
+  padding: 0;
+}
+
+.lm-header-language .localization-form__select {
+  margin: 0;
+  min-height: 4.4rem;
+  background: transparent;
+}
+
+.lm-header-language .disclosure__list-wrapper {
+  top: 100%;
+  bottom: auto;
+  right: 0;
+}
+
+.lm-language-code {
+  display: none;
+}
+
+.luminore-theme .footer__payment .list-payment {
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+.luminore-theme .footer__localization:not(:has(localization-form)) {
+  display: none;
 }
 
 .lm-icon-button {
@@ -783,13 +810,16 @@ luminore-stack {
 }
 
 .lm-footer-brand {
+  container-type: inline-size;
   padding: 6rem 5vw 4rem;
   border-top: 1px solid #f1ede333;
+  text-align: center;
 }
 
 .lm-footer-brand>a {
   font-family: var(--font-heading-family);
-  font-size: clamp(5rem, 14.4vw, 23rem);
+  font-size: 15vw;
+  font-size: 17.5cqw;
   line-height: 1;
   letter-spacing: .04em;
   color: inherit;
@@ -941,8 +971,16 @@ luminore-stack {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.6rem;
+  gap: .8rem;
+  margin: 0;
+  padding: 0;
   text-align: left;
+}
+
+.luminore-theme .footer .copyright__content,
+.luminore-theme .footer .policies li a {
+  margin: 0;
+  padding: 0;
 }
 
 .luminore-theme .footer .policies {
@@ -1026,12 +1064,33 @@ luminore-stack {
     gap: 0;
   }
 
+  .lm-header-language .localization-form__select {
+    min-width: 4.4rem;
+    padding: 0 1.2rem 0 .4rem;
+  }
+
+  .lm-header-language .icon-caret {
+    right: .2rem;
+  }
+
+  .lm-header-language .disclosure__button > span:first-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .lm-header-language .lm-language-code {
+    display: inline;
+  }
+
   .lm-menu .lm-icon-button>span:last-child {
     display: none;
   }
 
   .lm-wordmark {
-    font-size: 2.7rem;
+    font-size: clamp(1.6rem, calc(5.5vw - .2rem), 2.7rem);
     letter-spacing: .08em;
   }
 

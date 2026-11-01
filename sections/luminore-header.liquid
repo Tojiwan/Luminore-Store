@@ -22,7 +22,7 @@
     <a href="{{ routes.root_url }}#luminore-story">Our story</a>
   </nav>
   <a class="lm-wordmark" href="{{ routes.root_url }}" aria-label="Luminore home"
-    >LUMINORE<span class="lm-wordmark-dot" aria-hidden="true">·</span></a
+    >LUMINORE</a
   >
   <div class="lm-header-actions">
     <details class="lm-search">
@@ -70,6 +70,14 @@
       {%- endif -%}
     </details>
     {% render 'cart-icon-bubble', id: 'cart-icon-bubble' %}
+    {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+      <localization-form class="lm-header-language">
+        {%- form 'localization', id: 'LuminoreHeaderLanguageForm', class: 'localization-form' -%}
+          <span class="visually-hidden" id="LuminoreHeaderLanguageLabel">{{ 'localization.language_label' | t }}</span>
+          {%- render 'language-localization', localPosition: 'LuminoreHeaderLanguage', compact_label: true -%}
+        {%- endform -%}
+      </localization-form>
+    {%- endif -%}
   </div>
 </header>
 {% schema %}
@@ -83,7 +91,8 @@
       "label": "Announcement",
       "default": "Jewelry for every expression. Discover your signature."
     },
-    { "type": "link_list", "id": "menu", "label": "Additional mobile menu links" }
+    { "type": "link_list", "id": "menu", "label": "Additional mobile menu links" },
+    { "type": "checkbox", "id": "enable_language_selector", "label": "Show language selector", "default": true }
   ]
 }
 {% endschema %}

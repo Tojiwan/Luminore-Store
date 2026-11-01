@@ -14,6 +14,9 @@
     aria-describedby="{{ localPosition }}Label"
   >
     <span>{{ localization.language.endonym_name | capitalize }}</span>
+    {%- if compact_label -%}
+      <span class="lm-language-code" aria-hidden="true">{{ localization.language.iso_code | upcase }}</span>
+    {%- endif -%}
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>
   <div class="disclosure__list-wrapper language-selector" hidden>
