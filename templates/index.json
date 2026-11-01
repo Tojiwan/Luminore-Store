@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "campaign": {
@@ -19,36 +28,45 @@
           "type": "category",
           "settings": {
             "title": "Rings",
-            "product": "diamond-and-sapphire-white-gold-ring",
-            "link": "/collections/luminore-ring-collection"
+            "collection": "",
+            "link": "/collections/luminore-ring-collection",
+            "product": "diamond-and-sapphire-white-gold-ring"
           }
         },
         "necklaces": {
           "type": "category",
           "settings": {
             "title": "Necklaces",
-            "product": "luminore-amor-pendant-necklace",
-            "link": "/collections/luminore-necklace-collection"
+            "collection": "",
+            "link": "/collections/luminore-necklace-collection",
+            "product": "luminore-amor-pendant-necklace"
           }
         },
         "earrings": {
           "type": "category",
           "settings": {
             "title": "Earrings",
-            "product": "luminore-elan-twist-hoops",
-            "link": "/collections/luminore-earrings-collection"
+            "collection": "",
+            "link": "/collections/luminore-earrings-collection",
+            "product": "luminore-elan-twist-hoops"
           }
         },
         "bracelets": {
           "type": "category",
           "settings": {
             "title": "Bracelets",
-            "product": "luminore-lumiere-tennis-bracelet",
-            "link": "/collections/luminore-bracelet-collection"
+            "collection": "",
+            "link": "/collections/luminore-bracelet-collection",
+            "product": "luminore-lumiere-tennis-bracelet"
           }
         }
       },
-      "block_order": ["rings", "necklaces", "earrings", "bracelets"],
+      "block_order": [
+        "rings",
+        "necklaces",
+        "earrings",
+        "bracelets"
+      ],
       "settings": {
         "eyebrow": "A WORLD OF POSSIBILITIES",
         "heading": "Your next signature."
@@ -59,22 +77,35 @@
       "blocks": {
         "amor": {
           "type": "product",
-          "settings": { "product": "luminore-amor-pendant-necklace" }
+          "settings": {
+            "product": "luminore-amor-pendant-necklace"
+          }
         },
         "hoops": {
           "type": "product",
-          "settings": { "product": "luminore-elan-twist-hoops" }
+          "settings": {
+            "product": "luminore-elan-twist-hoops"
+          }
         },
         "bangle": {
           "type": "product",
-          "settings": { "product": "luminore-solara-sapphire-bangle" }
+          "settings": {
+            "product": "luminore-solara-sapphire-bangle"
+          }
         },
         "ring": {
           "type": "product",
-          "settings": { "product": "diamond-and-sapphire-white-gold-ring" }
+          "settings": {
+            "product": "diamond-and-sapphire-white-gold-ring"
+          }
         }
       },
-      "block_order": ["amor", "hoops", "bangle", "ring"],
+      "block_order": [
+        "amor",
+        "hoops",
+        "bangle",
+        "ring"
+      ],
       "settings": {
         "eyebrow": "CONSIDERED PIECES. ENDLESS POSSIBILITIES.",
         "heading": "The Signature Edit"
@@ -89,6 +120,7 @@
         "heading": "An instinct for\nthe unexpected.",
         "text": "<p>A twist of gold. A different perspective. Meet the sculptural hoops that bring movement to your everyday.</p><p>Wear them alone, or make them part of a story only you can tell.</p>",
         "button": "Discover Élan",
+        "link": "",
         "parallax": true
       }
     },
@@ -120,7 +152,11 @@
           }
         }
       },
-      "block_order": ["layer", "color", "contrast"],
+      "block_order": [
+        "layer",
+        "color",
+        "contrast"
+      ],
       "settings": {
         "eyebrow": "NO RULES. JUST YOU.",
         "heading": "Styled your way.",
@@ -136,6 +172,7 @@
         "heading": "It's all in\nthe details.",
         "text": "<p>The curve of a setting. The way a stone catches the light. The small details that change the whole feeling.</p><p>Explore each piece for its available finishes, sizing and material details. Find the one that speaks to you.</p>",
         "button": "Explore Aurielle",
+        "link": "",
         "parallax": false
       }
     },
@@ -143,6 +180,7 @@
       "type": "luminore-editorial",
       "settings": {
         "layout": "story",
+        "image": "shopify://shop_images/wg-LuminoreSolaraSapphireBangl-3.png",
         "product": "luminore-solara-sapphire-bangle",
         "eyebrow": "THE LUMINORE POINT OF VIEW",
         "heading": "Jewelry without\na prescribed way.",

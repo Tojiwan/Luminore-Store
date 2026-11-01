@@ -143,13 +143,11 @@
         "type": "custom-header",
         "settings": {
           "logo_text": "SHOP.CO",
+          "header_bg": "#f2f0f1",
           "desktop_menu": "header-menu",
           "mobile_menu": "header-menu",
-          "search_placeholder": "Search for products...",
           "show_cart": true,
-          "show_account": true,
-          "header_bg": "#f2f0f1",
-          "search_bg": "#eaeaea"
+          "show_account": true
         }
       }
     },
