@@ -108,7 +108,21 @@
       ],
       "settings": {
         "eyebrow": "CONSIDERED PIECES. ENDLESS POSSIBILITIES.",
-        "heading": "The Signature Edit"
+        "heading": "The Signature Edit",
+        "text_size_mobile": 34,
+        "text_size_desktop": 48,
+        "header_font_color": "#000000",
+        "slides_per_view": 4,
+        "enable_loop": true,
+        "enable_autoplay": true,
+        "autoplay_delay": 3000,
+        "show_navigation": false,
+        "show_pagination": true,
+        "btn_text": "View All",
+        "btn_bg_background": "#ffffff",
+        "btn_text_color": "#000000",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "collection_story": {
@@ -163,6 +177,21 @@
         "text": "Layer it. Contrast it. Make it yours. An individual point of view, for every expression."
       }
     },
+    "luminore_editorial_w4KjkQ": {
+      "type": "luminore-editorial",
+      "name": "Luminore editorial",
+      "settings": {
+        "layout": "feature",
+        "image": "shopify://shop_images/wg-LuminoreSolaraSapphireBangl-3.png",
+        "product": "luminore-solara-sapphire-bangle",
+        "eyebrow": "THE LUMINORE POINT OF VIEW",
+        "heading": "Jewelry without\na prescribed way.",
+        "text": "<p>We believe personal style belongs to everyone. Beyond gender, beyond occasions, beyond the expected.</p><p>Luminore is an invitation to experiment. To pair the familiar with something surprising. To wear what feels entirely yours.</p>",
+        "button": "Find your expression",
+        "link": "shopify://collections/all",
+        "parallax": true
+      }
+    },
     "details": {
       "type": "luminore-editorial",
       "settings": {
@@ -173,11 +202,12 @@
         "text": "<p>The curve of a setting. The way a stone catches the light. The small details that change the whole feeling.</p><p>Explore each piece for its available finishes, sizing and material details. Find the one that speaks to you.</p>",
         "button": "Explore Aurielle",
         "link": "",
-        "parallax": false
+        "parallax": true
       }
     },
     "our_story": {
       "type": "luminore-editorial",
+      "disabled": true,
       "settings": {
         "layout": "story",
         "image": "shopify://shop_images/wg-LuminoreSolaraSapphireBangl-3.png",
@@ -197,6 +227,7 @@
     "signature",
     "collection_story",
     "style_notes",
+    "luminore_editorial_w4KjkQ",
     "details",
     "our_story"
   ]
