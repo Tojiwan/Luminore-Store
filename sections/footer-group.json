@@ -16,15 +16,48 @@
       "blocks": {
         "shop": {
           "type": "link_list",
-          "settings": { "heading": "Explore", "menu": "main-menu" }
+          "settings": {
+            "heading": "Explore",
+            "menu": "main-menu"
+          }
         },
         "care": {
           "type": "categories",
-          "settings": { "heading": "Shop by category", "collections": ["luminore-ring-collection", "luminore-bracelet-collection", "luminore-necklace-collection", "luminore-earrings-collection"] }
+          "settings": {
+            "heading": "Shop by category",
+            "collections": [
+              "luminore-ring-collection",
+              "luminore-bracelet-collection",
+              "luminore-necklace-collection",
+              "luminore-earrings-collection"
+            ]
+          }
         },
         "contact": {
           "type": "contact",
-          "settings": { "heading": "Contact", "contact_url": "/pages/contact" }
+          "settings": {
+            "heading": "Contact",
+            "email": "luminore@gmail.com",
+            "phone": "+63 123 456 7890",
+            "contact_url": "/pages/contact",
+            "contact_label": "Get in touch",
+            "address": "San Fernado City, Pampanga",
+            "heading_size": 22,
+            "heading_color": "#f1ede3",
+            "font_size": 14,
+            "text_color": "#f1ede3",
+            "icon_color": "#f1ede3",
+            "icon_size": 20,
+            "icon_gap": 10,
+            "row_gap": 12,
+            "facebook_url": "https://www.facebook.com",
+            "instagram_url": "https://www.instagram.com",
+            "threads_url": "https://www.threads.com",
+            "tiktok_url": "https://www.tiktok.com",
+            "social_color": "#f1ede3",
+            "social_icon_size": 20,
+            "social_gap": 0
+          }
         }
       },
       "block_order": [
