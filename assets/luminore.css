@@ -1375,7 +1375,7 @@ luminore-stack {
   .luminore-theme .footer__content-top {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 3.5rem;
     padding: 5rem 2rem;
   }
 
@@ -1399,17 +1399,16 @@ luminore-stack {
   .luminore-theme .footer-block--contact {
     grid-column: 1 / -1;
     margin-top: 1.6rem;
-    text-align: center;
+    text-align: left;
   }
 
-  .luminore-theme .lm-contact-details a,
-  .luminore-theme .lm-contact-address,
   .luminore-theme .lm-contact-social {
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 1.6rem;
   }
 
   .luminore-theme .lm-contact-social a {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .lm-footer-brand p {

@@ -120,7 +120,7 @@
                         <li><a href="tel:{{ block.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | escape }}"><span class="lm-contact-icon" aria-hidden="true">{{ 'phone.svg' | inline_asset_content }}</span><span>{{ block.settings.phone | escape }}</span></a></li>
                       {% endif %}
                       {% if block.settings.address != blank %}
-                        <li><address class="lm-contact-address"><span class="lm-contact-icon" aria-hidden="true">{{ 'location-map.svg' | inline_asset_content }}</span><span>{{ block.settings.address | escape | newline_to_br }}</span></address></li>
+                        <li><address class="lm-contact-address"><span class="lm-contact-icon" aria-hidden="true">{{ 'location-map.svg' | inline_asset_content }}</span><span>{{ block.settings.address | escape }}</span></address></li>
                       {% endif %}
                     </ul>
                     {% if section.settings.show_social %}
