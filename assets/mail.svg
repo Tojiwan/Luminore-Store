@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" overflow="visible">
+<defs>
+<mask id="mail-outline-c1" maskUnits="userSpaceOnUse" x="-2" y="-2" width="28" height="28">
+<rect x="-2" y="-2" width="28" height="28" fill="#fff"/>
+<polygon points="6.02,6.38 2.98,3.87 0.98,5.62 2.33,6.74" fill="#000"/>
+<polygon points="19.65,8.4 22.69,5.9 21.35,3.6 20,4.71" fill="#000"/>
+</mask>
+</defs>
+<g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+<path d="M4.5 5L19.5 5L21 6.5L21 17.5L19.5 19L4.5 19L3 17.5L3 6.5L4.5 5Z"/>
+<path d="M3.5 6L11.046 12.215L12.954 12.215L20.5 6" mask="url(#mail-outline-c1)"/>
+</g>
+</svg>

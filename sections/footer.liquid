@@ -68,7 +68,7 @@
           >
             {%- for block in section.blocks -%}
               <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="footer-block grid__item footer-block--{{ block.type }}{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -76,7 +76,7 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  <h2 class="footer-block__heading inline-richtext"{% if block.type == 'contact' %} style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }};"{% endif %}>{{- block.settings.heading -}}</h2>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -95,12 +95,38 @@
                               href="{{ link.url }}"
                               class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                             >
-                              {{ link.title | escape }}
+                              {% if link.url == routes.all_products_collection_url %}Shop all{% else %}{{ link.title | escape }}{% endif %}
                             </a>
                           </li>
                         {%- endfor -%}
                       </ul>
                     {%- endif -%}
+                  {%- when 'categories' -%}
+                    <ul class="footer-block__details-content list-unstyled">
+                      {% for collection in block.settings.collections %}
+                        <li><a class="link link--text list-menu__item list-menu__item--link" href="{{ collection.url }}">{{ collection.title | remove: 'Luminoré ' | remove: 'Luminore ' | remove: ' Collection' | escape }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  {%- when 'contact' -%}
+                    <div class="lm-contact" style="--contact-font-size: {{ block.settings.font_size }}px; --contact-color: {{ block.settings.text_color }}; --contact-icon-color: {{ block.settings.icon_color }}; --contact-icon-size: {{ block.settings.icon_size }}px; --contact-gap: {{ block.settings.row_gap }}px; --contact-icon-gap: {{ block.settings.icon_gap }}px; --contact-social-size: {{ block.settings.social_icon_size }}px; --contact-social-gap: {{ block.settings.social_gap }}px; --contact-social-color: {{ block.settings.social_color }};">
+                    <ul class="lm-contact-details list-unstyled">
+                      {% if block.settings.contact_url != blank and block.settings.contact_label != blank %}
+                        <li><a href="{{ block.settings.contact_url }}">{{ block.settings.contact_label | escape }}</a></li>
+                      {% endif %}
+                      {% if block.settings.email != blank %}
+                        <li><a href="mailto:{{ block.settings.email | escape }}"><span class="lm-contact-icon" aria-hidden="true">{{ 'mail.svg' | inline_asset_content }}</span><span>{{ block.settings.email | escape }}</span></a></li>
+                      {% endif %}
+                      {% if block.settings.phone != blank %}
+                        <li><a href="tel:{{ block.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | escape }}"><span class="lm-contact-icon" aria-hidden="true">{{ 'phone.svg' | inline_asset_content }}</span><span>{{ block.settings.phone | escape }}</span></a></li>
+                      {% endif %}
+                      {% if block.settings.address != blank %}
+                        <li><address class="lm-contact-address"><span class="lm-contact-icon" aria-hidden="true">{{ 'location-map.svg' | inline_asset_content }}</span><span>{{ block.settings.address | escape | newline_to_br }}</span></address></li>
+                      {% endif %}
+                    </ul>
+                    {% if section.settings.show_social %}
+                      {% render 'social_links_v2', settings: block.settings %}
+                    {% endif %}
+                    </div>
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
                       {%- if settings.brand_image != blank -%}
@@ -242,7 +268,8 @@
             </div>
           {%- endif -%}
 
-          {%- if section.settings.show_social and has_social_icons -%}
+          {%- assign contact_blocks = section.blocks | where: 'type', 'contact' -%}
+          {%- if section.settings.show_social and has_social_icons and contact_blocks.size == 0 -%}
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
         </div>
@@ -348,6 +375,45 @@
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label"
         }
+      ]
+    },
+    {
+      "type": "categories",
+      "name": "Shop by category",
+      "settings": [
+        { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Shop by category" },
+        { "type": "collection_list", "id": "collections", "label": "Collections", "limit": 8 }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact",
+      "limit": 1,
+      "settings": [
+        { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Contact" },
+        { "type": "text", "id": "email", "label": "Public email address" },
+        { "type": "text", "id": "phone", "label": "Public phone number" },
+        { "type": "url", "id": "contact_url", "label": "Contact page" },
+        { "type": "text", "id": "contact_label", "label": "Contact page link text", "default": "Get in touch" },
+        { "type": "textarea", "id": "address", "label": "Address" },
+        { "type": "header", "content": "Contact appearance" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 40, "step": 1, "unit": "px", "default": 22 },
+        { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#F1EDE3" },
+        { "type": "range", "id": "font_size", "label": "Text size", "min": 10, "max": 28, "step": 1, "unit": "px", "default": 14 },
+        { "type": "color", "id": "text_color", "label": "Text and link color", "default": "#F1EDE3" },
+        { "type": "color", "id": "icon_color", "label": "Contact icon color", "default": "#F1EDE3" },
+        { "type": "range", "id": "icon_size", "label": "Contact icon size", "min": 12, "max": 40, "step": 2, "unit": "px", "default": 20 },
+        { "type": "range", "id": "icon_gap", "label": "Icon to text gap", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 10 },
+        { "type": "range", "id": "row_gap", "label": "Row gap", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 12 },
+        { "type": "header", "content": "Social links" },
+        { "type": "paragraph", "content": "Enter complete URLs beginning with https://. Blank links and contact details are hidden." },
+        { "type": "text", "id": "facebook_url", "label": "Facebook URL" },
+        { "type": "text", "id": "instagram_url", "label": "Instagram URL" },
+        { "type": "text", "id": "threads_url", "label": "Threads URL" },
+        { "type": "text", "id": "tiktok_url", "label": "TikTok URL" },
+        { "type": "color", "id": "social_color", "label": "Social icon color", "default": "#F1EDE3" },
+        { "type": "range", "id": "social_icon_size", "label": "Social icon size", "min": 12, "max": 40, "step": 2, "unit": "px", "default": 20 },
+        { "type": "range", "id": "social_gap", "label": "Social link gap", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 8 }
       ]
     },
     {

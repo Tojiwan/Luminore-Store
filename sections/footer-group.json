@@ -19,11 +19,19 @@
           "settings": { "heading": "Explore", "menu": "main-menu" }
         },
         "care": {
-          "type": "link_list",
-          "settings": { "heading": "Customer care", "menu": "footer" }
+          "type": "categories",
+          "settings": { "heading": "Shop by category", "collections": ["luminore-ring-collection", "luminore-bracelet-collection", "luminore-necklace-collection", "luminore-earrings-collection"] }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": { "heading": "Contact", "contact_url": "/pages/contact" }
         }
       },
-      "block_order": ["shop", "care"],
+      "block_order": [
+        "shop",
+        "care",
+        "contact"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24" overflow="visible">
+<defs>
+<mask id="map-outline-c1" maskUnits="userSpaceOnUse" x="-2" y="-2" width="28" height="28">
+<rect x="-2" y="-2" width="28" height="28" fill="#fff"/>
+<polygon points="10.31,6.69 10.31,2.75 7.69,2.31 7.69,4.06" fill="#000"/>
+<polygon points="7.69,13.81 7.69,17.75 10.31,18.19 10.31,16.44" fill="#000"/>
+</mask>
+</defs>
+<defs>
+<mask id="map-outline-c2" maskUnits="userSpaceOnUse" x="-2" y="-2" width="28" height="28">
+<rect x="-2" y="-2" width="28" height="28" fill="#fff"/>
+<polygon points="16.31,10.19 16.31,6.25 13.69,5.81 13.69,7.56" fill="#000"/>
+<polygon points="13.69,17.31 13.69,21.25 16.31,21.69 16.31,19.94" fill="#000"/>
+</mask>
+</defs>
+<g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+<path d="M3.744 7.566L8.244 4.941L9.756 4.941L14.244 7.559L15.756 7.559L19.968 5.102L21 5.695L21 15.138L20.256 16.434L15.756 19.059L14.244 19.059L9.756 16.441L8.244 16.441L4.032 18.898L3 18.305L3 8.862L3.744 7.566Z"/>
+<path d="M9 4.5L9 16" mask="url(#map-outline-c1)"/>
+<path d="M15 8L15 19.5" mask="url(#map-outline-c2)"/>
+</g>
+</svg>

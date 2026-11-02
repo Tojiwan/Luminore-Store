@@ -34,30 +34,64 @@
 </section>
 {% schema %}
 {
-  "name": "Luminore categories",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A WORLD OF POSSIBILITIES" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Your next signature." }
-  ],
-  "max_blocks": 4,
-  "blocks": [
-    {
-      "type": "category",
-      "name": "Category",
-      "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Rings" },
-        { "type": "collection", "id": "collection", "label": "Collection" },
-        { "type": "url", "id": "link", "label": "Fallback link" },
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "product", "id": "product", "label": "Fallback product image" }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Luminore categories",
-      "blocks": [{ "type": "category" }, { "type": "category" }, { "type": "category" }, { "type": "category" }]
-    }
-  ]
+    "name": "Luminore categories",
+    "settings": [
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A WORLD OF POSSIBILITIES" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Your next signature." }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+        {
+        "type": "category",
+        "name": "Category",
+        "settings": [
+            { 
+                "type": "text", 
+                "id": "title", 
+                "label": "Title", 
+                "default": "Rings" 
+            },
+            { 
+                "type": "collection", 
+                "id": "collection", 
+                "label": "Collection" 
+            },
+            { 
+                "type": "url", 
+                "id": "link", 
+                "label": "Fallback link" 
+            },
+            { 
+                "type": "image_picker", 
+                "id": "image", 
+                "label": "Image" 
+            },
+            { 
+                "type": "product", 
+                "id": "product", 
+                "label": "Fallback product image" 
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Luminore categories",
+            "blocks": [
+                { 
+                    "type": "category" 
+                }, 
+                { 
+                    "type": "category" 
+                }, 
+                { 
+                    "type": "category" 
+                }, 
+                { 
+                    "type": "category" 
+                }
+            ]
+        }
+    ]
 }
 {% endschema %}

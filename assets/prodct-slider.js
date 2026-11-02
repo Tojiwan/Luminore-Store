@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slidesDesktop = parseInt(slider.dataset.slidesDesktop) || 4;
     const enableAutoplay = slider.dataset.autoplay === 'true';
     const autoplayDelay = parseInt(slider.dataset.autoplayDelay) || 3000;
+    const enableLoop = slider.dataset.loop === 'true';
 
     const wrapper = slider.querySelector('.swiper-wrapper');
     const originalSlides = Array.from(wrapper.querySelectorAll('.swiper-slide'));
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ensure enough slides for smooth loop behavior
     const minRequired = slidesDesktop * 2 + 1;
 
-    if (totalSlides > 0 && totalSlides < minRequired) {
+    if (enableLoop && totalSlides > 0 && totalSlides < minRequired) {
       const cloneRounds = Math.ceil(minRequired / totalSlides);
 
       for (let i = 0; i < cloneRounds; i++) {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       spaceBetween: 16,
       speed: 800,
       slidesPerView: 1,
-      loop: true,
+      loop: enableLoop,
       watchOverflow: true,
 
       autoplay: enableAutoplay
@@ -40,10 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         : false,
 
-      // navigation: {
-      //   nextEl: slider.querySelector('.swiper-button-next'),
-      //   prevEl: slider.querySelector('.swiper-button-prev')
-      // },
+      navigation: {
+        nextEl: slider.querySelector('.swiper-button-next'),
+        prevEl: slider.querySelector('.swiper-button-prev')
+      },
+
+      pagination: {
+        el: slider.querySelector('.swiper-pagination'),
+        clickable: true
+      },
 
       breakpoints: {
         640: {

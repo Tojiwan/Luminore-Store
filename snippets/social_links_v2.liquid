@@ -1,0 +1,18 @@
+{%- comment -%}Contact block social links; accepts settings from the contact block.{%- endcomment -%}
+{%- assign platforms = 'facebook,instagram,threads,tiktok' | split: ',' -%}
+<ul class="lm-contact-social list-unstyled" role="list">
+  {%- for platform in platforms -%}
+    {%- assign key = platform | append: '_url' -%}
+    {%- assign url = settings[key] | strip -%}
+    {%- assign protocol = url | slice: 0, 8 | downcase -%}
+    {%- assign http_protocol = url | slice: 0, 7 | downcase -%}
+    {%- if protocol == 'https://' or http_protocol == 'http://' -%}
+      {%- assign icon = platform | append: '.svg' -%}
+      <li>
+        <a href="{{ url | escape }}" aria-label="{{ platform | capitalize }}">
+          <span aria-hidden="true">{{ icon | inline_asset_content }}</span>
+        </a>
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+</ul>

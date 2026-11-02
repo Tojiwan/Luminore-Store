@@ -14,6 +14,14 @@
           <a class="lm-menu-child" href="{{ child.url }}">{{ child.title | escape }}</a>
         {%- endfor %}
       {% endfor %}
+      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+        <localization-form class="lm-header-language lm-menu-language">
+          {%- form 'localization', id: 'LuminoreMenuLanguageForm', class: 'localization-form' -%}
+            <span id="LuminoreMenuLanguageLabel">{{ 'localization.language_label' | t }}</span>
+            {%- render 'language-localization', localPosition: 'LuminoreMenuLanguage' -%}
+          {%- endform -%}
+        </localization-form>
+      {%- endif -%}
     </nav>
   </details>
   <nav class="lm-desktop-nav" aria-label="Main navigation">
@@ -71,7 +79,7 @@
     </details>
     {% render 'cart-icon-bubble', id: 'cart-icon-bubble' %}
     {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-      <localization-form class="lm-header-language">
+      <localization-form class="lm-header-language lm-desktop-language">
         {%- form 'localization', id: 'LuminoreHeaderLanguageForm', class: 'localization-form' -%}
           <span class="visually-hidden" id="LuminoreHeaderLanguageLabel">{{ 'localization.language_label' | t }}</span>
           {%- render 'language-localization', localPosition: 'LuminoreHeaderLanguage', compact_label: true -%}
