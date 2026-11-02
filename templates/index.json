@@ -119,8 +119,8 @@
         "show_navigation": false,
         "show_pagination": true,
         "btn_text": "View All",
-        "btn_bg_background": "#ffffff",
-        "btn_text_color": "#000000",
+        "btn_bg_background": "#f1ede3",
+        "btn_text_color": "#29251f",
         "padding_top": 40,
         "padding_bottom": 40
       }

@@ -12,8 +12,12 @@
   #shopify-section-{{ section.id }} .lm-signature-button {
     background-color: {{ section.settings.btn_bg_background }};
     color: {{ section.settings.btn_text_color }};
-    padding: 1rem 1.6rem;
+    padding: 1.2rem 2rem;
     text-align: center;
+  }
+  #shopify-section-{{ section.id }} .lm-signature-button:hover {
+    background-color: var(--lm-olive);
+    color: var(--lm-paper);
   }
   @media screen and (min-width: 750px) {
     #Signature-{{ section.id }} {
@@ -22,14 +26,14 @@
   }
 {% endstyle %}
 
-<section class="page-width lm-section lm-signature" aria-labelledby="Signature-{{ section.id }}">
+<section class="lm-section lm-signature" aria-labelledby="Signature-{{ section.id }}">
   <div class="lm-section-heading">
     <div>
       <p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p>
       <h2 id="Signature-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
     </div>
     {% if section.settings.btn_text != blank %}
-    <a class="lm-text-link lm-signature-button" href="{{ routes.all_products_collection_url }}"
+    <a class="lm-button lm-signature-button" href="{{ routes.all_products_collection_url }}"
       >{{ section.settings.btn_text | escape }} <span aria-hidden="true">↗</span></a
     >
     {% endif %}
@@ -150,8 +154,8 @@
       "default": true
     },
     { "type": "text", "id": "btn_text", "label": "Button Text", "default": "View All" },
-    { "type": "color", "id": "btn_bg_background", "label": "Button Background Color", "default": "#FFFFFF" },
-    { "type": "color", "id": "btn_text_color", "label": "Button Text Color", "default": "#000000" },
+    { "type": "color", "id": "btn_bg_background", "label": "Button Background Color", "default": "#F1EDE3" },
+    { "type": "color", "id": "btn_text_color", "label": "Button Text Color", "default": "#29251F" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 }
   ],

@@ -169,14 +169,50 @@ html {
 }
 
 .lm-announcement {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 3rem;
-  padding: .5rem 1rem;
+  padding: .5rem 3.6rem;
   background: var(--lm-olive);
   color: var(--lm-paper);
   font-size: 1rem;
   line-height: 2rem;
   text-align: center;
   letter-spacing: .06em;
+}
+
+.lm-announcement__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lm-announcement__close {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.lm-announcement__close svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.lm-announcement__close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .lm-header {
@@ -583,8 +619,17 @@ luminore-stack {
 }
 
 .lm-signature {
-  border-top: 1px solid var(--lm-line);
+  position: relative;
   padding-top: 7rem;
+}
+
+.lm-signature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: max(5vw, 2rem);
+  left: max(5vw, 2rem);
+  border-top: 1px solid var(--lm-line);
 }
 
 .lm-product-image {
@@ -1191,6 +1236,11 @@ luminore-stack {
 
   .lm-section {
     padding: 5.6rem 2rem;
+  }
+
+  .lm-signature::before {
+    right: 2rem;
+    left: 2rem;
   }
 
   .lm-announcement {

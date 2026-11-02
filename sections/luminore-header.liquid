@@ -1,5 +1,31 @@
 {% if section.settings.announcement != blank %}
-  <div class="lm-announcement">{{ section.settings.announcement | escape }}</div>
+  <div class="lm-announcement" data-announcement-key="lm-announcement-{{ section.id }}-{{ section.settings.announcement | handleize }}">
+    <span class="lm-announcement__text">{{ section.settings.announcement | escape }}</span>
+    <button type="button" class="lm-announcement__close" aria-label="Close announcement" data-announcement-close>
+      {{- 'icon-close-small.svg' | inline_asset_content -}}
+    </button>
+  </div>
+  <script>
+    (() => {
+      const bar = document.currentScript.previousElementSibling;
+      if (!bar?.matches('.lm-announcement')) return;
+      const key = bar.dataset.announcementKey;
+      if (!window.Shopify?.designMode) {
+        try {
+          if (sessionStorage.getItem(key)) {
+            bar.remove();
+            return;
+          }
+        } catch {}
+      }
+      bar.querySelector('[data-announcement-close]')?.addEventListener('click', () => {
+        if (!window.Shopify?.designMode) {
+          try { sessionStorage.setItem(key, '1'); } catch {}
+        }
+        bar.remove();
+      });
+    })();
+  </script>
 {% endif %}
 <header class="lm-header">
   <details class="lm-menu">

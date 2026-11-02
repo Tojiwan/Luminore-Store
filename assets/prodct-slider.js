@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         1024: {
           slidesPerView: slidesDesktop,
-          spaceBetween: 24
+          spaceBetween: 20
         }
       }
     });
