@@ -2,14 +2,21 @@
 
 {% style %}
   #shopify-section-{{ section.id }} .lm-signature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .lm-signature .product-swiper {
+    width: 100%;
   }
   #Signature-{{ section.id }} {
     font-size: {{ section.settings.text_size_mobile }}px;
     color: {{ section.settings.header_font_color }};
   }
   #shopify-section-{{ section.id }} .lm-signature-button {
+    justify-self: center;
+    margin-top: 2.4rem;
     background-color: {{ section.settings.btn_bg_background }};
     color: {{ section.settings.btn_text_color }};
     padding: 1.2rem 2rem;
@@ -20,6 +27,19 @@
     color: var(--lm-paper);
   }
   @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .lm-signature {
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 3rem;
+    }
+    #shopify-section-{{ section.id }} .lm-signature .product-swiper {
+      grid-column: 1 / -1;
+    }
+    #shopify-section-{{ section.id }} .lm-signature-button {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;
+      margin: 0 0 4rem;
+    }
     #Signature-{{ section.id }} {
       font-size: {{ section.settings.text_size_desktop }}px;
     }
@@ -32,11 +52,6 @@
       <p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p>
       <h2 id="Signature-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
     </div>
-    {% if section.settings.btn_text != blank %}
-    <a class="lm-button lm-signature-button" href="{{ routes.all_products_collection_url }}"
-      >{{ section.settings.btn_text | escape }} <span aria-hidden="true">↗</span></a
-    >
-    {% endif %}
   </div>
 
   <div class="swiper product-swiper"
@@ -95,6 +110,11 @@
       </div>
     {% endif %}
   </div>
+  {% if section.settings.btn_text != blank %}
+    <a class="lm-button lm-signature-button" href="{{ routes.all_products_collection_url }}"
+      >{{ section.settings.btn_text | escape }} <span aria-hidden="true">↗</span></a
+    >
+  {% endif %}
 </section>
 
 {% schema %}
