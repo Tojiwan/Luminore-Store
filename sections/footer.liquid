@@ -278,7 +278,7 @@
   {%- endif -%}
 
   <div class="lm-footer-brand">
-    <a href="{{ routes.root_url }}" aria-label="Luminore home">LUMINORE.</a>
+    <a href="{{ routes.root_url }}">{{ section.settings.brand_text | escape }}</a>
     <p>A statement, entirely yours.</p>
   </div>
   <div
@@ -494,6 +494,7 @@
     }
   ],
   "settings": [
+    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "LUMINORE." },
     {
       "type": "color_scheme",
       "id": "color_scheme",

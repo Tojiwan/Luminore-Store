@@ -55,8 +55,8 @@
     <a href="{{ routes.collections_url }}">Collections</a>
     <a href="{{ routes.root_url }}#luminore-story">Our story</a>
   </nav>
-  <a class="lm-wordmark" href="{{ routes.root_url }}" aria-label="Luminore home"
-    >LUMINORE</a
+  <a class="lm-wordmark" href="{{ routes.root_url }}"
+    >{{ section.settings.brand_text | escape }}</a
   >
   <div class="lm-header-actions">
     <details class="lm-search">
@@ -119,6 +119,7 @@
   "name": "Luminore header",
   "class": "lm-header-section",
   "settings": [
+    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "LUMINORE" },
     {
       "type": "text",
       "id": "announcement",
