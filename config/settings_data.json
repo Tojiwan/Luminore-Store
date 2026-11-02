@@ -149,6 +149,15 @@
           "show_cart": true,
           "show_account": true
         }
+      },
+      "luminore-header": {
+        "type": "luminore-header",
+        "settings": {
+          "brand_text": "LUMINORÉ",
+          "announcement": "Jewelry for every expression. Discover your signature.",
+          "menu": "",
+          "enable_language_selector": true
+        }
       }
     },
     "content_for_index": [],
