@@ -30,7 +30,7 @@
         href="{{ section.settings.link | default: section.settings.product.url | default: routes.all_products_collection_url }}"
       >
         {{- section.settings.button | escape }}
-        <span aria-hidden="true">↗</span></a
+        {% render 'luminore-arrow', direction: 'outcome' %}</a
       >
     {%- endif %}
     {% if section.settings.layout == 'story' -%}

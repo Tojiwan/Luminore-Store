@@ -31,9 +31,9 @@
   <details class="lm-menu">
     <summary class="lm-icon-button"><span class="lm-menu-lines" aria-hidden="true"></span><span>Menu</span></summary>
     <nav class="lm-menu-panel" aria-label="Main navigation">
-      <a href="{{ routes.all_products_collection_url }}">Shop all jewelry <span aria-hidden="true">↗</span></a>
-      <a href="{{ routes.collections_url }}">Collections <span aria-hidden="true">↗</span></a>
-      <a href="{{ routes.root_url }}#luminore-story">Our story <span aria-hidden="true">↗</span></a>
+      <a href="{{ routes.all_products_collection_url }}">Shop all jewelry {% render 'luminore-arrow', direction: 'outcome' %}</a>
+      <a href="{{ routes.collections_url }}">Collections {% render 'luminore-arrow', direction: 'outcome' %}</a>
+      <a href="{{ routes.root_url }}#luminore-story">Our story {% render 'luminore-arrow', direction: 'outcome' %}</a>
       {% for link in section.settings.menu.links %}
         <a href="{{ link.url }}">{{ link.title | escape }}</a>
         {% for child in link.links -%}
@@ -89,7 +89,7 @@
               autocapitalize="off"
               spellcheck="false"
             {% endif %}
-          ><button type="submit">Search <span aria-hidden="true">↗</span></button>
+          ><button type="submit">Search {% render 'luminore-arrow', direction: 'outcome' %}</button>
         </div>
         {%- if settings.predictive_search_enabled -%}
           <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>

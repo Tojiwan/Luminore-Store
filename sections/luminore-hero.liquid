@@ -42,12 +42,12 @@
       href="{{ section.settings.link | default: routes.all_products_collection_url }}"
     >
       {{- section.settings.button | escape }}
-      <span aria-hidden="true">↗</span></a
+       {% render 'luminore-arrow', direction: 'outcome' %}</a
     >
   </div>
   <div class="lm-hero-bottom">
     <span>FORM. FEELING. INDIVIDUALITY.</span
-    ><a href="#luminore-collections">Discover more <span aria-hidden="true">↓</span></a>
+    ><a href="#luminore-collections">Discover more {% render 'luminore-arrow', direction: 'down' %}</a>
   </div>
 </section>
 {% schema %}

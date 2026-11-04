@@ -26,7 +26,7 @@
         </div>
         <div class="lm-category-label">
           <h3>{{ block.settings.title | escape }}</h3>
-          <span aria-hidden="true">↗</span>
+          {% render 'luminore-arrow', direction: 'outcome' %}
         </div>
       </a>
     {% endfor %}

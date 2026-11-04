@@ -99,20 +99,20 @@
     {% if section.settings.show_navigation or section.settings.show_pagination %}
       <div class="lm-swiper-controls">
         {% if section.settings.show_navigation %}
-          <button type="button" class="swiper-button-prev lm-swiper-nav" aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"></button>
+          <button type="button" class="swiper-button-prev lm-swiper-nav" aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}">{% render 'luminore-arrow', direction: 'left' %}</button>
         {% endif %}
         {% if section.settings.show_pagination %}
           <div class="swiper-pagination lm-swiper-pagination"></div>
         {% endif %}
         {% if section.settings.show_navigation %}
-          <button type="button" class="swiper-button-next lm-swiper-nav" aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"></button>
+          <button type="button" class="swiper-button-next lm-swiper-nav" aria-label="{{ 'sections.slideshow.next_slideshow' | t }}">{% render 'luminore-arrow', direction: 'right' %}</button>
         {% endif %}
       </div>
     {% endif %}
   </div>
   {% if section.settings.btn_text != blank %}
     <a class="lm-button lm-signature-button" href="{{ routes.all_products_collection_url }}"
-      >{{ section.settings.btn_text | escape }} <span aria-hidden="true">↗</span></a
+      >{{ section.settings.btn_text | escape }} {% render 'luminore-arrow', direction: 'outcome' %}</a
     >
   {% endif %}
 </section>

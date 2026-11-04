@@ -1629,7 +1629,18 @@ luminore-stack {
 }
 
 .lm-section .lm-swiper-nav::after {
-  font-size: 2.2rem;
+  display: none;
+}
+
+.lm-arrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.lm-arrow svg {
+  width: 1em;
+  height: 1em;
 }
 
 .lm-section .lm-swiper-pagination {

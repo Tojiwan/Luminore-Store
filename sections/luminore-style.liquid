@@ -32,7 +32,7 @@
             <span class="lm-eyebrow">0{{ forloop.index }} / THE STYLE NOTES</span>
             <h3>
               {{ block.settings.title | escape }}
-              <span aria-hidden="true">↗</span>
+              {% render 'luminore-arrow', direction: 'outcome' %}
             </h3>
             {% if block.settings.text != blank %}
               <p>{{ block.settings.text | escape }}</p>

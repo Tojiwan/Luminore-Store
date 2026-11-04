@@ -1,0 +1,2 @@
+{%- assign arrow_asset = 'arrow-' | append: direction | append: '-svgrepo-com.svg' -%}
+<span class="lm-arrow" aria-hidden="true">{{ arrow_asset | inline_asset_content | split: '?>' | last | replace: '#0F0F0F', 'currentColor' }}</span>
