@@ -28,6 +28,8 @@
           "type": "category",
           "settings": {
             "title": "Rings",
+            "caption": "A statement in every gesture.",
+            "link_label": "Shop rings",
             "collection": "",
             "link": "/collections/luminore-ring-collection",
             "product": "diamond-and-sapphire-white-gold-ring"
@@ -37,6 +39,8 @@
           "type": "category",
           "settings": {
             "title": "Necklaces",
+            "caption": "Your finishing touch.",
+            "link_label": "Shop necklaces",
             "collection": "",
             "link": "/collections/luminore-necklace-collection",
             "product": "luminore-amor-pendant-necklace"
@@ -46,6 +50,8 @@
           "type": "category",
           "settings": {
             "title": "Earrings",
+            "caption": "Small details. All the difference.",
+            "link_label": "Shop earrings",
             "collection": "",
             "link": "/collections/luminore-earrings-collection",
             "product": "luminore-elan-twist-hoops"
@@ -55,6 +61,8 @@
           "type": "category",
           "settings": {
             "title": "Bracelets",
+            "caption": "Something to make your own.",
+            "link_label": "Shop bracelets",
             "collection": "",
             "link": "/collections/luminore-bracelet-collection",
             "product": "luminore-lumiere-tennis-bracelet"
@@ -69,7 +77,10 @@
       ],
       "settings": {
         "eyebrow": "A WORLD OF POSSIBILITIES",
-        "heading": "Your next signature."
+        "heading": "A little detail.\nAn entirely different feeling.",
+        "description": "Find your next signature.\nExplore the collections.",
+        "closing_text": "Wear it your way.",
+        "collection_note": "Luminore / The collections"
       }
     },
     "signature": {

@@ -1,13 +1,14 @@
 <section id="luminore-collections" class="lm-section lm-categories" aria-labelledby="Categories-{{ section.id }}">
   <div class="lm-section-heading">
     <div>
-      <p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p>
-      <h2 id="Categories-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      {% if section.settings.show_eyebrow and section.settings.eyebrow != blank %}
+        <p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {% endif %}
+      <h2 id="Categories-{{ section.id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
     </div>
-    <p>
-      Find the pieces<br>
-      you make your own.
-    </p>
+    {% if section.settings.description != blank %}
+      <p>{{ section.settings.description | escape | newline_to_br }}</p>
+    {% endif %}
   </div>
   <div class="lm-category-grid">
     {% for block in section.blocks %}
@@ -20,24 +21,41 @@
           {% render 'luminore-image',
             image: block.settings.image,
             product: block.settings.product,
-            sizes: '(min-width: 750px) 25vw, 50vw',
+             sizes: '(min-width: 750px) 45vw, 100vw',
             alt: block.settings.title
           %}
         </div>
         <div class="lm-category-label">
-          <h3>{{ block.settings.title | escape }}</h3>
-          {% render 'luminore-arrow', direction: 'outcome' %}
+          <div class="lm-category-copy">
+            <h3>{{ block.settings.title | escape }}</h3>
+            {% if block.settings.caption != blank %}
+              <p>{{ block.settings.caption | escape }}</p>
+            {% endif %}
+          </div>
+          {% if block.settings.link_label != blank %}
+            <span class="lm-category-action">{{ block.settings.link_label | escape }} {% render 'luminore-arrow', direction: 'outcome' %}</span>
+          {% endif %}
         </div>
       </a>
     {% endfor %}
   </div>
+  {% if section.settings.closing_text != blank or section.settings.collection_note != blank %}
+    <div class="lm-category-closing">
+      <span>{{ section.settings.closing_text | escape }}</span>
+      <span>{{ section.settings.collection_note | escape }}</span>
+    </div>
+  {% endif %}
 </section>
 {% schema %}
 {
     "name": "Luminore categories",
     "settings": [
         { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A WORLD OF POSSIBILITIES" },
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Your next signature." }
+        { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": false },
+        { "type": "textarea", "id": "heading", "label": "Heading", "default": "A little detail.\nAn entirely different feeling." },
+        { "type": "textarea", "id": "description", "label": "Introduction", "default": "Find your next signature.\nExplore the collections." },
+        { "type": "text", "id": "closing_text", "label": "Closing text", "default": "Wear it your way." },
+        { "type": "text", "id": "collection_note", "label": "Collection note", "default": "Luminore / The collections" }
     ],
     "max_blocks": 4,
     "blocks": [
@@ -51,6 +69,8 @@
                 "label": "Title", 
                 "default": "Rings" 
             },
+            { "type": "text", "id": "caption", "label": "Caption" },
+            { "type": "text", "id": "link_label", "label": "Shopping link text", "default": "Shop collection" },
             { 
                 "type": "collection", 
                 "id": "collection", 
