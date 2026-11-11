@@ -194,6 +194,9 @@
       "label": "メディアギャラリー"
     },
     "facets": {
+      "filter_pieces": "ジュエリーを絞り込む",
+      "refine_selection": "条件を絞り込む",
+      "update_error": "商品を更新できませんでした。もう一度お試しください。",
       "apply": "適用",
       "clear": "クリア",
       "clear_all": "すべてを削除する",

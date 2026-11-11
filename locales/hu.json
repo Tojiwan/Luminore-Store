@@ -194,6 +194,9 @@
       "label": "Médiatár"
     },
     "facets": {
+      "filter_pieces": "Ékszerek szűrése",
+      "refine_selection": "Választék szűkítése",
+      "update_error": "A termékeket nem sikerült frissíteni. Próbálja újra.",
       "apply": "Alkalmaz",
       "clear": "Törlés",
       "clear_all": "Az összes eltávolítása",

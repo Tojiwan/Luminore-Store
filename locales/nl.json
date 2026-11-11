@@ -194,6 +194,9 @@
       "label": "Mediagalerij"
     },
     "facets": {
+      "filter_pieces": "Sieraden filteren",
+      "refine_selection": "Verfijn je selectie",
+      "update_error": "De producten konden niet worden bijgewerkt. Probeer het opnieuw.",
       "apply": "Toepassen",
       "clear": "Wissen",
       "clear_all": "Alles verwijderen",

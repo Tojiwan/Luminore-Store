@@ -195,6 +195,9 @@
       "label": "Galleria contenuti multimediali"
     },
     "facets": {
+      "filter_pieces": "Filtra i gioielli",
+      "refine_selection": "Affina la selezione",
+      "update_error": "Impossibile aggiornare i prodotti. Riprova.",
       "apply": "Applica",
       "clear": "Cancella",
       "clear_all": "Rimuovi tutto",

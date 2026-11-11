@@ -30,6 +30,8 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static renderPage(searchParams, event, updateURLHash = true) {
+    const drawer = document.querySelector('luminore-filter-drawer');
+    if (drawer) return drawer.renderResults(searchParams, updateURLHash);
     FacetFiltersForm.searchParamsPrev = searchParams;
     const sections = FacetFiltersForm.getSections();
     const countContainer = document.getElementById('ProductCount');

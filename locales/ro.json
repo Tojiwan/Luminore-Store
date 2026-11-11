@@ -195,6 +195,9 @@
       "label": "Galerie media"
     },
     "facets": {
+      "filter_pieces": "Filtrează bijuteriile",
+      "refine_selection": "Restrânge selecția",
+      "update_error": "Produsele nu au putut fi actualizate. Încearcă din nou.",
       "apply": "Aplică",
       "clear": "Golește",
       "clear_all": "Elimină tot",

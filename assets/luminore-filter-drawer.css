@@ -1,0 +1,373 @@
+.lm-filters {
+    display: block;
+    color: var(--lm-ink);
+    padding-block: 2rem;
+}
+
+.lm-filter-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.lm-filters button,
+.lm-filters select,
+.lm-filters input {
+    font: inherit;
+    color: inherit;
+}
+
+.lm-filters button {
+    cursor: pointer;
+}
+
+.lm-filter-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 44px;
+    padding: 1rem 1.6rem;
+    border: 1px solid var(--lm-line);
+    background: transparent;
+}
+
+.lm-filter-trigger svg {
+    width: 20px;
+    height: 20px;
+}
+
+.lm-filter-toolbar #ProductCount {
+    margin-left: auto;
+    font-size: 1.3rem;
+}
+
+.lm-filter-sort {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+}
+
+.lm-filter-sort select {
+    background: var(--lm-paper);
+    border: 1px solid var(--lm-line);
+    min-height: 44px;
+    max-width: 100%;
+    padding: .8rem;
+}
+
+.lm-filter-chips {
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+
+.lm-filter-chips:empty {
+    display: none;
+}
+
+.lm-filter-chips a {
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid var(--lm-line);
+    padding: 1rem;
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+}
+
+.lm-filters dialog {
+    position: fixed;
+    inset: 0 0 0 auto;
+    margin: 0;
+    width: min(400px, 100%);
+    max-width: 100%;
+    height: 100%;
+    height: 100dvh;
+    max-height: 100%;
+    padding: 0;
+    border: 0;
+    background: var(--lm-paper);
+    color: var(--lm-ink);
+}
+
+.lm-filters dialog::backdrop {
+    background: rgb(20 23 17 / 45%);
+}
+
+.lm-filters dialog[open] {
+    animation: lm-filter-enter .25s ease-out;
+}
+
+.lm-filters dialog form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.lm-filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem 2.4rem;
+    border-bottom: 1px solid var(--lm-line);
+}
+
+.lm-filter-header h2 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.lm-filter-header button {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 0;
+}
+
+.lm-filter-header svg {
+    width: 18px;
+    height: 18px;
+}
+
+.lm-filter-body {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 2.4rem;
+}
+
+.lm-filter-group {
+    border-bottom: 1px solid var(--lm-line);
+}
+
+.lm-filter-group summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+    gap: 1rem;
+    list-style: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.lm-filter-group summary::-webkit-details-marker {
+    display: none;
+}
+
+.lm-filter-group summary svg {
+    width: 12px;
+    height: 12px;
+}
+
+.lm-filter-group[open] summary svg {
+    transform: rotate(180deg);
+}
+
+.lm-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    padding-bottom: 2rem;
+}
+
+.lm-filter-option {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    min-height: 44px;
+    padding: .8rem 1rem;
+    border: 1px solid var(--lm-line);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.lm-filter-option:has(:checked) {
+    border-color: var(--lm-olive);
+    background: var(--lm-stone);
+}
+
+.lm-filter-option:has(:disabled) {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.lm-filter-option input {
+    accent-color: var(--lm-olive);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.lm-filter-options--list {
+    display: grid;
+}
+
+.lm-filter-options--list .lm-filter-option {
+    border-color: transparent;
+}
+
+.lm-filter-options--list .lm-filter-option:has(:checked) {
+    border-color: var(--lm-olive);
+}
+
+.lm-filter-swatch {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--lm-line);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.lm-filter-price {
+    padding-bottom: 2.4rem;
+    font-size: 1.3rem;
+}
+
+.lm-filter-price p {
+    margin-top: 0;
+}
+
+.lm-filter-price-inputs {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.lm-filter-price-inputs label {
+    flex: 1;
+    min-width: 0;
+}
+
+.lm-filter-price-inputs input {
+    width: 100%;
+    margin-top: .8rem;
+    padding: 1rem;
+    min-height: 44px;
+    border: 1px solid var(--lm-line);
+    background: transparent;
+}
+
+.lm-filter-range {
+    position: relative;
+    height: 44px;
+    margin-top: 1.6rem;
+}
+
+.lm-filter-range::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--lm-line);
+}
+
+.lm-filter-range input {
+    appearance: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+.lm-filter-range input::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--lm-paper);
+    background: var(--lm-olive);
+    cursor: grab;
+    pointer-events: auto;
+}
+
+.lm-filter-range input::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--lm-paper);
+    background: var(--lm-olive);
+    cursor: grab;
+    pointer-events: auto;
+}
+
+.lm-filter-range input:focus-visible {
+    z-index: 1;
+}
+
+.lm-filter-footer {
+    display: flex;
+    gap: 1.6rem;
+    padding: 2rem 2.4rem max(2rem, env(safe-area-inset-bottom));
+    border-top: 1px solid var(--lm-line);
+    background: var(--lm-paper);
+}
+
+.lm-filter-footer button {
+    min-height: 44px;
+    padding: 1rem;
+    border: 0;
+    background: transparent;
+}
+
+.lm-filter-footer [data-clear] {
+    text-decoration: underline;
+    text-underline-offset: .4rem;
+}
+
+.lm-filter-footer .lm-filter-apply {
+    flex: 1;
+    background: var(--lm-olive);
+    color: var(--lm-paper);
+}
+
+.lm-filter-error {
+    color: #9a2525;
+}
+
+.lm-filters[aria-busy=true] {
+    opacity: .65;
+    pointer-events: none;
+}
+
+@keyframes lm-filter-enter {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 749px) {
+    .lm-filter-toolbar {
+        gap: 1.2rem;
+    }
+
+    .lm-filter-sort {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .lm-filters dialog {
+        width: calc(100% - 1.2rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lm-filters dialog[open] {
+        animation: none;
+    }
+}

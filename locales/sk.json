@@ -196,6 +196,9 @@
       "label": "Galéria médií"
     },
     "facets": {
+      "filter_pieces": "Filtrovať šperky",
+      "refine_selection": "Spresnite svoj výber",
+      "update_error": "Produkty sa nepodarilo aktualizovať. Skúste to znova.",
       "apply": "Použiť",
       "clear": "Vymazať",
       "clear_all": "Odstrániť všetky",

@@ -194,6 +194,9 @@
       "label": "Medya galerisi"
     },
     "facets": {
+      "filter_pieces": "Takıları filtrele",
+      "refine_selection": "Seçiminizi daraltın",
+      "update_error": "Ürünler güncellenemedi. Lütfen tekrar deneyin.",
       "apply": "Uygula",
       "clear": "Temizle",
       "clear_all": "Tümünü kaldır",

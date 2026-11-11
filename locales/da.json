@@ -194,6 +194,9 @@
       "label": "Mediegalleri"
     },
     "facets": {
+      "filter_pieces": "Filtrer smykker",
+      "refine_selection": "Tilpas dit udvalg",
+      "update_error": "Produkterne kunne ikke opdateres. Prøv igen.",
       "apply": "Anvend",
       "clear": "Ryd",
       "clear_all": "Fjern alle",

@@ -195,6 +195,9 @@
       "label": "Galerija medijskih zapisa"
     },
     "facets": {
+      "filter_pieces": "Filtriraj nakit",
+      "refine_selection": "Suzite svoj izbor",
+      "update_error": "Proizvodi se nisu mogli ažurirati. Pokušajte ponovno.",
       "apply": "Primijeni",
       "clear": "Očisti",
       "clear_all": "Ukloni sve",
