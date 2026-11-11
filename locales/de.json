@@ -197,13 +197,17 @@
       "filter_pieces": "Schmuck filtern",
       "refine_selection": "Auswahl verfeinern",
       "update_error": "Die Produkte konnten nicht aktualisiert werden. Bitte erneut versuchen.",
-      "apply": "Anwenden",
+      "apply": "Filter anwenden",
       "clear": "Löschen",
       "clear_all": "Alle entfernen",
       "from": "Von",
       "filter_and_sort": "Filtern und sortieren",
       "filter_by_label": "Filter:",
       "filter_button": "Filter",
+      "hide_filters": "Filter ausblenden",
+      "show_filters": "Filter anzeigen",
+      "filters": "Filter",
+      "refine": "Auswahl verfeinern",
       "filters_selected": {
         "one": "{{ count }} ausgewählt",
         "other": "{{ count }} ausgewählt"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }} von {{ count }} Produkten"
       },
       "product_count_simple": {
-        "one": "{{ count }} Produkt",
-        "other": "{{ count }} Produkte"
+        "one": "{{ count }} Produkt angezeigt",
+        "other": "{{ count }} Produkte angezeigt"
       },
       "reset": "Zurücksetzen",
       "sort_button": "Sortieren",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Kategorie",
+      "eyebrow": "Die Luminoré-Kollektion",
+      "all_title": "Schmuck ohne feste Regeln.",
+      "all_description": "Skulpturale Schmuckstücke, ganz nach deinem Stil.",
       "empty": "Keine Produkte gefunden",
       "use_fewer_filters_html": "Verwende weniger Filter oder <a class=\"{{ class }}\" href=\"{{ link }}\">entferne alle</a>"
     },

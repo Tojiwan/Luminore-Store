@@ -198,13 +198,17 @@
       "filter_pieces": "Filtriraj nakit",
       "refine_selection": "Suzite svoj izbor",
       "update_error": "Proizvodi se nisu mogli ažurirati. Pokušajte ponovno.",
-      "apply": "Primijeni",
+      "apply": "Primijeni filtre",
       "clear": "Očisti",
       "clear_all": "Ukloni sve",
       "from": "Od",
       "filter_and_sort": "Filtriraj i razvrstaj",
       "filter_by_label": "Filtriraj:",
       "filter_button": "Filtriraj",
+      "hide_filters": "Sakrij filtre",
+      "show_filters": "Prikaži filtre",
+      "filters": "Filtri",
+      "refine": "Suzi izbor",
       "max_price": "Najveća cijena iznosi {{ price }}",
       "reset": "Resetiraj",
       "sort_button": "Razvrstaj",
@@ -221,9 +225,9 @@
         "few": "{{ product_count }} od {{ count }} proizvoda"
       },
       "product_count_simple": {
-        "one": "{{ count }} proizvod",
-        "other": "Broj proizvoda: {{ count }}",
-        "few": "Broj proizvoda: {{ count }}"
+        "one": "Prikazan je {{ count }} proizvod",
+        "other": "Prikazano je {{ count }} proizvoda",
+        "few": "Prikazana su {{ count }} proizvoda"
       },
       "clear_filter": "Ukloni filtar",
       "filter_selected_accessibility": "{{ type }} (broj odabranih filtra: {{ count }})",
@@ -346,6 +350,9 @@
     },
     "collection_template": {
       "title": "Kolekcija",
+      "eyebrow": "Kolekcija Luminoré",
+      "all_title": "Nakit bez pravila.",
+      "all_description": "Skulpturalni komadi koje nosite na svoj način.",
       "empty": "Nije pronađen nijedan proizvod",
       "use_fewer_filters_html": "Upotrijebi manje filtara ili <a class=\"{{ class }}\" href=\"{{ link }}\">ukloni sve</a>"
     },

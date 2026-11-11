@@ -197,13 +197,17 @@
       "filter_pieces": "Takıları filtrele",
       "refine_selection": "Seçiminizi daraltın",
       "update_error": "Ürünler güncellenemedi. Lütfen tekrar deneyin.",
-      "apply": "Uygula",
+      "apply": "Filtreleri uygula",
       "clear": "Temizle",
       "clear_all": "Tümünü kaldır",
       "from": "En düşük",
       "filter_and_sort": "Filtrele ve sırala",
       "filter_by_label": "Filtre:",
       "filter_button": "Filtrele",
+      "hide_filters": "Filtreleri gizle",
+      "show_filters": "Filtreleri göster",
+      "filters": "Filtreler",
+      "refine": "Seçimi daralt",
       "filters_selected": {
         "one": "{{ count }} seçildi",
         "other": "{{ count }} seçildi"
@@ -214,8 +218,8 @@
         "other": "{{ count }}/{{ product_count }} ürün"
       },
       "product_count_simple": {
-        "one": "{{ count }} ürün",
-        "other": "{{ count }} ürün"
+        "one": "{{ count }} ürün gösteriliyor",
+        "other": "{{ count }} ürün gösteriliyor"
       },
       "reset": "Sıfırla",
       "sort_button": "Sırala",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Koleksiyon",
+      "eyebrow": "Luminoré koleksiyonu",
+      "all_title": "Kurallara sığmayan mücevherler.",
+      "all_description": "Kendi tarzınızla taşıyacağınız heykelsi tasarımlar.",
       "empty": "Ürün bulunamadı",
       "use_fewer_filters_html": "Daha az filtre kullan veya <a class=\"{{ class }}\" href=\"{{ link }}\">tümünü kaldır</a>"
     },

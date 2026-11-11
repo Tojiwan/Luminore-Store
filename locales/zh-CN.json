@@ -197,13 +197,17 @@
       "filter_pieces": "筛选珠宝",
       "refine_selection": "细化您的选择",
       "update_error": "无法更新商品。请重试。",
-      "apply": "应用",
+      "apply": "应用筛选",
       "clear": "清除",
       "clear_all": "全部删除",
       "from": "从",
       "filter_and_sort": "筛选和排序",
       "filter_by_label": "筛选条件：",
       "filter_button": "筛选",
+      "hide_filters": "隐藏筛选",
+      "show_filters": "显示筛选",
+      "filters": "筛选",
+      "refine": "细化筛选",
       "filters_selected": {
         "one": "已选择 {{ count }} 个",
         "other": "已选择 {{ count }} 个"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }}/{{ count }} 件产品"
       },
       "product_count_simple": {
-        "one": "{{ count }} 件产品",
-        "other": "{{ count }} 件产品"
+        "one": "正在显示 {{ count }} 件产品",
+        "other": "正在显示 {{ count }} 件产品"
       },
       "reset": "重置",
       "sort_button": "排序",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "收藏",
+      "eyebrow": "Luminoré 珠宝系列",
+      "all_title": "珠宝风格，不设定式。",
+      "all_description": "雕塑般的珠宝，以你的方式演绎。",
       "empty": "未找到产品",
       "use_fewer_filters_html": "减少使用的筛选条件数量或<a class=\"{{ class }}\" href=\"{{ link }}\">删除所有筛选条件</a>"
     },

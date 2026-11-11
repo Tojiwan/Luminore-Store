@@ -197,13 +197,17 @@
       "filter_pieces": "주얼리 필터",
       "refine_selection": "선택 범위 좁히기",
       "update_error": "상품을 업데이트할 수 없습니다. 다시 시도해 주세요.",
-      "apply": "적용",
+      "apply": "필터 적용",
       "clear": "지우기",
       "clear_all": "모두 제거",
       "from": "최저가",
       "filter_and_sort": "필터 및 정렬",
       "filter_by_label": "필터:",
       "filter_button": "필터",
+      "hide_filters": "필터 숨기기",
+      "show_filters": "필터 표시",
+      "filters": "필터",
+      "refine": "조건으로 좁히기",
       "filters_selected": {
         "one": "{{ count }}개 선택됨",
         "other": "{{ count }}개 선택됨"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }}/{{ count }}개 제품"
       },
       "product_count_simple": {
-        "one": "{{ count }}개 제품",
-        "other": "{{ count }}개 제품"
+        "one": "제품 {{ count }}개 표시 중",
+        "other": "제품 {{ count }}개 표시 중"
       },
       "reset": "재설정",
       "sort_button": "정렬",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "컬렉션",
+      "eyebrow": "Luminoré 컬렉션",
+      "all_title": "정해진 방식 없이 즐기는 주얼리.",
+      "all_description": "조각 같은 주얼리를 나만의 방식으로 스타일링하세요.",
       "empty": "제품을 찾을 수 없음",
       "use_fewer_filters_html": "더 적은 수의 필터를 사용하거나 <a class=\"{{ class }}\" href=\"{{ link }}\">모두 제거하기</a>"
     },

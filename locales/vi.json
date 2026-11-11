@@ -197,13 +197,17 @@
       "filter_pieces": "Lọc trang sức",
       "refine_selection": "Thu hẹp lựa chọn",
       "update_error": "Không thể cập nhật sản phẩm. Vui lòng thử lại.",
-      "apply": "Áp dụng",
+      "apply": "Áp dụng bộ lọc",
       "clear": "Xóa",
       "clear_all": "Xóa tất cả",
       "from": "Từ",
       "filter_and_sort": "Lọc và sắp xếp",
       "filter_by_label": "Bộ lọc:",
       "filter_button": "Bộ lọc",
+      "hide_filters": "Ẩn bộ lọc",
+      "show_filters": "Hiện bộ lọc",
+      "filters": "Bộ lọc",
+      "refine": "Thu hẹp lựa chọn",
       "filters_selected": {
         "one": "Đã chọn {{ count }}",
         "other": "Đã chọn {{ count }}"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }}/{{ count }} sản phẩm"
       },
       "product_count_simple": {
-        "one": "{{ count }} sản phẩm",
-        "other": "{{ count }} sản phẩm"
+        "one": "Đang hiển thị {{ count }} sản phẩm",
+        "other": "Đang hiển thị {{ count }} sản phẩm"
       },
       "reset": "Đặt lại",
       "sort_button": "Sắp xếp",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Bộ sưu tập",
+      "eyebrow": "Bộ sưu tập Luminoré",
+      "all_title": "Trang sức không theo khuôn mẫu.",
+      "all_description": "Những thiết kế mang dáng nét điêu khắc, phối theo phong cách riêng của bạn.",
       "empty": "Không tìm thấy sản phẩm",
       "use_fewer_filters_html": "Sử dụng ít bộ lọc hơn hoặc <a class=\"{{ class }}\" href=\"{{ link }}\">xóa tất cả</a>"
     },

@@ -197,13 +197,17 @@
       "filter_pieces": "Filtrer smykker",
       "refine_selection": "Tilpas dit udvalg",
       "update_error": "Produkterne kunne ikke opdateres. Prøv igen.",
-      "apply": "Anvend",
+      "apply": "Anvend filtre",
       "clear": "Ryd",
       "clear_all": "Fjern alle",
       "from": "Fra",
       "filter_and_sort": "Filtrer og sortér",
       "filter_by_label": "Filter:",
       "filter_button": "Filtrer",
+      "hide_filters": "Skjul filtre",
+      "show_filters": "Vis filtre",
+      "filters": "Filtre",
+      "refine": "Tilpas udvalget",
       "filters_selected": {
         "one": "{{ count }} valgt",
         "other": "{{ count }} valgt"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }} af {{ count }} produkter"
       },
       "product_count_simple": {
-        "one": "{{ count }} produkt",
-        "other": "{{ count }} produkter"
+        "one": "Viser {{ count }} produkt",
+        "other": "Viser {{ count }} produkter"
       },
       "reset": "Nulstil",
       "sort_button": "Sortér",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Kollektion",
+      "eyebrow": "Luminoré-kollektionen",
+      "all_title": "Smykker uden regler.",
+      "all_description": "Skulpturelle smykker, stylet på din egen måde.",
       "empty": "Der blev ikke fundet nogen produkter",
       "use_fewer_filters_html": "Brug færre filtre, eller <a class=\"{{ class }}\" href=\"{{ link }}\">fjern alle</a>"
     },

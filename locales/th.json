@@ -197,13 +197,17 @@
       "filter_pieces": "กรองเครื่องประดับ",
       "refine_selection": "ปรับแต่งตัวเลือกของคุณ",
       "update_error": "ไม่สามารถอัปเดตสินค้าได้ โปรดลองอีกครั้ง",
-      "apply": "นำไปใช้",
+      "apply": "ใช้ตัวกรอง",
       "clear": "ล้าง",
       "clear_all": "ลบออกทั้งหมด",
       "from": "จาก",
       "filter_and_sort": "กรองและจัดเรียง",
       "filter_by_label": "ตัวกรอง:",
       "filter_button": "ตัวกรอง",
+      "hide_filters": "ซ่อนตัวกรอง",
+      "show_filters": "แสดงตัวกรอง",
+      "filters": "ตัวกรอง",
+      "refine": "ปรับแต่งการค้นหา",
       "filters_selected": {
         "one": "เลือกแล้ว {{ count }} รายการ",
         "other": "เลือกแล้ว {{ count }} รายการ"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }} จากสินค้า {{ count }} รายการ"
       },
       "product_count_simple": {
-        "one": "สินค้า {{ count }} รายการ",
-        "other": "สินค้า {{ count }} รายการ"
+        "one": "แสดงสินค้า {{ count }} รายการ",
+        "other": "แสดงสินค้า {{ count }} รายการ"
       },
       "reset": "รีเซ็ต",
       "sort_button": "จัดเรียง",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "คอลเลกชัน",
+      "eyebrow": "คอลเลกชัน Luminoré",
+      "all_title": "จิวเวลรี่ที่ไม่มีกฎเกณฑ์ตายตัว",
+      "all_description": "จิวเวลรี่รูปทรงประติมากรรม ให้คุณสวมใส่ในสไตล์ของตัวเอง",
       "empty": "ไม่พบสินค้า",
       "use_fewer_filters_html": "ใช้ตัวกรองให้น้อยลง หรือ<a class=\"{{ class }}\" href=\"{{ link }}\">ลบทั้งหมด</a>"
     },

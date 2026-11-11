@@ -116,7 +116,7 @@
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
-      "choose_options": "Choose options",
+      "choose_options": "Select options",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
       "inventory_in_stock": "In stock",
@@ -198,13 +198,17 @@
       "refine_selection": "Refine your selection",
       "update_error": "Could not update the products. Please try again.",
       "filter_and_operator_subtitle": "Match all",
-      "apply": "Apply",
+      "apply": "Apply filters",
       "clear": "Clear",
-      "clear_all": "Remove all",
+      "clear_all": "Clear all",
       "from": "From",
       "filter_and_sort": "Filter and sort",
       "filter_by_label": "Filter:",
       "filter_button": "Filter",
+      "hide_filters": "Hide filters",
+      "show_filters": "Show filters",
+      "filters": "Filters",
+      "refine": "Refine",
       "filters_selected": {
         "one": "{{ count }} selected",
         "other": "{{ count }} selected"
@@ -218,8 +222,8 @@
         "other": "{{ product_count }} of {{ count }} products"
       },
       "product_count_simple": {
-        "one": "{{ count }} product",
-        "other": "{{ count }} products"
+        "one": "Showing {{ count }} product",
+        "other": "Showing {{ count }} products"
       },
       "reset": "Reset",
       "sort_button": "Sort",
@@ -345,6 +349,9 @@
     "collection_template": {
       "empty": "No products found",
       "title": "Collection",
+      "eyebrow": "The Luminoré Collection",
+      "all_title": "Jewelry without a prescribed way.",
+      "all_description": "Sculptural pieces, styled on your own terms.",
       "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
     },
     "video": {

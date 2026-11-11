@@ -197,13 +197,17 @@
       "filter_pieces": "Filter perhiasan",
       "refine_selection": "Persempit pilihan Anda",
       "update_error": "Produk tidak dapat diperbarui. Silakan coba lagi.",
-      "apply": "Pakai",
+      "apply": "Terapkan filter",
       "clear": "Hapus",
       "clear_all": "Hapus semua",
       "from": "Dari",
       "filter_and_sort": "Filter dan urutkan",
       "filter_by_label": "Filter:",
       "filter_button": "Filter",
+      "hide_filters": "Sembunyikan filter",
+      "show_filters": "Tampilkan filter",
+      "filters": "Filter",
+      "refine": "Persempit pilihan",
       "filters_selected": {
         "one": "{{ count }} dipilih",
         "other": "{{ count }} dipilih"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }} dari {{ count }} produk"
       },
       "product_count_simple": {
-        "one": "{{ count }} produk",
-        "other": "{{ count }} produk"
+        "one": "Menampilkan {{ count }} produk",
+        "other": "Menampilkan {{ count }} produk"
       },
       "reset": "Reset",
       "sort_button": "Urutkan",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Koleksi",
+      "eyebrow": "Koleksi Luminoré",
+      "all_title": "Perhiasan tanpa aturan.",
+      "all_description": "Perhiasan dengan bentuk artistik, dikenakan sesuai gaya Anda.",
       "empty": "Tidak ada produk yang ditemukan",
       "use_fewer_filters_html": "Gunakan lebih sedikit filter atau <a class=\"{{ class }}\" href=\"{{ link }}\">hapus semua</a>"
     },

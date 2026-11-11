@@ -197,13 +197,17 @@
       "filter_pieces": "ジュエリーを絞り込む",
       "refine_selection": "条件を絞り込む",
       "update_error": "商品を更新できませんでした。もう一度お試しください。",
-      "apply": "適用",
+      "apply": "絞り込みを適用",
       "clear": "クリア",
       "clear_all": "すべてを削除する",
       "from": "から",
       "filter_and_sort": "絞り込みと並び替え",
       "filter_by_label": "絞り込み:",
       "filter_button": "絞り込む",
+      "hide_filters": "絞り込みを非表示",
+      "show_filters": "絞り込みを表示",
+      "filters": "絞り込み",
+      "refine": "条件で絞り込む",
       "filters_selected": {
         "one": "{{ count }}個が選択されました",
         "other": "{{ count }}個が選択されました"
@@ -214,8 +218,8 @@
         "other": "{{ count }}個の商品の{{ product_count }}"
       },
       "product_count_simple": {
-        "one": "{{ count }}個の商品",
-        "other": "{{ count }}個の商品"
+        "one": "{{ count }}件の商品を表示中",
+        "other": "{{ count }}件の商品を表示中"
       },
       "reset": "リセット",
       "sort_button": "並び替え",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "コレクション",
+      "eyebrow": "Luminoré コレクション",
+      "all_title": "身につけ方に、決まりはない。",
+      "all_description": "彫刻のようなジュエリーを、あなたらしいスタイルで。",
       "empty": "商品が見つかりません",
       "use_fewer_filters_html": "絞り込みの数を減らす、または<a class=\"{{ class }}\" href=\"{{ link }}\">すべて削除する</a>"
     },

@@ -197,13 +197,17 @@
       "filter_pieces": "Sieraden filteren",
       "refine_selection": "Verfijn je selectie",
       "update_error": "De producten konden niet worden bijgewerkt. Probeer het opnieuw.",
-      "apply": "Toepassen",
+      "apply": "Filters toepassen",
       "clear": "Wissen",
       "clear_all": "Alles verwijderen",
       "from": "Van",
       "filter_and_sort": "Filteren en sorteren",
       "filter_by_label": "Filter:",
       "filter_button": "Filter",
+      "hide_filters": "Filters verbergen",
+      "show_filters": "Filters tonen",
+      "filters": "Filters",
+      "refine": "Selectie verfijnen",
       "filters_selected": {
         "one": "{{ count }} geselecteerd",
         "other": "{{ count }} geselecteerd"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }} korting op {{ count }} producten"
       },
       "product_count_simple": {
-        "one": "{{ count }} product",
-        "other": "{{ count }} producten"
+        "one": "{{ count }} product weergegeven",
+        "other": "{{ count }} producten weergegeven"
       },
       "reset": "Opnieuw instellen",
       "sort_button": "Sorteren",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Collectie",
+      "eyebrow": "De Luminoré-collectie",
+      "all_title": "Sieraden zonder vaste regels.",
+      "all_description": "Sculpturale sieraden, gedragen op jouw manier.",
       "empty": "Geen producten gevonden",
       "use_fewer_filters_html": "Minder filters gebruiken of <a class=\"{{ class }}\" href=\"{{ link }}\">alles verwijderen</a>"
     },

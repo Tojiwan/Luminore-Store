@@ -197,13 +197,17 @@
       "filter_pieces": "Filtrera smycken",
       "refine_selection": "Förfina ditt urval",
       "update_error": "Produkterna kunde inte uppdateras. Försök igen.",
-      "apply": "Tillämpa",
+      "apply": "Tillämpa filter",
       "clear": "Rensa",
       "clear_all": "Ta bort alla",
       "from": "Från",
       "filter_and_sort": "Filtrera och sortera",
       "filter_by_label": "Filter:",
       "filter_button": "Filter",
+      "hide_filters": "Dölj filter",
+      "show_filters": "Visa filter",
+      "filters": "Filter",
+      "refine": "Förfina urvalet",
       "filters_selected": {
         "one": "{{ count }} har valts",
         "other": "{{ count }} har valts"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }} av {{ count }} produkter"
       },
       "product_count_simple": {
-        "one": "{{ count }} produkt",
-        "other": "{{ count }} produkter"
+        "one": "Visar {{ count }} produkt",
+        "other": "Visar {{ count }} produkter"
       },
       "reset": "Återställ",
       "sort_button": "Sortera",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Produktserie",
+      "eyebrow": "Luminoré-kollektionen",
+      "all_title": "Smycken utan regler.",
+      "all_description": "Skulpturala smycken, stylade på ditt eget sätt.",
       "empty": "Inga produkter hittades",
       "use_fewer_filters_html": "Använd färre filter eller <a class=\"{{ class }}\" href=\"{{ link }}\">ta bort alla</a>"
     },

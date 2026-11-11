@@ -198,13 +198,17 @@
       "filter_pieces": "Filtrar joyas",
       "refine_selection": "Afina tu selección",
       "update_error": "No se pudieron actualizar los productos. Inténtalo de nuevo.",
-      "apply": "Aplicar",
+      "apply": "Aplicar filtros",
       "clear": "Borrar",
       "clear_all": "Eliminar todos",
       "from": "De",
       "filter_and_sort": "Filtrar y ordenar",
       "filter_by_label": "Filtrar:",
       "filter_button": "Filtrar",
+      "hide_filters": "Ocultar filtros",
+      "show_filters": "Mostrar filtros",
+      "filters": "Filtros",
+      "refine": "Afinar la selección",
       "filters_selected": {
         "one": "{{ count }} seleccionado",
         "other": "{{ count }} seleccionados",
@@ -217,9 +221,9 @@
         "many": "{{ product_count }} productos de un total de {{ count }}"
       },
       "product_count_simple": {
-        "one": "{{ count }} producto",
-        "other": "{{ count }} productos",
-        "many": "{{ count }} productos"
+        "one": "Mostrando {{ count }} producto",
+        "other": "Mostrando {{ count }} productos",
+        "many": "Mostrando {{ count }} productos"
       },
       "reset": "Restablecer",
       "sort_button": "Ordenar",
@@ -346,6 +350,9 @@
     },
     "collection_template": {
       "title": "Colección",
+      "eyebrow": "La colección Luminoré",
+      "all_title": "Joyas sin reglas.",
+      "all_description": "Piezas escultóricas para llevar a tu manera.",
       "empty": "No se encontró ningún producto",
       "use_fewer_filters_html": "Usa menos filtros o <a class=\"{{ class }}\" href=\"{{ link }}\">elimínalos todos</a>"
     },

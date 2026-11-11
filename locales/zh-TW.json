@@ -197,13 +197,17 @@
       "filter_pieces": "篩選珠寶",
       "refine_selection": "縮小選擇範圍",
       "update_error": "無法更新商品。請再試一次。",
-      "apply": "套用",
+      "apply": "套用篩選",
       "clear": "清除",
       "clear_all": "全部移除",
       "from": "寄件人",
       "filter_and_sort": "篩選與排序",
       "filter_by_label": "篩選條件：",
       "filter_button": "篩選條件",
+      "hide_filters": "隱藏篩選",
+      "show_filters": "顯示篩選",
+      "filters": "篩選",
+      "refine": "細化篩選",
       "filters_selected": {
         "one": "已選取 {{ count }} 項",
         "other": "已選取 {{ count }} 項"
@@ -214,8 +218,8 @@
         "other": "{{ count }} 項產品中的 {{ product_count }} 項"
       },
       "product_count_simple": {
-        "one": "{{ count }} 項產品",
-        "other": "{{ count }} 項產品"
+        "one": "顯示 {{ count }} 項產品",
+        "other": "顯示 {{ count }} 項產品"
       },
       "reset": "重設",
       "sort_button": "排序",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "商品系列",
+      "eyebrow": "Luminoré 珠寶系列",
+      "all_title": "珠寶風格，不設框架。",
+      "all_description": "雕塑般的珠寶，以你的方式演繹。",
       "empty": "找不到任何產品",
       "use_fewer_filters_html": "使用較少篩選條件或<a class=\"{{ class }}\" href=\"{{ link }}\">全部移除</a>"
     },

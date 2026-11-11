@@ -197,13 +197,17 @@
       "filter_pieces": "Suodata koruja",
       "refine_selection": "Tarkenna valintaasi",
       "update_error": "Tuotteita ei voitu päivittää. Yritä uudelleen.",
-      "apply": "Käytä",
+      "apply": "Käytä suodattimia",
       "clear": "Tyhjennä",
       "clear_all": "Poista kaikki",
       "from": "Alkaen",
       "filter_and_sort": "Suodatus ja lajittelu",
       "filter_by_label": "Suodatin:",
       "filter_button": "Suodata",
+      "hide_filters": "Piilota suodattimet",
+      "show_filters": "Näytä suodattimet",
+      "filters": "Suodattimet",
+      "refine": "Rajaa valikoimaa",
       "filters_selected": {
         "one": "{{ count }} valittu",
         "other": "{{ count }} valittu"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }}/{{ count }} tuotetta"
       },
       "product_count_simple": {
-        "one": "{{ count }} tuote",
-        "other": "{{ count }} tuotetta"
+        "one": "Näytetään {{ count }} tuote",
+        "other": "Näytetään {{ count }} tuotetta"
       },
       "reset": "Nollaa",
       "sort_button": "Lajittele",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Kokoelma",
+      "eyebrow": "Luminoré-mallisto",
+      "all_title": "Koruja ilman sääntöjä.",
+      "all_description": "Veistoksellisia koruja, joita käytät omalla tavallasi.",
       "empty": "Tuotteita ei löytynyt",
       "use_fewer_filters_html": "Käytä vähemmän suodattimia tai <a class=\"{{ class }}\" href=\"{{ link }}\">poista kaikki</a>"
     },

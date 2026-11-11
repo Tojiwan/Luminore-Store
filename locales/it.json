@@ -198,13 +198,17 @@
       "filter_pieces": "Filtra i gioielli",
       "refine_selection": "Affina la selezione",
       "update_error": "Impossibile aggiornare i prodotti. Riprova.",
-      "apply": "Applica",
+      "apply": "Applica filtri",
       "clear": "Cancella",
       "clear_all": "Rimuovi tutto",
       "from": "Da",
       "filter_and_sort": "Filtra e ordina",
       "filter_by_label": "Filtra:",
       "filter_button": "Filtra",
+      "hide_filters": "Nascondi filtri",
+      "show_filters": "Mostra filtri",
+      "filters": "Filtri",
+      "refine": "Affina la selezione",
       "filters_selected": {
         "one": "{{ count }} selezionata",
         "other": "{{ count }} selezionate",
@@ -217,9 +221,9 @@
         "many": "{{ product_count }} su {{ count }} prodotti"
       },
       "product_count_simple": {
-        "one": "{{ count }} prodotto",
-        "other": "{{ count }} prodotti",
-        "many": "{{ count }} prodotti"
+        "one": "{{ count }} prodotto visualizzato",
+        "other": "{{ count }} prodotti visualizzati",
+        "many": "{{ count }} prodotti visualizzati"
       },
       "reset": "Ripristina",
       "sort_button": "Ordina",
@@ -346,6 +350,9 @@
     },
     "collection_template": {
       "title": "Collezione",
+      "eyebrow": "La collezione Luminoré",
+      "all_title": "Gioielli senza regole.",
+      "all_description": "Creazioni scultoree da indossare a modo tuo.",
       "empty": "Nessun prodotto trovato",
       "use_fewer_filters_html": "Utilizza meno filtri o <a class=\"{{ class }}\" href=\"{{ link }}\">rimuovi tutto</a>"
     },

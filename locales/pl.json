@@ -199,13 +199,17 @@
       "filter_pieces": "Filtruj biżuterię",
       "refine_selection": "Zawęź wybór",
       "update_error": "Nie udało się zaktualizować produktów. Spróbuj ponownie.",
-      "apply": "Zastosuj",
+      "apply": "Zastosuj filtry",
       "clear": "Wyczyść",
       "clear_all": "Usuń wszystko",
       "from": "Od",
       "filter_and_sort": "Filtrowanie i sortowanie",
       "filter_by_label": "Filtr:",
       "filter_button": "Filtr",
+      "hide_filters": "Ukryj filtry",
+      "show_filters": "Pokaż filtry",
+      "filters": "Filtry",
+      "refine": "Zawęź wybór",
       "max_price": "Najwyższa cena to {{ price }}",
       "reset": "Zresetuj",
       "sort_button": "Sortuj",
@@ -224,10 +228,10 @@
         "many": "{{ product_count }} z {{ count }} produktów"
       },
       "product_count_simple": {
-        "one": "{{ count }} produkt",
-        "other": "{{ count }} produkty(-ów)",
-        "few": "{{ count }} produkty(-ów)",
-        "many": "{{ count }} produkty(-ów)"
+        "one": "Wyświetlono {{ count }} produkt",
+        "other": "Wyświetlono {{ count }} produktu",
+        "few": "Wyświetlono {{ count }} produkty",
+        "many": "Wyświetlono {{ count }} produktów"
       },
       "clear_filter": "Usuń filtr",
       "filter_selected_accessibility": "{{ type }} (wybrano {{ count }} fitry(-ów))",
@@ -356,6 +360,9 @@
     },
     "collection_template": {
       "title": "Kolekcja",
+      "eyebrow": "Kolekcja Luminoré",
+      "all_title": "Biżuteria bez narzuconych zasad.",
+      "all_description": "Rzeźbiarskie formy, które nosisz po swojemu.",
       "empty": "Nie znaleziono produktów",
       "use_fewer_filters_html": "Użyj mniejszej ilości filtrów lub <a class=\"{{ class }}\" href=\"{{ link }}\">usuń wszystko</a>"
     },

@@ -197,13 +197,17 @@
       "filter_pieces": "Ékszerek szűrése",
       "refine_selection": "Választék szűkítése",
       "update_error": "A termékeket nem sikerült frissíteni. Próbálja újra.",
-      "apply": "Alkalmaz",
+      "apply": "Szűrők alkalmazása",
       "clear": "Törlés",
       "clear_all": "Az összes eltávolítása",
       "from": "Ettől:",
       "filter_and_sort": "Szűrés és rendezés",
       "filter_by_label": "Szűrés:",
       "filter_button": "Szűrés",
+      "hide_filters": "Szűrők elrejtése",
+      "show_filters": "Szűrők megjelenítése",
+      "filters": "Szűrők",
+      "refine": "Találatok szűkítése",
       "filters_selected": {
         "one": "{{ count }} elem kijelölve",
         "other": "{{ count }} elem kijelölve"
@@ -214,8 +218,8 @@
         "other": "{{ count }}/{{ product_count }} termék"
       },
       "product_count_simple": {
-        "one": "{{ count }} termék",
-        "other": "{{ count }} termék"
+        "one": "{{ count }} termék megjelenítve",
+        "other": "{{ count }} termék megjelenítve"
       },
       "reset": "Alaphelyzet",
       "sort_button": "Rendezés",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Kollekció",
+      "eyebrow": "A Luminoré kollekció",
+      "all_title": "Ékszerek szabályok nélkül.",
+      "all_description": "Szoborszerű ékszerek, a saját stílusodra hangolva.",
       "empty": "Nincs találat",
       "use_fewer_filters_html": "Használj kevesebb szűrőt, vagy <a class=\"{{ class }}\" href=\"{{ link }}\">távolítsd el az összeset</a>."
     },

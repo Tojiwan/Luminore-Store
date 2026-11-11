@@ -197,13 +197,17 @@
       "filter_pieces": "Филтриране на бижута",
       "refine_selection": "Уточнете избора си",
       "update_error": "Продуктите не можаха да се обновят. Опитайте отново.",
-      "apply": "Приложи",
+      "apply": "Приложи филтрите",
       "clear": "Изчисти",
       "clear_all": "Премахване на всички",
       "from": "От",
       "filter_and_sort": "Филтриране и сортиране",
       "filter_by_label": "Филтър:",
       "filter_button": "Филтър",
+      "hide_filters": "Скриване на филтрите",
+      "show_filters": "Показване на филтрите",
+      "filters": "Филтри",
+      "refine": "Уточнете избора",
       "filters_selected": {
         "one": "Избрани: {{ count }}",
         "other": "Избрани: {{ count }}"
@@ -214,8 +218,8 @@
         "other": "{{ product_count }} от {{ count }} продукта"
       },
       "product_count_simple": {
-        "one": "{{ count }} продукт",
-        "other": "{{ count }} продукта"
+        "one": "Показва се {{ count }} продукт",
+        "other": "Показват се {{ count }} продукта"
       },
       "reset": "Нулиране",
       "sort_button": "Сортиране",
@@ -336,6 +340,9 @@
     },
     "collection_template": {
       "title": "Колекция",
+      "eyebrow": "Колекцията Luminoré",
+      "all_title": "Бижута без правила.",
+      "all_description": "Скулптурни форми, които носите по свой начин.",
       "empty": "Не са открити продукти",
       "use_fewer_filters_html": "Използвайте по-малко филтри или <a class=\"{{ class }}\" href=\"{{ link }}\">премахнете всички</a>"
     },

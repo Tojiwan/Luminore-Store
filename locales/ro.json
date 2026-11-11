@@ -198,13 +198,17 @@
       "filter_pieces": "Filtrează bijuteriile",
       "refine_selection": "Restrânge selecția",
       "update_error": "Produsele nu au putut fi actualizate. Încearcă din nou.",
-      "apply": "Aplică",
+      "apply": "Aplică filtrele",
       "clear": "Golește",
       "clear_all": "Elimină tot",
       "from": "De la",
       "filter_and_sort": "Filtrează și sortează",
       "filter_by_label": "Filtrează:",
       "filter_button": "Filtrează",
+      "hide_filters": "Ascunde filtrele",
+      "show_filters": "Afișează filtrele",
+      "filters": "Filtre",
+      "refine": "Restrânge selecția",
       "max_price": "Cel mai mare preț este {{ price }}",
       "reset": "Resetează",
       "sort_button": "Sortează",
@@ -221,9 +225,9 @@
         "few": "{{ product_count }} din {{ count }} produse"
       },
       "product_count_simple": {
-        "one": "{{ count }} produs",
-        "other": "{{ count }} produse",
-        "few": "{{ count }} produse"
+        "one": "Se afișează {{ count }} produs",
+        "other": "Se afișează {{ count }} de produse",
+        "few": "Se afișează {{ count }} produse"
       },
       "clear_filter": "Elimină filtrul",
       "filter_selected_accessibility": "{{ type }} ({{ count }} filtre selectate)",
@@ -346,6 +350,9 @@
     },
     "collection_template": {
       "title": "Colecție",
+      "eyebrow": "Colecția Luminoré",
+      "all_title": "Bijuterii fără reguli.",
+      "all_description": "Piese sculpturale, purtate în stilul tău.",
       "empty": "Nu s-au găsit produse",
       "use_fewer_filters_html": "Folosește mai puține filtre sau <a class=\"{{ class }}\" href=\"{{ link }}\">elimină-le pe toate</a>"
     },
