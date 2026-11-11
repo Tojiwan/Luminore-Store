@@ -18,24 +18,26 @@
       </label>
     {% endif %}
   </div>
-  <div class="lm-filter-chips">
-    {% for filter in results.filters %}
-      {% for value in filter.active_values %}
-        <a data-remove href="{{ value.url_to_remove }}">{{ filter.label | escape }}: {{ value.label | escape }} <span aria-hidden="true">×</span><span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span></a>
-      {% endfor %}
-      {% if filter.type == 'price_range' %}
-        {% if filter.min_value.value != nil or filter.max_value.value != nil %}
-          <a data-remove href="{{ filter.url_to_remove }}">{{ filter.min_value.value | default: 0 | money }} – {{ filter.max_value.value | default: filter.range_max | money }} <span aria-hidden="true">×</span><span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span></a>
+  <div class="lm-filter-notices">
+    <div class="lm-filter-chips">
+      {% for filter in results.filters %}
+        {% for value in filter.active_values %}
+          <a data-remove href="{{ value.url_to_remove }}">{{ filter.label | escape }}: {{ value.label | escape }} <span aria-hidden="true">×</span><span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span></a>
+        {% endfor %}
+        {% if filter.type == 'price_range' %}
+          {% if filter.min_value.value != nil or filter.max_value.value != nil %}
+            <a data-remove href="{{ filter.url_to_remove }}">{{ filter.min_value.value | default: 0 | money }} – {{ filter.max_value.value | default: filter.range_max | money }} <span aria-hidden="true">×</span><span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span></a>
+          {% endif %}
         {% endif %}
-      {% endif %}
-    {% endfor %}
+      {% endfor %}
+    </div>
+    <p class="lm-filter-error" role="alert" hidden>{{ 'products.facets.update_error' | t }}</p>
   </div>
-  <p class="lm-filter-error" role="alert" hidden>{{ 'products.facets.update_error' | t }}</p>
   {% if enable_filtering and results.filters.size > 0 %}
     <dialog id="FilterDialog-{{ section.id }}" aria-labelledby="FilterTitle-{{ section.id }}">
       <form action="{{ results.url }}" method="get" data-filter-form>
         <header class="lm-filter-header">
-          <h2 id="FilterTitle-{{ section.id }}">{{ 'products.facets.refine_selection' | t }}</h2>
+          <h2 id="FilterTitle-{{ section.id }}" tabindex="-1">{{ 'products.facets.refine_selection' | t }}</h2>
           <button type="button" data-close aria-label="{{ 'accessibility.close' | t }}">{{ 'icon-close.svg' | inline_asset_content }}</button>
         </header>
         <div class="lm-filter-body">

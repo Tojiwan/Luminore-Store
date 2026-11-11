@@ -7,8 +7,12 @@
 {% endif %}
 {% liquid
   assign collection_filter_type = section.settings.filter_type
+  assign luminore_filter_rail = false
   if section.settings.luminore_filter_drawer
     assign collection_filter_type = 'drawer'
+    if section.settings.enable_filtering and collection.filters.size > 0
+      assign luminore_filter_rail = true
+    endif
   endif
 %}
 
@@ -107,13 +111,13 @@
       </facet-filters-form>
     {%- endif -%}
 
-    <div class="{% if collection_filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
+    <div class="{% if luminore_filter_rail %}lm-collection-rail page-width{% elsif collection_filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-label="{{ 'products.facets.filter_and_sort' | t }}"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if collection_filter_type != 'vertical' %} page-width{% endif %}"
+          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if collection_filter_type != 'vertical' and luminore_filter_rail == false %} page-width{% endif %}"
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
@@ -139,7 +143,7 @@
         {% endif %}
       >
         {%- if collection.products.size == 0 -%}
-          <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+          <div class="collection collection--empty{% if luminore_filter_rail == false %} page-width{% endif %}" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
               <h2 class="title title--primary">
@@ -154,7 +158,7 @@
           </div>
         {%- else -%}
           <div
-            class="collection{% if collection_filter_type != 'vertical' %} page-width{% endif %}"
+            class="collection{% if collection_filter_type != 'vertical' and luminore_filter_rail == false %} page-width{% endif %}"
           >
             <div class="loading-overlay gradient"></div>
             <ul
@@ -230,7 +234,7 @@
       "min": 1,
       "max": 6,
       "step": 1,
-      "default": 4,
+      "default": 3,
       "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label"
     },
     {

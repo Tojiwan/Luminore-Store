@@ -18,7 +18,9 @@ if (!customElements.get('luminore-filter-drawer')) {
 
     connectedCallback() {
       this.events = new AbortController();
+      this.inline = window.matchMedia('(min-width: 750px)');
       const options = { signal: this.events.signal };
+      this.inline.addEventListener('change', () => this.syncMode(), options);
       this.addEventListener('click', event => this.onClick(event), options);
       this.addEventListener('input', event => this.onInput(event), options);
       this.addEventListener('keydown', event => {
@@ -66,6 +68,7 @@ if (!customElements.get('luminore-filter-drawer')) {
     }
 
     open() {
+      if (this.inline.matches) return;
       const dialog = this.querySelector('dialog');
       if (!dialog || dialog.open) return;
       this.querySelector('form').reset();
@@ -76,6 +79,14 @@ if (!customElements.get('luminore-filter-drawer')) {
       dialog.querySelector('[data-close]').focus();
     }
 
+    syncMode() {
+      const dialog = this.querySelector('dialog');
+      if (this.inline.matches && dialog?.open) {
+        dialog.close();
+        this.unlock();
+      }
+    }
+
     unlock() {
       if (this.previousOverflow === undefined) return;
       document.body.style.overflow = this.previousOverflow;
@@ -83,25 +94,26 @@ if (!customElements.get('luminore-filter-drawer')) {
     }
 
     close(restoreFocus = true) {
-      this.querySelector('dialog')?.close();
-      this.querySelector('form')?.reset();
+      const dialog = this.querySelector('dialog');
+      const wasOpen = dialog?.open;
+      dialog?.close();
+      if (wasOpen) this.querySelector('form')?.reset();
       this.unlock();
-      if (restoreFocus) this.querySelector('[data-open]')?.focus();
+      if (restoreFocus && wasOpen) this.querySelector('[data-open]')?.focus();
     }
 
     onClick(event) {
       if (event.target.closest('[data-open]')) this.open();
       if (event.target.closest('[data-close]')) this.close();
       const dialog = this.querySelector('dialog');
-      if (event.target === dialog) {
+      if (dialog.open && event.target === dialog) {
         const rect = dialog.getBoundingClientRect();
         if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) this.close();
       }
       if (event.target.closest('[data-clear]')) {
-        // Clear is staged too: Apply commits it; closing restores the URL state.
-        this.querySelectorAll('input[type=checkbox]').forEach(input => { input.checked = false; });
-        this.querySelectorAll('[data-bound]').forEach(input => { input.value = ''; });
-        this.enhance();
+        // Clear is immediate; other filter edits stay staged until Apply.
+        FacetFiltersForm.renderPage(this.constructor.buildParams(location.search, []).toString());
+        return;
       }
       const remove = event.target.closest('[data-remove]');
       if (remove) {
@@ -160,7 +172,8 @@ if (!customElements.get('luminore-filter-drawer')) {
         this.enhance();
         if (updateHistory) FacetFiltersForm.updateURLHash(searchParams);
         FacetFiltersForm.searchParamsPrev = searchParams;
-        const focusTarget = focusedSort ? this.querySelector('[data-sort]') : returnFocus ? this.querySelector('[data-open]') : null;
+        const inlineFocus = returnFocus && this.inline.matches ? this.querySelector('.lm-filter-header h2') : null;
+        const focusTarget = focusedSort ? this.querySelector('[data-sort]') : inlineFocus || (returnFocus ? this.querySelector('[data-open]') : null);
         focusTarget?.focus();
       } catch (error) {
         if (error.name !== 'AbortError') {
