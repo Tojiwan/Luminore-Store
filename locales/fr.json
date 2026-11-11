@@ -195,6 +195,9 @@
       "label": "Galerie de supports multimédias"
     },
     "facets": {
+      "filter_pieces": "Filtrer les bijoux",
+      "refine_selection": "Affinez votre sélection",
+      "update_error": "Impossible de mettre à jour les produits. Veuillez réessayer.",
       "apply": "Appliquer",
       "clear": "Effacer",
       "clear_all": "Tout supprimer",

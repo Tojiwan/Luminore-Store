@@ -196,6 +196,9 @@
       "label": "Galeria multimediów"
     },
     "facets": {
+      "filter_pieces": "Filtruj biżuterię",
+      "refine_selection": "Zawęź wybór",
+      "update_error": "Nie udało się zaktualizować produktów. Spróbuj ponownie.",
       "apply": "Zastosuj",
       "clear": "Wyczyść",
       "clear_all": "Usuń wszystko",

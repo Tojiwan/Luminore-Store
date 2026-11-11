@@ -194,6 +194,9 @@
       "label": "Media gallery"
     },
     "facets": {
+      "filter_pieces": "Filter pieces",
+      "refine_selection": "Refine your selection",
+      "update_error": "Could not update the products. Please try again.",
       "filter_and_operator_subtitle": "Match all",
       "apply": "Apply",
       "clear": "Clear",

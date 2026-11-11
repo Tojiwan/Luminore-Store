@@ -196,6 +196,9 @@
       "label": "Medijų galerija"
     },
     "facets": {
+      "filter_pieces": "Filtruoti papuošalus",
+      "refine_selection": "Patikslinkite pasirinkimą",
+      "update_error": "Nepavyko atnaujinti produktų. Bandykite dar kartą.",
       "apply": "Taikyti",
       "clear": "Išvalyti",
       "clear_all": "Pašalinti viską",

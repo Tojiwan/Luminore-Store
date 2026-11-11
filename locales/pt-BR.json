@@ -195,6 +195,9 @@
       "label": "Galeria de mídia"
     },
     "facets": {
+      "filter_pieces": "Filtrar joias",
+      "refine_selection": "Refine sua seleção",
+      "update_error": "Não foi possível atualizar os produtos. Tente novamente.",
       "apply": "Aplicar",
       "clear": "Limpar",
       "clear_all": "Remover tudo",

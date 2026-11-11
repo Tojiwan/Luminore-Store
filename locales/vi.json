@@ -194,6 +194,9 @@
       "label": "Thư viện phương tiện"
     },
     "facets": {
+      "filter_pieces": "Lọc trang sức",
+      "refine_selection": "Thu hẹp lựa chọn",
+      "update_error": "Không thể cập nhật sản phẩm. Vui lòng thử lại.",
       "apply": "Áp dụng",
       "clear": "Xóa",
       "clear_all": "Xóa tất cả",

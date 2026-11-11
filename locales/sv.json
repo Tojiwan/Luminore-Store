@@ -194,6 +194,9 @@
       "label": "Mediagalleri"
     },
     "facets": {
+      "filter_pieces": "Filtrera smycken",
+      "refine_selection": "Förfina ditt urval",
+      "update_error": "Produkterna kunde inte uppdateras. Försök igen.",
       "apply": "Tillämpa",
       "clear": "Rensa",
       "clear_all": "Ta bort alla",

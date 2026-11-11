@@ -194,6 +194,9 @@
       "label": "Mediagalleria"
     },
     "facets": {
+      "filter_pieces": "Suodata koruja",
+      "refine_selection": "Tarkenna valintaasi",
+      "update_error": "Tuotteita ei voitu päivittää. Yritä uudelleen.",
       "apply": "Käytä",
       "clear": "Tyhjennä",
       "clear_all": "Poista kaikki",

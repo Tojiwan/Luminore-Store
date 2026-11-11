@@ -194,6 +194,9 @@
       "label": "媒體庫"
     },
     "facets": {
+      "filter_pieces": "篩選珠寶",
+      "refine_selection": "縮小選擇範圍",
+      "update_error": "無法更新商品。請再試一次。",
       "apply": "套用",
       "clear": "清除",
       "clear_all": "全部移除",

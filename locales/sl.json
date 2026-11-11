@@ -196,6 +196,9 @@
       "label": "Galerija predstavnostnih vsebin"
     },
     "facets": {
+      "filter_pieces": "Filtriraj nakit",
+      "refine_selection": "Zožite izbor",
+      "update_error": "Izdelkov ni bilo mogoče posodobiti. Poskusite znova.",
       "apply": "Uporabi",
       "clear": "Počisti",
       "clear_all": "Odstrani vse",

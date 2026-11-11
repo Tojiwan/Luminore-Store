@@ -194,6 +194,9 @@
       "label": "Medien-Galerie"
     },
     "facets": {
+      "filter_pieces": "Schmuck filtern",
+      "refine_selection": "Auswahl verfeinern",
+      "update_error": "Die Produkte konnten nicht aktualisiert werden. Bitte erneut versuchen.",
       "apply": "Anwenden",
       "clear": "Löschen",
       "clear_all": "Alle entfernen",

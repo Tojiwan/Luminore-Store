@@ -1,0 +1,93 @@
+{% comment %}Native collection filter values; pending choices submit only on Apply.{% endcomment %}
+{%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
+<luminore-filter-drawer class="lm-filters" data-section="{{ section.id }}">
+  <div class="lm-filter-toolbar">
+    {% if enable_filtering and results.filters.size > 0 %}
+      <button type="button" class="lm-filter-trigger" data-open aria-haspopup="dialog" aria-controls="FilterDialog-{{ section.id }}">
+        {{ 'icon-filter.svg' | inline_asset_content }} {{ 'products.facets.filter_pieces' | t }}
+      </button>
+    {% endif %}
+    <span id="ProductCount" role="status">{{ 'products.facets.product_count_simple' | t: count: results.products_count }}</span>
+    {% if enable_sorting %}
+      <label class="lm-filter-sort">{{ 'products.facets.sort_by_label' | t }}
+        <select name="sort_by" data-sort>
+          {% for option in results.sort_options %}
+            <option value="{{ option.value | escape }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name | escape }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    {% endif %}
+  </div>
+  <div class="lm-filter-chips">
+    {% for filter in results.filters %}
+      {% for value in filter.active_values %}
+        <a data-remove href="{{ value.url_to_remove }}">{{ filter.label | escape }}: {{ value.label | escape }} <span aria-hidden="true">×</span><span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span></a>
+      {% endfor %}
+      {% if filter.type == 'price_range' %}
+        {% if filter.min_value.value != nil or filter.max_value.value != nil %}
+          <a data-remove href="{{ filter.url_to_remove }}">{{ filter.min_value.value | default: 0 | money }} – {{ filter.max_value.value | default: filter.range_max | money }} <span aria-hidden="true">×</span><span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span></a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  <p class="lm-filter-error" role="alert" hidden>{{ 'products.facets.update_error' | t }}</p>
+  {% if enable_filtering and results.filters.size > 0 %}
+    <dialog id="FilterDialog-{{ section.id }}" aria-labelledby="FilterTitle-{{ section.id }}">
+      <form action="{{ results.url }}" method="get" data-filter-form>
+        <header class="lm-filter-header">
+          <h2 id="FilterTitle-{{ section.id }}">{{ 'products.facets.refine_selection' | t }}</h2>
+          <button type="button" data-close aria-label="{{ 'accessibility.close' | t }}">{{ 'icon-close.svg' | inline_asset_content }}</button>
+        </header>
+        <div class="lm-filter-body">
+          <input type="hidden" name="sort_by" value="{{ sort_by | escape }}">
+          {% for filter in results.filters %}
+            {% if filter.values.size == 0 and filter.type != 'price_range' %}{% continue %}{% endif %}
+            <details class="lm-filter-group" {% if forloop.first or filter.type == 'price_range' or filter.active_values.size > 0 %}open{% endif %}>
+              <summary>{{ filter.label | escape }}{{ 'icon-caret.svg' | inline_asset_content }}</summary>
+              {% case filter.type %}
+                {% when 'list', 'boolean' %}
+                  <div class="lm-filter-options{% if filter.param_name == 'filter.p.product_type' or filter.type == 'boolean' %} lm-filter-options--list{% endif %}">
+                    {% for value in filter.values %}
+                      <label class="lm-filter-option">
+                        <input type="checkbox" name="{{ value.param_name | escape }}" value="{{ value.value | escape }}" {% if value.active %}checked{% elsif value.count == 0 %}disabled{% endif %}>
+                        {% if value.swatch.image %}
+                          {{ value.swatch.image | image_url: width: 64 | image_tag: class: 'lm-filter-swatch', alt: '', loading: 'lazy' }}
+                        {% elsif value.swatch.color %}
+                          <span class="lm-filter-swatch" style="background: {{ value.swatch.color }}" aria-hidden="true"></span>
+                        {% elsif value.image %}
+                          {{ value.image | image_url: width: 64 | image_tag: class: 'lm-filter-swatch', alt: '', loading: 'lazy' }}
+                        {% endif %}
+                        <span>{{ value.label | escape }} <span class="lm-filter-value-count">({{ value.count }})</span></span>
+                      </label>
+                    {% endfor %}
+                  </div>
+                {% when 'price_range' %}
+                  {%- assign price_max = filter.range_max | divided_by: 100.0 -%}
+                  <div class="lm-filter-price" data-price data-max="{{ price_max }}">
+                    <p>{{ 0 | money }} – {{ filter.range_max | money }}</p>
+                    <div class="lm-filter-price-inputs">
+                      <label>{{ 'products.facets.from' | t }}
+                        <input type="number" inputmode="decimal" step="0.01" min="0" max="{{ price_max }}" name="{{ filter.min_value.param_name }}" data-bound="min" placeholder="0" {% if filter.min_value.value != nil %}value="{{ filter.min_value.value | divided_by: 100.0 }}"{% endif %}>
+                      </label>
+                      <label>{{ 'products.facets.to' | t }}
+                        <input type="number" inputmode="decimal" step="0.01" min="0" max="{{ price_max }}" name="{{ filter.max_value.param_name }}" data-bound="max" placeholder="{{ price_max }}" {% if filter.max_value.value != nil %}value="{{ filter.max_value.value | divided_by: 100.0 }}"{% endif %}>
+                      </label>
+                    </div>
+                    <div class="lm-filter-range" data-ranges hidden>
+                      <label><span class="visually-hidden">{{ filter.label | escape }}: {{ 'products.facets.from' | t }}</span><input type="range" min="0" max="{{ price_max }}" step="0.01" value="{{ filter.min_value.value | default: 0 | divided_by: 100.0 }}" data-slider="min"></label>
+                      <label><span class="visually-hidden">{{ filter.label | escape }}: {{ 'products.facets.to' | t }}</span><input type="range" min="0" max="{{ price_max }}" step="0.01" value="{{ filter.max_value.value | default: filter.range_max | divided_by: 100.0 }}" data-slider="max"></label>
+                    </div>
+                  </div>
+              {% endcase %}
+            </details>
+          {% endfor %}
+        </div>
+        <footer class="lm-filter-footer">
+          <button type="button" data-clear>{{ 'products.facets.clear_all' | t }}</button>
+          <button type="submit" class="lm-filter-apply">{{ 'products.facets.apply' | t }}</button>
+        </footer>
+      </form>
+    </dialog>
+    <noscript><style>.lm-filters dialog{display:block;position:static;max-height:none;width:100%}.lm-filters [data-open],.lm-filters [data-close],.lm-filters [data-clear]{display:none}.lm-filters .lm-filter-body{overflow:visible}</style></noscript>
+  {% endif %}
+</luminore-filter-drawer>

@@ -194,6 +194,9 @@
       "label": "Galeri media"
     },
     "facets": {
+      "filter_pieces": "Filter perhiasan",
+      "refine_selection": "Persempit pilihan Anda",
+      "update_error": "Produk tidak dapat diperbarui. Silakan coba lagi.",
       "apply": "Pakai",
       "clear": "Hapus",
       "clear_all": "Hapus semua",

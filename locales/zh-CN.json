@@ -194,6 +194,9 @@
       "label": "媒体图库"
     },
     "facets": {
+      "filter_pieces": "筛选珠宝",
+      "refine_selection": "细化您的选择",
+      "update_error": "无法更新商品。请重试。",
       "apply": "应用",
       "clear": "清除",
       "clear_all": "全部删除",
