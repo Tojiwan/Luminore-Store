@@ -9,17 +9,34 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign collection_is_all = false
+  if collection.handle == 'all'
+    assign collection_is_all = true
+  endif
+  assign collection_eyebrow = 'sections.collection_template.eyebrow' | t
+  assign collection_heading = collection.title
+  assign collection_intro = collection.description
+  if collection_is_all
+    assign collection_heading = 'sections.collection_template.all_title' | t
+    if collection.description == blank
+      assign collection_intro = 'sections.collection_template.all_description' | t
+    endif
+  endif
+-%}
+
 <luminore-parallax enabled>
-  <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="collection-hero lm-collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
     <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       <div class="collection-hero__text-wrapper">
+        <p class="lm-collection-hero__eyebrow">{{ collection_eyebrow | escape }}</p>
         <h1 class="collection-hero__title">
           <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-          {{- collection.title | escape -}}
+          {{- collection_heading | escape -}}
         </h1>
 
-        {%- if section.settings.show_collection_description -%}
-          <div class="collection-hero__description rte">{{ collection.description }}</div>
+        {%- if section.settings.show_collection_description and collection_intro != blank -%}
+          <div class="collection-hero__description rte">{{ collection_intro }}</div>
         {%- endif -%}
       </div>
 

@@ -9,6 +9,10 @@ html {
   --lm-brass: #a58c63;
   --lm-stone: #e5dfd3;
   --lm-line: #cec7ba;
+  --lm-surface: #f8f5ee;
+  --lm-line-soft: #ded8cc;
+  --lm-muted: #6f6a60;
+  --lm-focus: #495b3e;
   --font-body-family: 'Satoshi', sans-serif;
   --font-heading-family: 'Cormorant Garamond', Georgia, serif;
   --font-heading-weight: 500;

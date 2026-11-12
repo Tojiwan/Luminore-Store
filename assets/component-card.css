@@ -1,3 +1,74 @@
+.product-card-wrapper .quick-add {
+  margin: 0;
+}
+
+.product-card-wrapper .quick-add__submit {
+  justify-content: flex-start;
+  align-items: flex-start;
+  line-height: 1.5;
+  gap: .6rem;
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #30382c;
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  letter-spacing: .02em;
+  text-transform: none;
+  text-decoration: underline;
+  text-underline-offset: .4rem;
+}
+
+.product-card-wrapper .quick-add__submit::before,
+.product-card-wrapper .quick-add__submit::after {
+  content: none;
+}
+
+.product-card-wrapper .quick-add__submit:hover {
+  background: transparent;
+  color: #30382c;
+}
+
+.product-card-wrapper .quick-add__submit:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.product-card-wrapper .quick-add__submit:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.card-action__arrow {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+
+.product-card-wrapper .quick-add__submit:has(.card-action__label) {
+  text-decoration: none;
+}
+
+.card-action__label {
+  text-decoration: underline;
+  text-underline-offset: .4rem;
+}
+
+.quick-add__submit:hover .card-action__arrow {
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-action__arrow { transition: none; }
+  .quick-add__submit:hover .card-action__arrow { transform: none; }
+}
+
 .card-wrapper {
   color: inherit;
   height: 100%;

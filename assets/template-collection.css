@@ -97,3 +97,106 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+.lm-collection {
+  background-attachment: scroll;
+}
+
+.lm-collection.color-scheme-1 {
+  background: var(--lm-paper);
+  background-attachment: scroll;
+}
+
+.lm-collection .product-grid {
+  --grid-desktop-horizontal-spacing: 2.4rem;
+  --grid-desktop-vertical-spacing: 4rem;
+  --grid-mobile-horizontal-spacing: 1.2rem;
+  --grid-mobile-vertical-spacing: 2.8rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.lm-collection .card__media {
+  background: rgba(var(--color-foreground), .04);
+}
+
+.lm-collection .card__information {
+  padding: 1.6rem 0 1.2rem;
+}
+
+.lm-collection .card__heading {
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-body-family);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.lm-collection .card-information .price {
+  color: rgba(var(--color-foreground), .68);
+  font-size: 1.4rem;
+  letter-spacing: 0;
+}
+
+
+.lm-collection .card-wrapper:hover .card__heading a {
+  text-decoration: none;
+  color: rgba(var(--color-foreground), .75);
+}
+
+
+.lm-collection .lm-filter-sort select:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--lm-olive);
+}
+
+.lm-collection .lm-filter-sort select:focus-visible {
+  outline: 2px solid var(--lm-focus);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.lm-collection .lm-filter-footer [data-clear] {
+  text-decoration: underline;
+  text-underline-offset: .4rem;
+  min-height: 44px;
+}
+
+.lm-collection .lm-filter-footer [data-clear]:hover {
+  color: var(--lm-ink);
+}
+
+.lm-collection .lm-filter-footer .lm-filter-apply {
+  border-radius: 999px;
+  min-height: 44px;
+  height: 44px;
+  min-width: 0;
+  padding: 0 1.2rem;
+  line-height: 1.25;
+  background: #30382c;
+  text-transform: none;
+  letter-spacing: .02em;
+}
+
+.lm-collection .lm-filter-footer .lm-filter-apply:hover {
+  background: #424c3c;
+}
+
+@media screen and (max-width: 749px) {
+  .lm-collection .card__heading {
+    font-size: 1.45rem;
+  }
+
+  .lm-collection .card-information .price {
+    font-size: 1.3rem;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lm-collection .card-wrapper:hover .media--hover-effect > img {
+    transform: none;
+  }
+}

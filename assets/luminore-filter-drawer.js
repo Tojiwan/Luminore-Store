@@ -18,7 +18,7 @@ if (!customElements.get('luminore-filter-drawer')) {
 
     connectedCallback() {
       this.events = new AbortController();
-      this.inline = window.matchMedia('(min-width: 750px)');
+      this.inline = window.matchMedia('(min-width: 990px)');
       const options = { signal: this.events.signal };
       this.inline.addEventListener('change', () => this.syncMode(), options);
       this.addEventListener('click', event => this.onClick(event), options);
@@ -65,6 +65,22 @@ if (!customElements.get('luminore-filter-drawer')) {
     enhance() {
       this.querySelectorAll('[data-ranges]').forEach(element => { element.hidden = false; });
       this.querySelectorAll('[data-price]').forEach(group => this.syncPrice(group));
+      this.syncRail();
+    }
+
+    syncRail() {
+      const rail = this.closest('.lm-collection-rail');
+      const toggle = this.querySelector('[data-toggle]');
+      if (!rail || !toggle) return;
+      toggle.setAttribute('aria-expanded', String(!rail.classList.contains('lm-filters--rail-hidden')));
+    }
+
+    toggleRail() {
+      if (!this.inline.matches) return;
+      const rail = this.closest('.lm-collection-rail');
+      if (!rail) return;
+      rail.classList.toggle('lm-filters--rail-hidden');
+      this.syncRail();
     }
 
     open() {
@@ -104,6 +120,7 @@ if (!customElements.get('luminore-filter-drawer')) {
 
     onClick(event) {
       if (event.target.closest('[data-open]')) this.open();
+      if (event.target.closest('[data-toggle]')) this.toggleRail();
       if (event.target.closest('[data-close]')) this.close();
       const dialog = this.querySelector('dialog');
       if (dialog.open && event.target === dialog) {
@@ -172,8 +189,10 @@ if (!customElements.get('luminore-filter-drawer')) {
         this.enhance();
         if (updateHistory) FacetFiltersForm.updateURLHash(searchParams);
         FacetFiltersForm.searchParamsPrev = searchParams;
-        const inlineFocus = returnFocus && this.inline.matches ? this.querySelector('.lm-filter-header h2') : null;
-        const focusTarget = focusedSort ? this.querySelector('[data-sort]') : inlineFocus || (returnFocus ? this.querySelector('[data-open]') : null);
+        const railHidden = this.closest('.lm-collection-rail')?.classList.contains('lm-filters--rail-hidden');
+        const inlineFocus = returnFocus && this.inline.matches && !railHidden ? this.querySelector('.lm-filter-header h2') : null;
+        const fallbackFocus = this.inline.matches ? this.querySelector('[data-toggle]') : this.querySelector('[data-open]');
+        const focusTarget = focusedSort ? this.querySelector('[data-sort]') : inlineFocus || (returnFocus ? fallbackFocus : null);
         focusTarget?.focus();
       } catch (error) {
         if (error.name !== 'AbortError') {
