@@ -1536,6 +1536,11 @@
   },
   "products": {
     "product": {
+      "details": "Mga detalye",
+      "dimensions": "Mga sukat",
+      "materials": "Mga materyales",
+      "care": "Pangangalaga",
+      "size_guide": "Gabay sa sukat",
       "video_exit_message": "{{ title }} ay nagbubukas ng buong screen na video sa parehong window.",
       "view_full_details": "Tingnan ang buong detalye",
       "xr_button": "Tingnan sa iyong espasyo",

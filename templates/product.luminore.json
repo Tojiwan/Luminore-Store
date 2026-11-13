@@ -12,15 +12,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
+          "settings": {}
+        },
+        "subtitle": {
+          "type": "lm_subtitle",
           "settings": {}
         },
         "price": {
@@ -34,9 +31,11 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
+        "size_guide": {
+          "type": "lm_size_guide",
+          "settings": {
+            "page": "size-guide"
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -45,9 +44,61 @@
             "show_gift_card_recipient": true
           }
         },
+        "trust_text": {
+          "type": "text",
+          "settings": {
+            "text": "Secure checkout. Questions? <a href=\"/pages/contact\">Contact us</a>.",
+            "text_style": "body"
+          }
+        },
+        "trust_icons": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "truck",
+            "heading_1": "Ships to US & PH",
+            "icon_2": "stopwatch",
+            "heading_2": "1–2 day processing",
+            "icon_3": "return",
+            "heading_3": "14-day returns"
+          }
+        },
+        "size_guide_accordion": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Size guide",
+            "icon": "ruler",
+            "content": "",
+            "page": "size-guide"
+          }
+        },
         "description": {
           "type": "description",
+          "settings": {
+            "collapse": true
+          }
+        },
+        "specs": {
+          "type": "lm_specs",
           "settings": {}
+        },
+        "shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "",
+            "page": "shipping-returns"
+          }
+        },
+        "care": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Materials & care",
+            "icon": "leather",
+            "content": "",
+            "page": "materials-care"
+          }
         },
         "share": {
           "type": "share",
@@ -57,26 +108,32 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
+        "subtitle",
         "price",
         "variant_picker",
-        "quantity_selector",
+        "size_guide",
         "buy_buttons",
+        "trust_text",
+        "trust_icons",
+        "size_guide_accordion",
         "description",
+        "specs",
+        "shipping",
+        "care",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "hide_variants": true,
+        "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12

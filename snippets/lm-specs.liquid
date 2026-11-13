@@ -1,0 +1,53 @@
+{% comment %}
+  Renders the product details accordion from custom metafields.
+
+  Accepts:
+  - product: {Object} the product
+  - block: {Object} the lm_specs block
+  - section_id: {String} the section id
+
+  Usage:
+  {% render 'lm-specs', product: product, block: block, section_id: section.id %}
+{% endcomment %}
+{%- liquid
+  assign specs_materials = product.metafields.custom.materials
+  assign specs_dimensions = product.metafields.custom.dimensions
+  assign specs_care = product.metafields.custom.care
+  assign has_specs = false
+  if specs_materials != blank or specs_dimensions != blank or specs_care != blank
+    assign has_specs = true
+  endif
+-%}
+{%- if has_specs -%}
+  {%- assign specs_id = 'specs-' | append: block.id | append: '-' | append: section_id -%}
+  {%- assign specs_heading = 'products.product.details' | t -%}
+  {%- capture specs_content -%}
+    <dl class="lm-pdp__specs">
+      {%- if specs_materials != blank -%}
+        <div class="lm-pdp__spec">
+          <dt>{{ 'products.product.materials' | t }}</dt>
+          <dd>{{ specs_materials | metafield_tag }}</dd>
+        </div>
+      {%- endif -%}
+      {%- if specs_dimensions != blank -%}
+        <div class="lm-pdp__spec">
+          <dt>{{ 'products.product.dimensions' | t }}</dt>
+          <dd>{{ specs_dimensions | escape }}</dd>
+        </div>
+      {%- endif -%}
+      {%- if specs_care != blank -%}
+        <div class="lm-pdp__spec">
+          <dt>{{ 'products.product.care' | t }}</dt>
+          <dd>{{ specs_care | metafield_tag }}</dd>
+        </div>
+      {%- endif -%}
+    </dl>
+  {%- endcapture -%}
+  {% render 'lm-accordion',
+    id: specs_id,
+    heading: specs_heading,
+    icon: 'ruler',
+    content: specs_content,
+    attributes: block.shopify_attributes
+  %}
+{%- endif -%}

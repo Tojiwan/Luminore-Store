@@ -1,6 +1,30 @@
+{%- liquid
+  assign accordion_blocks = section.blocks | where: 'type', 'collapsible_tab'
+  for accordion_block in accordion_blocks
+    if accordion_block.settings.page.handle == 'shipping-returns'
+      assign shipping_accordion = accordion_block
+    elsif accordion_block.settings.page.handle == 'size-guide'
+      assign size_guide_accordion = accordion_block
+    endif
+  endfor
+  assign move_shipping_notice = false
+  assign move_size_guide = false
+  if template.suffix == 'luminore'
+    if shipping_accordion.settings.content != blank or shipping_accordion.settings.page.content != blank
+      assign move_shipping_notice = true
+    endif
+    if size_guide_accordion.settings.content != blank or size_guide_accordion.settings.page.content != blank
+      assign move_size_guide = true
+    endif
+  endif
+  assign show_shipping_notice = false
+  if shop.shipping_policy.body != blank and move_shipping_notice == false
+    assign show_shipping_notice = true
+  endif
+-%}
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}{% if template.suffix == 'luminore' %} lm-pdp{% endif %}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -15,6 +39,9 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {% if template.suffix == 'luminore' %}
+    {{ 'luminore-product.css' | asset_url | stylesheet_tag }}
+  {% endif %}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -105,6 +132,12 @@
                     </h2>
                   </a>
                 </div>
+              {%- when 'lm_subtitle' -%}
+                {%- if product.metafields.custom.short_description != blank -%}
+                  <p class="lm-pdp__subtitle" {{ block.shopify_attributes }}>
+                    {{ product.metafields.custom.short_description | escape }}
+                  </p>
+                {%- endif -%}
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
@@ -119,20 +152,7 @@
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                   </div>
                 {%- endif -%}
-                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                  <div class="product__tax caption rte">
-                    {%- if cart.duties_included and cart.taxes_included -%}
-                      {{ 'products.product.duties_and_taxes_included' | t }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'products.product.taxes_included' | t }}
-                    {%- elsif cart.duties_included -%}
-                      {{ 'products.product.duties_included' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
+                {% render 'lm-product-tax', show_shipping_notice: show_shipping_notice %}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -193,10 +213,29 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description }}
-                  </div>
+                  {%- if block.settings.collapse -%}
+                    {%- assign description_id = 'description-' | append: section.id -%}
+                    {%- assign description_heading = 'products.product.description' | t -%}
+                    {%- capture description_content -%}{{ product.description }}{%- endcapture -%}
+                    {% render 'lm-accordion',
+                      id: description_id,
+                      heading: description_heading,
+                      icon: 'clipboard',
+                      content: description_content,
+                      attributes: block.shopify_attributes
+                    %}
+                  {%- else -%}
+                    <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                      {{ product.description }}
+                    </div>
+                  {%- endif -%}
                 {%- endif -%}
+              {%- when 'lm_specs' -%}
+                {% render 'lm-specs', product: product, block: block, section_id: section.id %}
+              {%- when 'lm_size_guide' -%}
+                {%- unless move_size_guide -%}
+                  {% render 'lm-size-guide', block: block %}
+                {%- endunless -%}
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -210,23 +249,7 @@
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
-                <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                  <details id="Details-{{ block.id }}-{{ section.id }}">
-                    <summary>
-                      <div class="summary__title">
-                        {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="h4 accordion__title inline-richtext">
-                          {{ block.settings.heading | default: block.settings.page.title | escape }}
-                        </h2>
-                      </div>
-                      {{- 'icon-caret.svg' | inline_asset_content -}}
-                    </summary>
-                    <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                      {{ block.settings.content }}
-                      {{ block.settings.page.content }}
-                    </div>
-                  </details>
-                </div>
+                {% render 'lm-product-tab', block: block, section: section, move_shipping_notice: move_shipping_notice, move_size_guide: move_size_guide %}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -779,6 +802,12 @@
       "limit": 1
     },
     {
+      "type": "lm_subtitle",
+      "name": "Short description",
+      "limit": 1,
+      "settings": []
+    },
+    {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
       "limit": 1
@@ -925,7 +954,38 @@
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "collapse",
+          "default": false,
+          "label": "Collapse description"
+        }
+      ]
+    },
+    {
+      "type": "lm_specs",
+      "name": "Details & materials",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Pulls from the custom.materials, custom.dimensions, and custom.care metafields."
+        }
+      ]
+    },
+    {
+      "type": "lm_size_guide",
+      "name": "Size guide",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Page"
+        }
+      ]
     },
     {
       "type": "share",
@@ -1149,7 +1209,8 @@
         {
           "type": "richtext",
           "id": "content",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label",
+          "info": "Row content overrides the selected page's content. Leave this blank to use the page content."
         },
         {
           "type": "page",

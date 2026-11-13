@@ -1,0 +1,25 @@
+{% comment %}
+  Renders a product page tab with optional relocated shipping and size-guide links.
+  Accepts: block, section, move_shipping_notice, move_size_guide.
+{% endcomment %}
+{%- if block.settings.content != blank or block.settings.page.content != blank -%}
+  {%- capture tab_content -%}
+    {%- if block.settings.content != blank -%}
+      {{ block.settings.content }}
+    {%- else -%}
+      {{ block.settings.page.content }}
+    {%- endif -%}
+    {%- if move_shipping_notice and block.settings.page.handle == 'shipping-returns' and shop.shipping_policy.body != blank -%}
+      <p>{{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}</p>
+    {%- endif -%}
+    {%- if move_size_guide and block.settings.page.handle == 'size-guide' -%}
+      {%- assign size_guide_blocks = section.blocks | where: 'type', 'lm_size_guide' -%}
+      {%- for size_guide_block in size_guide_blocks -%}
+        {% render 'lm-size-guide', block: size_guide_block %}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- assign tab_id = block.id | append: '-' | append: section.id -%}
+  {%- assign tab_heading = block.settings.heading | default: block.settings.page.title -%}
+  {% render 'lm-accordion', id: tab_id, heading: tab_heading, icon: block.settings.icon, content: tab_content, attributes: block.shopify_attributes %}
+{%- endif -%}

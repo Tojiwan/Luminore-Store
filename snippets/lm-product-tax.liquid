@@ -1,0 +1,15 @@
+{% comment %}Product tax/duty notices; show_shipping_notice controls the shipping policy link.{% endcomment %}
+{%- if cart.taxes_included or cart.duties_included or show_shipping_notice -%}
+  <div class="product__tax caption rte">
+    {%- if cart.duties_included and cart.taxes_included -%}
+      {{ 'products.product.duties_and_taxes_included' | t }}
+    {%- elsif cart.taxes_included -%}
+      {{ 'products.product.taxes_included' | t }}
+    {%- elsif cart.duties_included -%}
+      {{ 'products.product.duties_included' | t }}
+    {%- endif -%}
+    {%- if show_shipping_notice -%}
+      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+    {%- endif -%}
+  </div>
+{%- endif -%}
