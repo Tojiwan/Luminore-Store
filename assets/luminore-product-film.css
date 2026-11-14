@@ -3,9 +3,13 @@ luminore-product-film {
     background: var(--lm-ink);
 }
 
-luminore-product-film video {
+luminore-product-film video,
+luminore-product-film iframe,
+luminore-product-film img {
     display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    height: auto;
+    border: 0;
 }

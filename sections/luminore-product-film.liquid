@@ -1,10 +1,66 @@
-{% if section.settings.enabled %}
+{%- liquid
+  assign uploaded = nil
+  assign external = nil
+  assign direct = blank
+  if section.settings.media_type == 'external'
+    assign external = section.settings.external_video_url
+  else
+    assign uploaded = section.settings.video
+    assign candidate = section.settings.direct_video_url | strip
+    assign scheme = candidate | split: '://' | first | downcase
+    assign extension = candidate | split: '?' | first | split: '#' | first | split: '.' | last | downcase
+    assign extensions = 'mp4,m4v,webm,ogg,ogv,mov' | split: ','
+    if scheme == 'https' or scheme == 'http'
+      if extensions contains extension
+        assign direct = candidate
+      endif
+    endif
+  endif
+  if external != blank
+    unless external.type == 'youtube' or external.type == 'vimeo'
+      assign external = nil
+    endunless
+  endif
+  if uploaded == blank and external == blank and direct == blank
+    if section.settings.fallback_type == 'uploaded'
+      assign uploaded = section.settings.fallback_video
+    elsif section.settings.fallback_type == 'external'
+      assign external = section.settings.fallback_external_video_url
+      unless external.type == 'youtube' or external.type == 'vimeo'
+        assign external = nil
+      endunless
+    endif
+  endif
+  assign image = section.settings.image
+  assign poster = image | default: uploaded.preview_image
+  assign has_media = false
+  if uploaded != blank or external != blank or direct != blank or image != blank
+    assign has_media = true
+  endif
+-%}
+{% if section.settings.enabled and has_media %}
   {{ 'luminore-product-film.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'luminore-product-film.js' | asset_url }}" defer></script>
   <luminore-product-film>
-    <video muted loop playsinline controls preload="none" poster="{{ 'luminore-product-film-poster.jpg' | asset_url }}" aria-label="{{ section.settings.label | escape }}">
-      <source src="{{ 'luminore-product-film.mp4' | asset_url }}" type="video/mp4">
-    </video>
+    {%- if uploaded != blank -%}
+      {%- if poster != blank -%}
+        {%- assign poster_url = poster | image_url: width: 1920 -%}
+        {{ uploaded | video_tag: image_size: '1920x', poster: poster_url, muted: true, loop: true, controls: true, preload: 'none', aria-label: section.settings.label }}
+      {%- else -%}
+        {{ uploaded | video_tag: muted: true, loop: true, controls: true, preload: 'none', aria-label: section.settings.label }}
+      {%- endif -%}
+    {%- elsif direct != blank -%}
+      <video muted loop playsinline controls preload="none"{% if image != blank %} poster="{{ image | image_url: width: 1920 }}"{% endif %} aria-label="{{ section.settings.label | escape }}">
+        <source src="{{ direct | escape }}">
+      </video>
+    {%- elsif external != blank -%}
+      <iframe
+        {% if external.type == 'youtube' %}src="https://www.youtube.com/embed/{{ external.id | escape }}"{% else %}src="https://player.vimeo.com/video/{{ external.id | escape }}"{% endif %}
+        title="{{ section.settings.label | escape }}" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture" allowfullscreen
+      ></iframe>
+    {%- else -%}
+      {{ image | image_url: width: 2400 | image_tag: widths: '375, 750, 1100, 1500, 1920, 2400', sizes: '100vw', loading: 'lazy', alt: section.settings.label }}
+    {%- endif -%}
   </luminore-product-film>
 {% endif %}
 {% schema %}
@@ -13,7 +69,15 @@
   "settings": [
     { "type": "checkbox", "id": "enabled", "label": "Show film", "default": true },
     { "type": "text", "id": "label", "label": "Accessible description", "default": "Luminore lifestyle editorial film" },
-    { "type": "paragraph", "content": "Licensed stock footage: Pexels video 8477237. Source: https://www.pexels.com/download/video/8477237/ — Pexels license: https://www.pexels.com/license/. Editorial imagery, not footage of our manufacturing process." }
+    { "type": "select", "id": "media_type", "label": "Primary source", "default": "file", "options": [{ "value": "file", "label": "Video file" }, { "value": "external", "label": "YouTube / Vimeo" }] },
+    { "type": "video", "id": "video", "label": "Uploaded video", "info": "Video file mode: selected upload takes priority over the direct URL. Upload formats are managed by Shopify." },
+    { "type": "url", "id": "direct_video_url", "label": "Direct video URL", "info": "HTTP(S) file URL: MP4, M4V, WebM, OGG, OGV or MOV. Browser codec support varies; MP4 (H.264) is recommended." },
+    { "type": "video_url", "id": "external_video_url", "label": "YouTube / Vimeo URL", "accept": ["youtube", "vimeo"], "info": "Used in YouTube / Vimeo mode. Click to play; no autoplay." },
+    { "type": "select", "id": "fallback_type", "label": "Fallback source", "default": "none", "options": [{ "value": "none", "label": "None" }, { "value": "uploaded", "label": "Uploaded video" }, { "value": "external", "label": "YouTube / Vimeo" }], "info": "Used only when the primary settings are empty or invalid, not when playback fails." },
+    { "type": "video", "id": "fallback_video", "label": "Fallback uploaded video" },
+    { "type": "video_url", "id": "fallback_external_video_url", "label": "Fallback YouTube / Vimeo URL", "accept": ["youtube", "vimeo"] },
+    { "type": "image_picker", "id": "image", "label": "Poster / final fallback image", "info": "Poster for file videos; displayed alone when no valid primary or fallback video is configured. Leave all media empty to hide the section." },
+    { "type": "paragraph", "content": "Use media you own or have permission to publish. Previous sample: Pexels video 8477237 (Pexels license), lifestyle imagery, not manufacturing footage." }
   ],
   "presets": [{ "name": "Luminore product film" }]
 }

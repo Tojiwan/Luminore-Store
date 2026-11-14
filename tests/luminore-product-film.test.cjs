@@ -3,6 +3,17 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
 
+test('image and iframe films need no native playback controller', () => {
+  let Film;
+  vm.runInNewContext(fs.readFileSync('assets/luminore-product-film.js', 'utf8'), {
+    HTMLElement: class { querySelector() { return null; } },
+    customElements: { get() {}, define: (_, value) => { Film = value; } },
+  });
+  const film = new Film();
+  assert.doesNotThrow(() => film.connectedCallback());
+  assert.doesNotThrow(() => film.disconnectedCallback());
+});
+
 test('film respects reduced motion, offscreen pause, and manual pause', () => {
   let Film, intersect;
   let plays = 0, pauses = 0, disconnected = false;
