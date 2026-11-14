@@ -754,6 +754,10 @@
     </script>
   </div>
 </product-info>
+{%- if template.suffix == 'luminore' -%}
+  {% render 'lm-sticky-cart', product: product, section_id: section.id %}
+  <script src="{{ 'luminore-product.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 {% schema %}
 {

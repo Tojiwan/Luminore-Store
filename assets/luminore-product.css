@@ -1,6 +1,22 @@
 /* Luminoré PDP — scoped to the product.luminore template. */
+/* Safari 26 fills the browser-chrome gap with the html background; match the sticky cart. */
+html:has(.lm-pdp) {
+  background-color: #fff;
+}
+
 .lm-pdp .product__media-wrapper {
   background: var(--lm-paper);
+}
+
+/* Keep the paper ground behind the sticky gallery, not the stretched grid column. */
+@media screen and (min-width: 750px) {
+  .lm-pdp .product__media-wrapper {
+    background: transparent;
+  }
+
+  .lm-pdp media-gallery {
+    background: var(--lm-paper);
+  }
 }
 
 /* Force a 4:5 gallery frame; cover crops instead of letterboxing. */
@@ -230,6 +246,45 @@
   line-height: 1.4;
   letter-spacing: 0.04em;
   text-align: center;
+}
+
+/* Mobile CTA sits outside product-info to avoid transformed gallery ancestors. */
+.lm-pdp__sticky {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem calc(1rem + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid #d9d2c5;
+}
+
+.lm-pdp__sticky[hidden] { display: none; }
+.lm-pdp__sticky-error {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  color: var(--lm-ink);
+  border-top: 1px solid var(--lm-line);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.lm-pdp__sticky-error:empty { display: none; }
+.lm-pdp__sticky-image { width: 4rem; height: 5rem; object-fit: cover; }
+.lm-pdp__sticky-info { flex: 1; min-width: 0; font-size: 1.2rem; }
+.lm-pdp__sticky-title { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lm-pdp__sticky-price { display: block; font-weight: 600; white-space: nowrap; }
+.lm-pdp__sticky .button { min-height: 4.8rem; padding: 0 1.6rem; background: var(--lm-olive); color: #fff; }
+@media screen and (min-width: 750px) {
+  .lm-pdp__sticky { display: none; }
+}
+@media screen and (max-width: 359px) {
+  .lm-pdp__sticky-image { display: none; }
 }
 
 /* Details, specs and size guide */

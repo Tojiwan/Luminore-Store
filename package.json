@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node --test tests/filter-drawer.test.cjs",
+    "test": "node --test tests/*.test.cjs",
     "dev" : "npx tailwindcss -i ./assets/tailwind.input.css -o ./assets/tailwind.output.css --watch"
   },
   "keywords": [],

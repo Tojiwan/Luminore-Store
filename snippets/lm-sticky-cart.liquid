@@ -1,0 +1,15 @@
+{% comment %}Mobile CTA associated with the existing product form; enhanced by luminore-product.js.{% endcomment %}
+<luminore-sticky-cart class="lm-pdp__sticky" data-section="{{ section_id }}" hidden>
+  {%- assign sticky_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+  {%- if sticky_image -%}
+    {{ sticky_image | image_url: width: 120 | image_tag: class: 'lm-pdp__sticky-image', loading: 'lazy', alt: '' }}
+  {%- endif -%}
+  <div class="lm-pdp__sticky-info">
+    <span class="lm-pdp__sticky-title">{{ product.title | escape }}</span>
+    <span class="lm-pdp__sticky-price"></span>
+  </div>
+  <button type="submit" form="product-form-{{ section_id }}" class="button" disabled>
+    {{ 'products.product.add_to_cart' | t }}
+  </button>
+  <span class="lm-pdp__sticky-error" role="alert" data-error></span>
+</luminore-sticky-cart>
