@@ -139,7 +139,24 @@
         "padding_bottom": 12
       }
     },
+    "editorial": {
+      "type": "luminore-editorial",
+      "settings": {
+        "layout": "detail",
+        "product": "diamond-and-sapphire-white-gold-ring",
+        "eyebrow": "A CLOSER LOOK",
+        "heading": "The beauty is\nin the details.",
+        "text": "<p>Light, shape, and texture come together in pieces that invite a closer look. Explore the details and find your own expression.</p>",
+        "button": "",
+        "parallax": false
+      }
+    },
+    "film": {
+      "type": "luminore-product-film",
+      "settings": { "enabled": true, "label": "Luminore lifestyle editorial film" }
+    },
     "related-products": {
+      "disabled": true,
       "type": "related-products",
       "settings": {
         "heading": "You may also like",
@@ -156,10 +173,23 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "styled_with": {
+      "type": "luminore-styled-with",
+      "settings": {
+        "heading": "Styled with",
+        "link_label": "View all",
+        "link": "shopify://collections/all",
+        "padding_top": 48,
+        "padding_bottom": 32
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "editorial",
+    "film",
+    "related-products",
+    "styled_with"
   ]
 }

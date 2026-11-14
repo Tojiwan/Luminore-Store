@@ -1,0 +1,35 @@
+.lm-styled-with { padding-top: 4.8rem; padding-bottom: 3.2rem; }
+luminore-styled-with { display: block; width: 100%; }
+.lm-styled-with .swiper-slide { display: flex; height: auto; }
+.lm-styled-with .card-wrapper,
+.lm-styled-with .card { width: 100%; height: 100%; }
+.lm-styled-with .card { display: flex; flex-direction: column; }
+.lm-styled-with .card > .card__content { display: flex; flex: 1; flex-direction: column; }
+.lm-styled-with .card > .card__content > .card__information { flex: 1; padding: 1.2rem 0 0; }
+.lm-styled-with .swiper-slide .card__content { transition: opacity 0.2s ease, visibility 0.2s ease; }
+.lm-styled-with .card-information { margin-top: 0.2rem; }
+.lm-styled-with .quick-add { margin-top: auto; padding-top: 1.2rem; }
+.lm-styled-with .quick-add__submit { width: 100%; min-height: 44px; padding: 1rem 1.2rem; align-items: center; justify-content: center; background: var(--lm-olive); color: var(--lm-paper); }
+.lm-styled-with .card__media img { object-fit: cover; }
+.lm-styled-with .lm-section-heading { flex-direction: row; align-items: baseline; gap: 1.6rem; margin-bottom: 2.4rem; }
+.lm-styled-with .lm-section-heading h2 { min-width: 0; }
+.lm-styled-with .lm-section-heading .lm-text-link { flex-shrink: 0; }
+.lm-styled-with .lm-swiper-controls { justify-content: space-between; margin-top: 1.2rem; }
+.lm-styled-with .lm-swiper-arrows { display: flex; align-items: center; gap: 0.2rem; }
+.lm-styled-with .lm-swiper-pagination { font-size: 1.2rem; letter-spacing: 0.12em; line-height: 1; font-variant-numeric: tabular-nums; }
+.lm-styled-with .lm-swiper-controls:has(.swiper-button-lock) { display: none; }
+.lm-styled-with .swiper:not(.swiper-initialized) .swiper-slide { width: 83.33%; margin-right: 12px; }
+@media (max-width: 749px) {
+  .lm-styled-with .lm-section-heading { gap: 1.2rem; margin-bottom: 2rem; }
+  /* Keep the active card readable; only the incoming peek card fades out. */
+  .lm-styled-with .swiper-initialized .swiper-slide:not(.swiper-slide-active) .card__content { opacity: 0; visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lm-styled-with .swiper-slide .card__content { transition: none; }
+}
+@media (min-width: 750px) {
+  .lm-styled-with .swiper:not(.swiper-initialized) .swiper-slide { width: calc(50% - 10px); margin-right: 20px; }
+}
+@media (min-width: 1024px) {
+  .lm-styled-with .swiper:not(.swiper-initialized) .swiper-slide { width: calc(25% - 15px); }
+}

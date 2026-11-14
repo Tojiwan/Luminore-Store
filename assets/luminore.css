@@ -137,13 +137,15 @@ html {
   color: var(--lm-paper);
 }
 
-.lm-text-link {
+a.lm-text-link {
   display: inline-flex;
   justify-content: space-between;
   gap: 3rem;
   align-items: center;
   padding: 1rem 0;
-  border-bottom: 1px solid currentColor;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
   font-size: 1.2rem;
   font-weight: 500;
 }
