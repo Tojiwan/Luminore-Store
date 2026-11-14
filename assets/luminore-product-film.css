@@ -1,0 +1,11 @@
+luminore-product-film {
+    display: block;
+    background: var(--lm-ink);
+}
+
+luminore-product-film video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}

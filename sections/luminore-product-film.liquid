@@ -1,0 +1,20 @@
+{% if section.settings.enabled %}
+  {{ 'luminore-product-film.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'luminore-product-film.js' | asset_url }}" defer></script>
+  <luminore-product-film>
+    <video muted loop playsinline controls preload="none" poster="{{ 'luminore-product-film-poster.jpg' | asset_url }}" aria-label="{{ section.settings.label | escape }}">
+      <source src="{{ 'luminore-product-film.mp4' | asset_url }}" type="video/mp4">
+    </video>
+  </luminore-product-film>
+{% endif %}
+{% schema %}
+{
+  "name": "Luminore product film",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Show film", "default": true },
+    { "type": "text", "id": "label", "label": "Accessible description", "default": "Luminore lifestyle editorial film" },
+    { "type": "paragraph", "content": "Licensed stock footage: Pexels video 8477237. Source: https://www.pexels.com/download/video/8477237/ — Pexels license: https://www.pexels.com/license/. Editorial imagery, not footage of our manufacturing process." }
+  ],
+  "presets": [{ "name": "Luminore product film" }]
+}
+{% endschema %}
