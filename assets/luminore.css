@@ -154,6 +154,11 @@ a.lm-text-link {
   opacity: .75;
 }
 
+.lm-editorial a.lm-text-link {
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
 .luminore-theme :focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 5px;
