@@ -143,21 +143,34 @@
       "type": "luminore-editorial",
       "settings": {
         "layout": "detail",
+        "image": "shopify://shop_images/Necklace-PD1-V3-RG-2.webp",
         "product": "diamond-and-sapphire-white-gold-ring",
         "eyebrow": "A CLOSER LOOK",
         "heading": "The beauty is\nin the details.",
         "text": "<p>Light, shape, and texture come together in pieces that invite a closer look. Explore the details and find your own expression.</p>",
         "button": "",
+        "link": "",
         "parallax": false
       }
     },
     "film": {
       "type": "luminore-product-film",
-      "settings": { "enabled": true, "label": "Luminore lifestyle editorial film" }
+      "settings": {
+        "enabled": true,
+        "label": "Luminore lifestyle editorial film",
+        "media_type": "file",
+        "video": "shopify://files/videos/luminore-product-film.mp4",
+        "direct_video_url": "",
+        "external_video_url": "",
+        "fallback_type": "uploaded",
+        "fallback_video": "shopify://files/videos/luminore-product-film.mp4",
+        "fallback_external_video_url": "",
+        "image": "shopify://shop_images/Necklaces_displayed_on_stone_sur__2456ee14_2K.webp"
+      }
     },
     "related-products": {
-      "disabled": true,
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -181,7 +194,14 @@
         "link_label": "View all",
         "link": "shopify://collections/all",
         "padding_top": 48,
-        "padding_bottom": 32
+        "padding_bottom": 32,
+        "use_custom_font": false,
+        "custom_font": "assistant_n4",
+        "heading_size_mobile": 34,
+        "heading_size_desktop": 48,
+        "link_size": 14,
+        "product_title_size": 16,
+        "price_size": 16
       }
     }
   },
