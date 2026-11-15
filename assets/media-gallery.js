@@ -12,7 +12,10 @@ if (!customElements.get('media-gallery')) {
         this.mql = window.matchMedia('(min-width: 750px)');
         if (!this.elements.thumbnails) return;
 
-        this.elements.viewer.addEventListener('slideChanged', debounce(this.onSlideChanged.bind(this), 500));
+        const onSlideChanged = this.onSlideChanged.bind(this);
+        this.elements.viewer.addEventListener(
+          'slideChanged', this.closest('.lm-pdp') ? onSlideChanged : debounce(onSlideChanged, 500)
+        );
         this.elements.thumbnails.querySelectorAll('[data-target]').forEach((mediaToSwitch) => {
           mediaToSwitch
             .querySelector('button')
@@ -22,6 +25,12 @@ if (!customElements.get('media-gallery')) {
       }
 
       onSlideChanged(event) {
+        if (this.closest('.lm-pdp')) {
+          this.elements.viewer.querySelectorAll('.product__media-item').forEach((item) => {
+            item.classList.toggle('is-active', item === event.detail.currentElement);
+          });
+          this.playActiveMedia(event.detail.currentElement);
+        }
         const thumbnail = this.elements.thumbnails.querySelector(
           `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
         );
@@ -77,6 +86,15 @@ if (!customElements.get('media-gallery')) {
           .querySelectorAll('button')
           .forEach((element) => element.removeAttribute('aria-current'));
         thumbnail.querySelector('button').setAttribute('aria-current', true);
+        if (this.closest('.lm-pdp') && this.mql.matches) {
+          const rail = this.elements.thumbnails.slider;
+          const top = thumbnail.offsetTop;
+          if (top < rail.scrollTop) rail.scrollTo({ top });
+          else if (top + thumbnail.clientHeight > rail.scrollTop + rail.clientHeight) {
+            rail.scrollTo({ top: top + thumbnail.clientHeight - rail.clientHeight });
+          }
+          return;
+        }
         if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
 
         this.elements.thumbnails.slider.scrollTo({ left: thumbnail.offsetLeft });

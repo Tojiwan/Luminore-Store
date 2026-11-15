@@ -1,4 +1,8 @@
 /* Luminoré PDP — scoped to the product.luminore template. */
+body:has(.lm-pdp) #MainContent,
+.lm-pdp {
+  background: var(--lm-paper);
+}
 /* Safari 26 fills the browser-chrome gap with the html background; match the sticky cart. */
 html:has(.lm-pdp) {
   background-color: #fff;
@@ -40,7 +44,7 @@ html:has(.lm-pdp) {
 }
 
 .lm-pdp .thumbnail-list__item::before {
-  padding-bottom: 125%;
+  padding-bottom: 100%;
 }
 
 .lm-pdp .thumbnail {
@@ -58,6 +62,98 @@ html:has(.lm-pdp) {
 .lm-pdp .thumbnail[aria-current] {
   box-shadow: 0 0 0 0.1rem var(--lm-olive);
   border-color: var(--lm-olive);
+}
+
+/* Reuse Dawn's scroll slider at every size; controls stay inside the image. */
+.lm-pdp [id^='GalleryViewer'] { position: relative; min-width: 0; margin: 0; }
+.lm-pdp .product__media-list .product__media-item:first-child { margin-left: 0; scroll-margin-left: 0; }
+.lm-pdp .product__media-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0;
+  scroll-padding: 0;
+}
+.lm-pdp .product__media-list::-webkit-scrollbar { display: none; }
+.lm-pdp .product__media-list::after { display: none; }
+.lm-pdp .product__media-list .product__media-item {
+  display: block;
+  flex: 0 0 100%;
+  margin: 0;
+  padding: 0;
+  scroll-snap-align: start;
+}
+.lm-pdp media-gallery [id^='GalleryViewer'].slider-mobile-gutter > .slider-buttons {
+  display: flex;
+  position: absolute;
+  inset: 0;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  padding: 1.2rem;
+  z-index: 2;
+}
+.lm-pdp [id^='GalleryViewer'] .slider-button,
+.lm-pdp [id^='GalleryViewer'] .slider-counter {
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  border-radius: 999px;
+}
+.lm-pdp [id^='GalleryViewer'] .slider-button { pointer-events: auto; width: 44px; height: 44px; }
+.lm-pdp [id^='GalleryViewer'] .slider-button { opacity: 0.55; transition: opacity 150ms ease; }
+.lm-pdp [id^='GalleryViewer'] .slider-button:hover,
+.lm-pdp [id^='GalleryViewer'] .slider-button:focus-visible { opacity: 1; }
+.lm-pdp media-gallery [id^='GalleryViewer'].slider-mobile-gutter:has(.product__media-item:only-child) > .slider-buttons { display: none; }
+.lm-pdp [id^='GalleryViewer'] .slider-counter {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  min-width: 6rem;
+  margin: 0;
+}
+.lm-pdp [id^='GalleryViewer'] .product__media-icon {
+  top: 1.2rem;
+  right: 1.2rem;
+  left: auto;
+  opacity: 1;
+}
+.lm-pdp .thumbnail-slider .slider-button { display: none; }
+.lm-pdp .thumbnail-slider .thumbnail-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.lm-pdp .thumbnail-list .thumbnail-list__item.slider__slide { width: calc((100% - 3.2rem) / 5); flex-shrink: 0; }
+@media screen and (min-width: 750px) {
+  .lm-pdp media-gallery { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+  .lm-pdp [id^='GalleryViewer'] { grid-column: 2; grid-row: 1; }
+  .lm-pdp media-gallery:not(:has(.thumbnail-slider)) { grid-template-columns: minmax(0, 1fr); }
+  .lm-pdp media-gallery:not(:has(.thumbnail-slider)) [id^='GalleryViewer'] { grid-column: 1; }
+  .lm-pdp .thumbnail-slider { grid-column: 1; grid-row: 1; margin: 0; min-height: 0; height: 100%; position: relative; }
+  .lm-pdp .thumbnail-slider .thumbnail-list { position: absolute; inset: 0; flex-direction: column; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y proximity; }
+  .lm-pdp .thumbnail-list .thumbnail-list__item.slider__slide { width: 100%; }
+  .lm-pdp .product__xr-button { grid-column: 2; }
+}
+@media screen and (min-width: 990px) {
+  .lm-pdp media-gallery { grid-template-columns: 100px minmax(0, 600px); max-width: 712px; margin-inline: auto; }
+  .lm-pdp media-gallery:not(:has(.thumbnail-slider)) { max-width: 600px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lm-pdp .product__media-list { scroll-behavior: auto; }
+}
+@media screen and (max-width: 749px) {
+  .lm-pdp media-gallery { display: block; padding: 0 1.2rem 1.6rem; }
+  .lm-pdp .thumbnail-slider { margin-inline: 0; width: 100%; }
+  .lm-pdp .thumbnail-slider .thumbnail-list { min-width: 0; overflow-x: auto; }
 }
 
 /* Buy box */

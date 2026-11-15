@@ -730,7 +730,8 @@ class SliderComponent extends HTMLElement {
     super();
     this.slider = this.querySelector('[id^="Slider-"]');
     this.sliderItems = this.querySelectorAll('[id^="Slide-"]');
-    this.enableSliderLooping = false;
+    this.isLuminoreGallery = this.id.startsWith('GalleryViewer-') && !!this.closest('.lm-pdp');
+    this.enableSliderLooping = this.isLuminoreGallery;
     this.currentPageElement = this.querySelector('.slider-counter--current');
     this.pageTotalElement = this.querySelector('.slider-counter--total');
     this.prevButton = this.querySelector('button[name="previous"]');
@@ -772,8 +773,9 @@ class SliderComponent extends HTMLElement {
     this.currentPage = Math.round(this.slider.scrollLeft / this.sliderItemOffset) + 1;
 
     if (this.currentPageElement && this.pageTotalElement) {
-      this.currentPageElement.textContent = this.currentPage;
-      this.pageTotalElement.textContent = this.totalPages;
+      const digits = this.id.startsWith('GalleryViewer-') && this.closest('.lm-pdp') ? 2 : 1;
+      this.currentPageElement.textContent = String(this.currentPage).padStart(digits, '0');
+      this.pageTotalElement.textContent = String(this.totalPages).padStart(digits, '0');
     }
 
     if (this.currentPage != previousPage) {
@@ -809,6 +811,13 @@ class SliderComponent extends HTMLElement {
 
   onButtonClick(event) {
     event.preventDefault();
+    if (this.isLuminoreGallery && this.totalPages > 1) {
+      const next = event.currentTarget.name === 'next';
+      if ((next && this.currentPage === this.totalPages) || (!next && this.currentPage === 1)) {
+        this.slider.scrollTo({ left: next ? 0 : (this.totalPages - 1) * this.sliderItemOffset, behavior: 'instant' });
+        return;
+      }
+    }
     const step = event.currentTarget.dataset.step || 1;
     this.slideScrollPosition =
       event.currentTarget.name === 'next'
