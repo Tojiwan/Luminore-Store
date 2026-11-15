@@ -143,6 +143,7 @@ html:has(.lm-pdp) {
 .lm-pdp .product-form__input--swatch .swatch-input__input + .swatch-input__label {
   margin: 0 0.4rem 0 0;
   padding: 0.8rem;
+  outline-offset: -0.4rem;
 }
 
 .lm-pdp .product-form__input--swatch .swatch-input__input:checked + .swatch-input__label,
