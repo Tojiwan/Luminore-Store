@@ -203,6 +203,10 @@
         "product_title_size": 16,
         "price_size": 16
       }
+    },
+    "reviews": {
+      "type": "luminore-reviews",
+      "settings": { "demo_note": true }
     }
   },
   "order": [
@@ -210,6 +214,7 @@
     "editorial",
     "film",
     "related-products",
-    "styled_with"
+    "styled_with",
+    "reviews"
   ]
 }

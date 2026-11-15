@@ -1,0 +1,27 @@
+{%- if section.blocks.size > 0 -%}
+  <section class="lm-section lm-reviews">
+    {%- if section.settings.demo_note -%}
+      <p class="lm-eyebrow">Sample reviews for demonstration.</p>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      {% render block %}
+    {%- endfor -%}
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Luminore reviews",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "demo_note",
+      "label": "Show sample reviews notice",
+      "default": false,
+      "info": "Enable when displaying demo reviews. Leave off for genuine customer reviews."
+    }
+  ],
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "Luminore reviews" }]
+}
+{% endschema %}
