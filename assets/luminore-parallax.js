@@ -154,14 +154,14 @@ customElements.define('luminore-stack', LuminoreStack);
 
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
-  const disclosure = event.target.closest('.lm-header details[open]');
+  const disclosure = event.target.closest('.lm-header details[open]:not(.lm-menu)');
   if (!disclosure) return;
   disclosure.open = false;
   disclosure.querySelector('summary').focus();
 });
 
 document.addEventListener('click', (event) => {
-  document.querySelectorAll('.lm-header details[open]').forEach((disclosure) => {
+  document.querySelectorAll('.lm-header details[open]:not(.lm-menu)').forEach((disclosure) => {
     if (!disclosure.contains(event.target) || event.target.closest('a')) disclosure.open = false;
   });
 });

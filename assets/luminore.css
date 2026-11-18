@@ -309,6 +309,11 @@ a.lm-text-link {
   cursor: pointer;
   font-size: 1.2rem;
   list-style: none;
+  color: var(--lm-nav-icon-color, currentColor);
+}
+
+.lm-header a.lm-icon-button {
+  color: var(--lm-nav-icon-color, currentColor);
 }
 
 .lm-icon-button::-webkit-details-marker {
@@ -316,19 +321,20 @@ a.lm-text-link {
 }
 
 .lm-icon-button svg {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: var(--lm-nav-icon-size, 2.2rem);
+  height: var(--lm-nav-icon-size, 2.2rem);
 }
 
 .lm-header .header__icon--cart {
   margin: 0;
   width: 4.4rem;
   height: 4.4rem;
+  color: var(--lm-nav-icon-color, currentColor);
 }
 
 .lm-header .header__icon--cart svg {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: var(--lm-nav-icon-size, 2.2rem);
+  height: var(--lm-nav-icon-size, 2.2rem);
 }
 
 .lm-header .cart-count-bubble {
@@ -374,6 +380,16 @@ a.lm-text-link {
   font: inherit;
 }
 
+.lm-search-field input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.lm-search-panel>.lm-search-field:focus-within {
+  border-bottom-color: var(--lm-focus);
+  box-shadow: 0 2px 0 var(--lm-focus);
+}
+
 .lm-search-field button {
   border: 0;
   background: transparent;
@@ -408,12 +424,70 @@ a.lm-text-link {
   overflow-y: auto;
 }
 
+.lm-menu[open] .lm-menu-panel {
+  animation: lm-menu-in .40s cubic-bezier(.2, .8, .2, 1);
+}
+
+.lm-menu.lm-menu-closing .lm-menu-panel {
+  animation: lm-menu-out .36s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+@keyframes lm-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-.8rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lm-menu-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-.8rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lm-menu[open] .lm-menu-panel,
+  .lm-menu.lm-menu-closing .lm-menu-panel {
+    animation: none;
+  }
+}
+
 .lm-menu-panel > a {
   display: flex;
   justify-content: space-between;
   padding: 1.4rem 0;
   border-bottom: 1px solid var(--lm-line);
   font-size: 1.6rem;
+}
+
+.lm-menu-panel .lm-search-panel {
+  position: static;
+  padding: 1.6rem 0 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.lm-menu-panel .lm-search-panel .predictive-search {
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  width: auto;
+  max-height: none !important;
+  margin-top: 1rem;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
 }
 
 .lm-menu-panel .lm-menu-child {
@@ -1262,6 +1336,10 @@ luminore-stack {
   }
 
   .lm-desktop-nav {
+    display: none;
+  }
+
+  .lm-search {
     display: none;
   }
 

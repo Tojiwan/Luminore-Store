@@ -12,11 +12,11 @@
   {% endif %}
 >
   <span class="svg-wrapper">
-    {% if template == 'page.about-us' %}
+    {%- if icon == 'luminore' -%}
+      {% render 'luminore-icon', name: 'cart' %}
+    {%- else -%}
       {% render 'icon-cart', size: 22, color: '#000000' %}
-    {% else %}
-      {% render 'icon-cart', size: 22, color: '#000000' %}
-    {% endif %}
+    {%- endif -%}
   </span>
   <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
   <div class="cart-count-bubble">
