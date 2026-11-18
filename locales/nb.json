@@ -188,7 +188,12 @@
       "product_variants": "Produktvarianter",
       "taxes_included": "Inkludert avgifter.",
       "duties_included": "Inkluder tollplikter.",
-      "duties_and_taxes_included": "Inkludert tollplikter og avgifter."
+      "duties_and_taxes_included": "Inkludert tollplikter og avgifter.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Mediegalleri"
@@ -233,6 +238,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Siden finnes ikke",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Fant ingen resultater for «{{ terms }}». Kontroller stavemåten, eller bruk et annet ord.",
       "page": "Side",
@@ -276,10 +285,6 @@
         "error_heading": "Juster følgende:",
         "title": "Kontaktskjema"
       }
-    },
-    "404": {
-      "title": "Siden finnes ikke",
-      "subtext": "404"
     }
   },
   "sections": {

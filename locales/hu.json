@@ -188,7 +188,12 @@
       },
       "taxes_included": "Tartalmazza az adókat.",
       "duties_included": "Tartalmazza a vámokat.",
-      "duties_and_taxes_included": "Tartalmazza a vámokat és az adókat."
+      "duties_and_taxes_included": "Tartalmazza a vámokat és az adókat.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Médiatár"
@@ -233,6 +238,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Nem találjuk az oldalt",
+      "subtext": "404-es hiba történt."
+    },
     "search": {
       "no_results": "Nincs találat erre: {{ terms }}. Ellenőrizd a helyesírást, vagy írj be egy másik szót vagy kifejezést.",
       "results_with_count": {
@@ -276,10 +285,6 @@
         "error_heading": "Kérjük, helyesbítsd a következőket:",
         "title": "Kapcsolattartói űrlap"
       }
-    },
-    "404": {
-      "title": "Nem találjuk az oldalt",
-      "subtext": "404-es hiba történt."
     }
   },
   "sections": {

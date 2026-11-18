@@ -188,7 +188,12 @@
       },
       "taxes_included": "Οι φόροι συμπεριλαμβάνονται.",
       "duties_included": "Οι δασμοί συμπεριλαμβάνονται.",
-      "duties_and_taxes_included": "Οι δασμοί και οι φόροι συμπεριλαμβάνονται."
+      "duties_and_taxes_included": "Οι δασμοί και οι φόροι συμπεριλαμβάνονται.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Συλλογή μέσων"
@@ -233,6 +238,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Η σελίδα δεν βρέθηκε",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Δεν βρέθηκαν αποτελέσματα για «{{ terms }}». Ελέγξτε την ορθογραφία ή χρησιμοποιήστε άλλη λέξη ή φράση.",
       "results_with_count": {
@@ -276,10 +285,6 @@
         "error_heading": "Προσαρμόστε τα παρακάτω:",
         "title": "Φόρμα επικοινωνίας"
       }
-    },
-    "404": {
-      "title": "Η σελίδα δεν βρέθηκε",
-      "subtext": "404"
     }
   },
   "sections": {

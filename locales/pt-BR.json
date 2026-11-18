@@ -189,7 +189,12 @@
       "product_variants": "Variantes do produto",
       "taxes_included": "Tributos incluídos.",
       "duties_included": "Tributos de importação incluídos.",
-      "duties_and_taxes_included": "Tributos de importação e outros tributos incluídos."
+      "duties_and_taxes_included": "Tributos de importação e outros tributos incluídos.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Galeria de mídia"
@@ -237,6 +242,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Página não encontrada",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Não foram encontrados resultados para “{{ terms }}”. Verifique a ortografia ou use uma palavra ou frase diferente.",
       "results_with_count": {
@@ -285,10 +294,6 @@
         "error_heading": "Ajuste o seguinte:",
         "title": "Formulário de contato"
       }
-    },
-    "404": {
-      "title": "Página não encontrada",
-      "subtext": "404"
     }
   },
   "sections": {

@@ -188,7 +188,12 @@
       "product_variants": "Produktvarianten",
       "taxes_included": "Inkl. Steuern.",
       "duties_included": "Inkl. Zollgebühren.",
-      "duties_and_taxes_included": "Inkl. Zollgebühren und Steuern."
+      "duties_and_taxes_included": "Inkl. Zollgebühren und Steuern.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Medien-Galerie"
@@ -233,6 +238,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
       "results_with_count": {
@@ -276,10 +285,6 @@
         "error_heading": "Bitte passe Folgendes an:",
         "title": "Kontaktformular"
       }
-    },
-    "404": {
-      "title": "Seite nicht gefunden",
-      "subtext": "404"
     }
   },
   "sections": {

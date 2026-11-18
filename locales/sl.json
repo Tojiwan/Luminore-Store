@@ -190,7 +190,12 @@
       },
       "taxes_included": "Davki vključeni.",
       "duties_included": "Dajatve vključene.",
-      "duties_and_taxes_included": "Dajatve in davki vključeni."
+      "duties_and_taxes_included": "Dajatve in davki vključeni.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Galerija predstavnostnih vsebin"
@@ -241,6 +246,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Strani ni mogoče najti",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Za »{{ terms }}« ni bil najden noben rezultat. Preverite črkovanje ali uporabite drugo besedo ali frazo.",
       "page": "Stran",
@@ -294,10 +303,6 @@
         "error_heading": "Prilagodite naslednje:",
         "title": "Obrazec za stik"
       }
-    },
-    "404": {
-      "title": "Strani ni mogoče najti",
-      "subtext": "404"
     }
   },
   "sections": {

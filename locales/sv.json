@@ -188,7 +188,12 @@
       "product_variants": "Produktvarianter",
       "taxes_included": "Skatter ingår.",
       "duties_included": "Tullavgifter ingår.",
-      "duties_and_taxes_included": "Tullavgifter och skatter ingår."
+      "duties_and_taxes_included": "Tullavgifter och skatter ingår.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Mediagalleri"
@@ -233,6 +238,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Sidan hittades inte",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Inga resultat hittades för \"{{ terms }}\". Kontrollera stavningen eller använd ett annat ord eller fras.",
       "results_with_count": {
@@ -276,10 +285,6 @@
         "error_heading": "Justera följande:",
         "title": "Kontaktformulär"
       }
-    },
-    "404": {
-      "title": "Sidan hittades inte",
-      "subtext": "404"
     }
   },
   "sections": {

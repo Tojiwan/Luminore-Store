@@ -190,7 +190,12 @@
       "product_variants": "Варианты товара",
       "taxes_included": "Налоги включены.",
       "duties_included": "Пошлины включены.",
-      "duties_and_taxes_included": "Пошлины и налоги включены."
+      "duties_and_taxes_included": "Пошлины и налоги включены.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Галерея мультимедиа"
@@ -241,6 +246,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Страница не найдена",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "По запросу «{{ terms }}» ничего не найдено. Проверьте правописание или выберите другие слова либо фразу.",
       "title": "Результаты поиска",
@@ -294,10 +303,6 @@
         "error_heading": "Измените следующие элементы:",
         "title": "Форма для связи"
       }
-    },
-    "404": {
-      "title": "Страница не найдена",
-      "subtext": "404"
     }
   },
   "sections": {

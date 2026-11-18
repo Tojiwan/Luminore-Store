@@ -188,7 +188,12 @@
       "product_variants": "Tuoteversiot",
       "taxes_included": "Sisältää verot.",
       "duties_included": "Sisältää tullit.",
-      "duties_and_taxes_included": "Sisältää tullit ja verot."
+      "duties_and_taxes_included": "Sisältää tullit ja verot.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Mediagalleria"
@@ -233,6 +238,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Sivua ei löytynyt",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Ei tuloksia haulla \"{{ terms }}\". Tarkista oikeinkirjoitus tai kokeile toista sanaa tai ilmaisua.",
       "results_with_count": {
@@ -276,10 +285,6 @@
         "error_heading": "Mukauta seuraavat:",
         "title": "Yhteydenottolomake"
       }
-    },
-    "404": {
-      "title": "Sivua ei löytynyt",
-      "subtext": "404"
     }
   },
   "sections": {

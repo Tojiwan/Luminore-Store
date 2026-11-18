@@ -189,7 +189,12 @@
       },
       "taxes_included": "Impostos incluídos.",
       "duties_included": "Encargos incluídos.",
-      "duties_and_taxes_included": "Encargos e impostos incluídos."
+      "duties_and_taxes_included": "Encargos e impostos incluídos.",
+      "details": "Details",
+      "dimensions": "Dimensions",
+      "materials": "Materials",
+      "care": "Care",
+      "size_guide": "Size guide"
     },
     "modal": {
       "label": "Galeria de conteúdo multimédia"
@@ -237,6 +242,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Página não encontrada",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Não foram encontrados resultados para \"{{ terms }}\". Verifique a ortografia ou utilize uma palavra ou frase diferente.",
       "page": "Página",
@@ -285,10 +294,6 @@
         "error_heading": "Ajuste o seguinte:",
         "title": "Formulário de contacto"
       }
-    },
-    "404": {
-      "title": "Página não encontrada",
-      "subtext": "404"
     }
   },
   "sections": {
