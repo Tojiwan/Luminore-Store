@@ -265,7 +265,11 @@ a.lm-text-link {
   display: flex;
   align-items: center;
   justify-content: end;
-  gap: 2rem;
+  gap: 0;
+}
+
+.lm-header-actions .lm-header-language {
+  margin-left: 1.6rem;
 }
 
 .lm-header-language .localization-form {
@@ -1366,10 +1370,6 @@ luminore-stack {
     display: none;
   }
 
-  .lm-header-actions {
-    gap: 0;
-  }
-
   .lm-wordmark {
     font-size: 3rem;
   }
@@ -1404,10 +1404,6 @@ luminore-stack {
   .lm-announcement {
     font-size: .8rem;
     letter-spacing: 0;
-  }
-
-  .lm-header-actions {
-    gap: 0;
   }
 
   .lm-wordmark {
